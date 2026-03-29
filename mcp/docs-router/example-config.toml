@@ -1,0 +1,3 @@
+[mcp_servers.docs_router]
+command = "node"
+args = ["./mcp/docs-router/server.js"]
