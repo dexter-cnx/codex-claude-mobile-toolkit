@@ -1,9 +1,3 @@
-# Docs Router MCP
+# MCP docs-router
 
-Starter place for a documentation lookup MCP.
-
-Possible responsibilities:
-
-- official docs routing
-- current API lookup
-- framework docs prioritization
+Starter notes for routing workflow docs into MCP-accessible lookup.

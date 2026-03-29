@@ -1,11 +1,3 @@
-# Repo Utils MCP
+# MCP repo-utils
 
-Starter place for repo utility tools.
-
-Possible tools:
-
-- print tree
-- find layer violations
-- summarize changed files
-- locate routes / DI registrations
-- list localization keys
+Starter notes for file tree and workflow-aware repo utilities.

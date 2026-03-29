@@ -1,3 +1,0 @@
-[mcp_servers.build_status]
-command = "node"
-args = ["./mcp/build-status/server.js"]

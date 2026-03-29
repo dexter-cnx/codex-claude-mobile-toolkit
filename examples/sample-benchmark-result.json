@@ -1,0 +1,17 @@
+{
+  "project": {
+    "name": "vehicle_sidekick"
+  },
+  "environment": {
+    "flutter_version": "3.x",
+    "host_os": "macOS"
+  },
+  "runs": [
+    {
+      "id": "apk-debug",
+      "command": "flutter build apk --debug",
+      "duration_ms": 68000,
+      "status": "ok"
+    }
+  ]
+}

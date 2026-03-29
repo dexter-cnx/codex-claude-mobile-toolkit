@@ -1,3 +1,3 @@
-# mobile-release-ops
+# mobile-release-ops plugin
 
-Example Codex plugin starter for release and crash-analysis workflows.
+Starter packaging layout for release and delivery workflows.

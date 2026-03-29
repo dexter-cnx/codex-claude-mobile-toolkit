@@ -1,0 +1,23 @@
+{
+  "summary": {
+    "project_name": "vehicle_sidekick",
+    "generated_at": "2026-03-29T09:00:00+07:00",
+    "primary_goal": "Improve local debug build loop"
+  },
+  "actions": [
+    {
+      "id": "assets-narrow-pubspec-scope",
+      "title": "Narrow asset declarations",
+      "severity": "medium",
+      "risk": "low",
+      "evidence": [
+        "broad asset folders"
+      ],
+      "proposed_action": "replace broad folder declarations with curated subfolders",
+      "affected_files": [
+        "pubspec.yaml"
+      ],
+      "approval_required": true
+    }
+  ]
+}

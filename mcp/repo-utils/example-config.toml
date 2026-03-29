@@ -1,3 +1,0 @@
-[mcp_servers.repo_utils]
-command = "node"
-args = ["./mcp/repo-utils/server.js"]

@@ -1,3 +1,3 @@
-# flutter-localization
+# flutter-localization plugin
 
-Example Codex plugin starter for CSV-first localization workflows.
+Starter packaging layout for CSV-first localization workflows.

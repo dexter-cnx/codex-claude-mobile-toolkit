@@ -1,3 +1,3 @@
-# flutter-core-dev
+# flutter-core-dev plugin
 
-Example Codex plugin starter for core Flutter development skills.
+Starter packaging layout for core Flutter development workflows.

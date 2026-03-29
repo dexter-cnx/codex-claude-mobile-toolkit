@@ -1,10 +1,3 @@
-# Build Status MCP
+# MCP build-status
 
-Starter place for CI / build status lookups.
-
-Possible tools:
-
-- latest build result
-- failing test summary
-- artifact availability
-- release note inputs
+Starter notes for exposing build status or recent benchmark artifacts through MCP.
