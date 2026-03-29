@@ -64,6 +64,12 @@ Examples:
 - use `flutter-build-orchestrator` to benchmark and plan build optimization work
 - use `flutter-build-fixer` after approval exists
 
+For project bootstrap work, also use:
+
+- `prompts/new_project_riverpod.md` as the task prompt
+- `skills/flutter-project-scaffold-riverpod-go-router/` as the scaffold workflow
+- `templates/flutter-starter/` for copy-ready `pubspec.yaml`, `lib/`, localization artifacts, and bootstrap checklist
+
 ### Claude Code
 
 In the target project:
@@ -78,6 +84,7 @@ In the target project:
 - `docs/core-vs-project-overlay.md`
 - `docs/plugin-style-repo-model.md`
 - `docs/presets/riverpod-go-router-csv.md`
+- `docs/scaffold-workflow.md`
 - `docs/migration-audit.md`
 - `docs/flutter-build-optimization-overview.md`
 - `docs/flutter-build-optimization-checklist.md`

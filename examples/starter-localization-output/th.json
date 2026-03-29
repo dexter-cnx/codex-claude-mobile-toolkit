@@ -1,0 +1,10 @@
+{
+  "app": {
+    "title": "Toolkit Starter"
+  },
+  "home": {
+    "title": "ยินดีต้อนรับ",
+    "subtitle": "โครงสร้างเริ่มต้นของแอปพร้อมแล้ว",
+    "primaryAction": "ดำเนินการต่อ"
+  }
+}

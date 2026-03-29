@@ -1,0 +1,10 @@
+{
+  "app": {
+    "title": "Toolkit Starter"
+  },
+  "home": {
+    "title": "Welcome",
+    "subtitle": "Your Flutter foundation is ready.",
+    "primaryAction": "Continue"
+  }
+}
