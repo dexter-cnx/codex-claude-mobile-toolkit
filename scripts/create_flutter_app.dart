@@ -44,6 +44,7 @@ void main(List<String> args) async {
   }
 
   await _writeStarterFiles(options, targetDir);
+  await _updatePlatformAppNames(options, targetDir);
 
   if (options.localize) {
     stdout.writeln('Generating locale JSON files...');
@@ -90,6 +91,8 @@ void main(List<String> args) async {
   stdout.writeln('');
   stdout.writeln('Done.');
   stdout.writeln('Project: ${targetDir.path}');
+  stdout.writeln('App title: ${options.appTitle}');
+  stdout.writeln('Bundle ID: ${options.bundleId}');
   stdout.writeln('State management: ${options.stateManagement}');
   stdout.writeln('Router: ${options.router}');
   stdout.writeln('Localization: ${options.localize ? 'enabled' : 'disabled'}');
@@ -111,6 +114,8 @@ ScaffoldOptions? _parseArgs(List<String> args) {
   var router = 'go';
   var localize = true;
   var org = 'com.example';
+  var appTitle = 'Toolkit Starter';
+  String? bundleId;
   var skipPubGet = false;
   var platforms = <String>['android', 'ios', 'web'];
 
@@ -132,6 +137,12 @@ ScaffoldOptions? _parseArgs(List<String> args) {
           break;
         case '--org':
           org = _valueAfter(args, ++i, arg);
+          break;
+        case '--app-title':
+          appTitle = _valueAfter(args, ++i, arg);
+          break;
+        case '--bundle-id':
+          bundleId = _valueAfter(args, ++i, arg);
           break;
         case '--platforms':
           platforms = _valueAfter(args, ++i, arg)
@@ -203,14 +214,20 @@ ScaffoldOptions? _parseArgs(List<String> args) {
     return null;
   }
 
-  final normalizedProjectName = _normalizeProjectName(targetPath);
+  final projectName = bundleId != null
+      ? _projectNameFromBundleId(bundleId)
+      : _normalizeProjectName(targetPath);
+  final resolvedOrg = bundleId != null ? _orgFromBundleId(bundleId) : org;
+
   return ScaffoldOptions(
     targetPath: targetPath,
-    projectName: normalizedProjectName,
+    projectName: projectName,
     stateManagement: stateManagement,
     router: router,
     localize: localize,
-    org: org,
+    org: resolvedOrg,
+    appTitle: appTitle,
+    bundleId: '$resolvedOrg.$projectName',
     skipPubGet: skipPubGet,
     platforms: platforms,
   );
@@ -260,7 +277,7 @@ Future<void> _writeStarterFiles(
     await _writeFile(
       targetDir,
       'assets/i18n/translations.csv',
-      _buildTranslationsCsv(),
+      _buildTranslationsCsv(options.appTitle),
     );
     await _writeFile(
       targetDir,
@@ -268,6 +285,54 @@ Future<void> _writeStarterFiles(
       _buildGenerateI18nDart(),
     );
   }
+}
+
+Future<void> _updatePlatformAppNames(
+  ScaffoldOptions options,
+  Directory targetDir,
+) async {
+  await _updateAndroidAppName(options, targetDir);
+  await _updateIosAppName(options, targetDir);
+}
+
+Future<void> _updateAndroidAppName(
+  ScaffoldOptions options,
+  Directory targetDir,
+) async {
+  final manifestFile = File(
+    '${targetDir.path}/android/app/src/main/AndroidManifest.xml',
+  );
+  if (!await manifestFile.exists()) return;
+
+  final original = await manifestFile.readAsString();
+  final updated = original.replaceFirst(
+    RegExp(r'android:label="[^"]*"'),
+    'android:label="${_escapeXmlAttribute(options.appTitle)}"',
+  );
+
+  if (updated != original) {
+    await manifestFile.writeAsString(updated);
+  }
+}
+
+Future<void> _updateIosAppName(
+  ScaffoldOptions options,
+  Directory targetDir,
+) async {
+  final infoPlistFile = File('${targetDir.path}/ios/Runner/Info.plist');
+  if (!await infoPlistFile.exists()) return;
+
+  final displayName = _escapeXmlText(options.appTitle);
+  final bundleName = _escapeXmlText(_iosBundleName(options.appTitle));
+
+  var content = await infoPlistFile.readAsString();
+  content = _replacePlistStringValue(
+    content,
+    'CFBundleDisplayName',
+    displayName,
+  );
+  content = _replacePlistStringValue(content, 'CFBundleName', bundleName);
+  await infoPlistFile.writeAsString(content);
 }
 
 Future<void> _writeFile(
@@ -310,6 +375,10 @@ Options:
       Disable localization scaffolding
   --org <reverse.domain>
       Default: com.example
+  --app-title <title>
+      Default: Toolkit Starter
+  --bundle-id <reverse.domain.app_name>
+      Example: com.example.my_app
   --platforms <comma,separated,list>
       Default: android,ios,web
   --skip-pub-get
@@ -319,6 +388,7 @@ Options:
 
 Examples:
   dart run scripts/create_flutter_app.dart my_app
+  dart run scripts/create_flutter_app.dart my_app --app-title "Acme Tasks" --bundle-id com.acme.tasks
   dart run scripts/create_flutter_app.dart my_app --state provider --router navigator
   dart run scripts/create_flutter_app.dart my_app --no-localize --platforms android,ios
 ''');
@@ -334,6 +404,64 @@ String _normalizeProjectName(String targetPath) {
       .replaceAll(RegExp(r'^[^a-z]+'), '');
 
   return normalized.isEmpty ? 'toolkit_starter' : normalized;
+}
+
+String _iosBundleName(String appTitle) {
+  final normalized = appTitle
+      .trim()
+      .replaceAll(RegExp(r'\s+'), ' ')
+      .replaceAll(RegExp(r'[^A-Za-z0-9 ]'), '')
+      .replaceAll(' ', '');
+
+  return normalized.isEmpty ? 'App' : normalized;
+}
+
+String _replacePlistStringValue(String content, String key, String value) {
+  final pattern = RegExp(
+    '(<key>$key</key>\\s*<string>)(.*?)(</string>)',
+    dotAll: true,
+  );
+  return content.replaceFirstMapped(pattern, (match) {
+    return '${match.group(1)}$value${match.group(3)}';
+  });
+}
+
+String _projectNameFromBundleId(String bundleId) {
+  final segments = bundleId.split('.');
+  if (segments.length < 2) {
+    throw FormatException(
+      '--bundle-id must contain at least one domain segment and one app segment.',
+    );
+  }
+
+  final projectName = segments.last;
+  final validProjectName = RegExp(r'^[a-z][a-z0-9_]*$');
+  if (!validProjectName.hasMatch(projectName)) {
+    throw FormatException(
+      'The last segment of --bundle-id must be a valid Flutter project name using lowercase letters, numbers, and underscores.',
+    );
+  }
+
+  return projectName;
+}
+
+String _orgFromBundleId(String bundleId) {
+  final segments = bundleId.split('.');
+  if (segments.length < 2) {
+    throw FormatException(
+      '--bundle-id must contain at least one domain segment and one app segment.',
+    );
+  }
+
+  final orgSegments = segments.sublist(0, segments.length - 1);
+  final validOrgSegment = RegExp(r'^[a-zA-Z][a-zA-Z0-9_]*$');
+  if (orgSegments.any((segment) => !validOrgSegment.hasMatch(segment))) {
+    throw FormatException(
+      'Each domain segment in --bundle-id must start with a letter and contain only letters, numbers, or underscores.',
+    );
+  }
+
+  return orgSegments.join('.');
 }
 
 String _buildPubspec(ScaffoldOptions options) {
@@ -464,7 +592,7 @@ String _buildAppDart(ScaffoldOptions options) {
   ];
 
   final materialAppConfig = <String>[
-    "title: 'Toolkit Starter',",
+    "title: '${_escapeDartString(options.appTitle)}',",
     'debugShowCheckedModeBanner: false,',
     'theme: AppTheme.light(),',
     if (options.router == 'go') 'routerConfig: appRouter,',
@@ -568,7 +696,8 @@ String _buildHomePageDart(ScaffoldOptions options) {
       ? "'home.subtitle'.tr()"
       : "'Your Flutter foundation is ready.'";
   final action = options.localize ? "'home.primaryAction'.tr()" : "'Continue'";
-  final appTitle = options.localize ? "'app.title'.tr()" : "'Toolkit Starter'";
+  final plainAppTitle = _quotedDartString(options.appTitle);
+  final appTitle = options.localize ? "'app.title'.tr()" : plainAppTitle;
 
   return '''
 ${imports.join('\n')}
@@ -623,14 +752,42 @@ class HomePage extends StatelessWidget {
 ''';
 }
 
-String _buildTranslationsCsv() {
+String _buildTranslationsCsv(String appTitle) {
   return '''
 key,en,th
-app.title,Toolkit Starter,Toolkit Starter
+app.title,${_escapeCsvValue(appTitle)},${_escapeCsvValue(appTitle)}
 home.title,Welcome,ยินดีต้อนรับ
 home.subtitle,Your Flutter foundation is ready.,โครงสร้างเริ่มต้นของแอปพร้อมแล้ว
 home.primaryAction,Continue,ดำเนินการต่อ
 ''';
+}
+
+String _escapeDartString(String value) {
+  return value.replaceAll(r'\', r'\\').replaceAll("'", r"\'");
+}
+
+String _escapeXmlAttribute(String value) {
+  return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('"', '&quot;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;');
+}
+
+String _escapeXmlText(String value) {
+  return value
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;');
+}
+
+String _quotedDartString(String value) {
+  return "'${_escapeDartString(value)}'";
+}
+
+String _escapeCsvValue(String value) {
+  final escaped = value.replaceAll('"', '""');
+  return '"$escaped"';
 }
 
 String _buildGenerateI18nDart() {
@@ -773,6 +930,8 @@ class ScaffoldOptions {
     required this.router,
     required this.localize,
     required this.org,
+    required this.appTitle,
+    required this.bundleId,
     required this.skipPubGet,
     required this.platforms,
   });
@@ -783,6 +942,8 @@ class ScaffoldOptions {
   final String router;
   final bool localize;
   final String org;
+  final String appTitle;
+  final String bundleId;
   final bool skipPubGet;
   final List<String> platforms;
 }

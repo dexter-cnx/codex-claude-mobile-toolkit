@@ -83,6 +83,8 @@ Optional switches:
 - `--state-management riverpod|provider|none`
 - `--router go|navigator`
 - `--no-localize`
+- `--app-title "Acme Tasks"`
+- `--bundle-id com.acme.tasks`
 
 ### Claude Code
 
