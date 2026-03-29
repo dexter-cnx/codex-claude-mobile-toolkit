@@ -38,6 +38,7 @@ The target project should finish with:
 
 Use these files as copy-ready starting points when the target repo is missing them:
 
+- `scripts/create_flutter_app.dart`
 - `templates/flutter-starter/pubspec.yaml`
 - `templates/flutter-starter/lib/`
 - `templates/flutter-starter/assets/i18n/translations.csv`

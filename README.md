@@ -45,6 +45,7 @@ Primary workflows:
 - `skills/` — workflow-specific reusable skills
 - `docs/` — supporting docs and migration guidance
 - `schemas/` — machine-readable contracts for build optimization outputs
+- `scripts/` — automation entrypoints such as one-command app scaffolding
 - `templates/` — markdown templates for plans and reports
 - `examples/` — example optimization artifacts
 - `plugins/` — starter plugin packaging layouts
@@ -69,6 +70,19 @@ For project bootstrap work, also use:
 - `prompts/new_project_riverpod.md` as the task prompt
 - `skills/flutter-project-scaffold-riverpod-go-router/` as the scaffold workflow
 - `templates/flutter-starter/` for copy-ready `pubspec.yaml`, `lib/`, localization artifacts, and bootstrap checklist
+- `scripts/create_flutter_app.dart` to generate a new app in one command
+
+Example:
+
+```bash
+dart run scripts/create_flutter_app.dart my_app
+```
+
+Optional switches:
+
+- `--state-management riverpod|provider|none`
+- `--router go|navigator`
+- `--no-localize`
 
 ### Claude Code
 
