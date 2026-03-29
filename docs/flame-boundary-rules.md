@@ -1,16 +1,17 @@
 # Flame Boundary Rules
 
 ## Flame should own
-- rendering
-- camera/view transforms
-- lightweight animation/feedback
+- board rendering
+- entity rendering
+- lightweight animation and feedback
 - input forwarding
 
 ## Flame should not own
 - canonical puzzle state
-- deterministic turn rules
+- deterministic rule resolution
 - content validation
 - solver assumptions
+- telemetry truth
 
 ## Best practice
-Forward player input from Flame to an application/controller boundary, then re-render from authoritative state.
+Forward input to an application/controller boundary, then re-render from authoritative state.

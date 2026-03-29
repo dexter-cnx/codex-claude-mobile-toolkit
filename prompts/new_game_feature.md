@@ -1,10 +1,10 @@
-Read AGENTS.md first.
+Read `AGENTS.md` and `CLAUDE.md` first.
 
-Implement a new game feature in the existing Flutter + Flame repo without unnecessarily restructuring the project.
+Implement a new game feature without unnecessarily restructuring the project.
 
 Requirements:
-- preserve Riverpod/Clean Architecture boundaries
-- keep rules in pure Dart
+- preserve Riverpod / Clean Architecture boundaries
+- keep puzzle rules in pure Dart
 - keep Flame as rendering/input layer
 - update tests where practical
 - document assumptions

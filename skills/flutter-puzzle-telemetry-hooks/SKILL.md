@@ -4,8 +4,8 @@ description: Add puzzle-specific telemetry hooks to a Flutter + Flame game so pl
 ---
 
 Use this skill for:
-- TelemetrySink abstraction
-- GameTelemetryService
+- `TelemetrySink` abstraction
+- `GameTelemetryService`
 - session/action/outcome hooks
 - event schema compatibility
 

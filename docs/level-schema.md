@@ -1,10 +1,11 @@
 # Level Schema
 
-## Core entities
-- level id
+## Core fields
+- id
 - chapter
 - index
-- width/height
+- name
+- width / height
 - grid
 - playerStart
 - exit
@@ -18,4 +19,4 @@
 - teaching
 
 ## Rule
-JSON level content is source of truth.
+JSON-authored level files are source of truth for game content.

@@ -4,10 +4,10 @@ description: Build or refine the pure Dart core for a turn-based grid puzzle gam
 ---
 
 Use this skill when the task concerns:
-- LevelDefinition
-- LevelState
-- TurnResolver
-- deterministic movement/wait
+- `LevelDefinition`
+- `LevelState`
+- `TurnResolver`
+- deterministic movement / wait
 - undo/history
 - win/lose rules
 

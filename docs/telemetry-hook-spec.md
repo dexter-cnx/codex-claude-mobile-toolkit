@@ -1,6 +1,6 @@
 # Telemetry Hook Spec
 
-Required events:
+## Required events
 - session_started
 - level_loaded
 - move
@@ -14,4 +14,5 @@ Required events:
 - level_completed
 - session_ended
 
-Emit at controller/application boundaries where possible.
+## Rule
+Emit from controller / application boundaries where possible.

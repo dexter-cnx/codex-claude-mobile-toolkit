@@ -1,18 +1,18 @@
 # Riverpod Game Patterns
 
 ## Goal
-Use Riverpod for orchestration, not for embedding raw puzzle rules in widgets.
+Use Riverpod for orchestration while keeping puzzle rules in pure Dart.
 
-## Recommended split
-- `LevelDefinitionProvider` -> immutable authored content
-- `GameSessionProvider` -> runtime state for one level/session
-- `TelemetryServiceProvider` -> side-effect service
-- `ChapterFlowProvider` -> chapter/level navigation and progression orchestration
+## Recommended provider split
+- `levelDefinitionProvider(levelId)` -> immutable level content
+- `gameSessionProvider(levelId)` -> runtime state for one active session
+- `telemetryServiceProvider` -> side-effect service
+- `chapterFlowProvider` -> chapter/level navigation and progression
 
 ## Rules
-- Do not store canonical state only in Flame components.
-- Do not compute turn rules inside widgets.
-- Keep domain rules in pure Dart.
+- Do not let Flame components own canonical game state.
+- Do not compute turn rules in widgets.
+- Keep `TurnResolver` outside UI layers.
 
 ## Suggested flow
-Input -> Controller/Provider action -> Use case -> TurnResolver -> New State -> UI render
+Input -> Controller/Provider action -> Use case -> TurnResolver -> New state -> UI render

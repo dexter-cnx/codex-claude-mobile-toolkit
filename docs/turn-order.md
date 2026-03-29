@@ -1,7 +1,6 @@
 # Turn Order
 
 Recommended baseline order:
-
 1. player action
 2. tile trigger resolution
 3. objective collection
@@ -11,4 +10,4 @@ Recommended baseline order:
 7. exit / win check
 8. turn increment
 
-Keep this deterministic and documented.
+Keep the order deterministic and documented.

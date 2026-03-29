@@ -1,4 +1,4 @@
-Read AGENTS.md first.
+Read `AGENTS.md` and `CLAUDE.md` first.
 
 Add or refine a level pipeline feature:
 - schema

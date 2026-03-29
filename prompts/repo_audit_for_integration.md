@@ -1,6 +1,6 @@
-Read AGENTS.md first.
+Read `AGENTS.md` and `CLAUDE.md` first.
 
-Audit the repository and identify the safest integration points for:
+Audit the current Flutter + Flame repository and identify the safest integration points for:
 - telemetry
 - level schema models
 - validation/solver compatibility
