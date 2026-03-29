@@ -1,68 +1,91 @@
 # CLAUDE.md
 
-This file adapts the toolkit for **Claude Code** style workflows.
+## How to operate in this repo
+Read `AGENTS.md` first.
+Treat it as the primary source of truth for architecture, stack defaults, workflow selection, and localization rules.
 
-## How Claude should behave in repos using this toolkit
+This file exists to adapt the same toolkit conventions to Claude Code usage.
+Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
 
-### First read
+---
 
-Before making substantial edits, read:
+## Default operating sequence
+For most tasks in a project using this toolkit, follow this order:
+1. identify the workflow category
+2. read the relevant prompt in `prompts/` if one exists
+3. read the matching skill in `skills/` if one exists
+4. inspect the current codebase before editing
+5. make the smallest coherent set of changes that fully solves the task
+6. end with a short coherence review
 
-1. `AGENTS.md`
-2. relevant file in `prompts/`
-3. any relevant `skills/*/SKILL.md`
-4. nearby feature code in the target repo
+---
 
-### Working style
+## Workflow categories
+Map requests into one of these categories:
+- **project foundation** → scaffold or refresh a project baseline
+- **feature work** → add or extend a feature while preserving architecture
+- **localization maintenance** → update CSV-first i18n flow and generated locale assets
+- **architecture review** → check for drift, layering problems, localization misses, route inconsistencies, or provider sprawl
+- **persistence evolution** → change Isar models or repositories carefully
+- **plugin-style packaging** → describe or package workflows for agent reuse
 
-- Make the smallest complete change that satisfies the request.
-- Mirror good local conventions.
-- Do not move code across layers without explaining why.
-- Avoid broad rewrites unless explicitly requested.
-- After generating code, do a quick architecture sanity check.
+If a request spans multiple categories, handle the dominant category first and then apply the others only where necessary.
 
-### Flutter-specific rules
+---
 
-- Widgets should stay focused on composition.
-- Business logic should not live in widgets.
-- DTOs should not leak into presentation.
-- JSON parsing should stay in data layer.
-- Strings should come from localization where applicable.
+## Stack defaults
+Use these defaults unless the target project says otherwise:
+- Flutter
+- Riverpod
+- go_router
+- Isar
+- easy_localization
+- CSV-first localization source
+- Material 3
 
-### When creating a new feature
+When a project already has different choices, respect the project unless the user specifically asks to migrate.
 
-Use `prompts/new_feature.md` as the main execution template.
+---
 
-### When bootstrapping a new project
+## Code generation rules
+When generating or editing code:
+- keep code compile-friendly
+- keep files focused and readable
+- prefer pragmatic patterns over ceremony
+- keep repository logic outside widgets
+- keep route setup centralized
+- keep provider organization comprehensible
+- do not introduce backend/auth/cloud sync unless asked
+- do not hardcode user-facing strings outside the localization workflow
 
-Use `prompts/new_project.md` as the main execution template.
+---
 
-### Final check before stopping
+## Localization behavior
+When a task adds user-facing text:
+1. update `assets/i18n/translations.csv`
+2. make sure all supported locales have values
+3. keep generator expectations intact
+4. update generated locale files if the task includes generated artifacts
 
-Confirm:
+Do not invent parallel localization sources.
 
-- layer boundaries still make sense
-- route / DI / exports are updated if needed
-- loading / empty / error / success states are covered
-- localization keys are wired correctly
-- imports are clean
+---
 
-## Suggested Claude prompts
+## Review pass checklist
+Before finishing substantial tasks, quickly verify:
+- routes are still coherent
+- providers are scoped sensibly
+- data changes match repository updates
+- user-facing strings are localized
+- imports and naming are consistent
+- no unnecessary abstraction was introduced
 
-### New project
+---
 
-```text
-Read AGENTS.md, CLAUDE.md, and prompts/new_project.md. Then scaffold the project accordingly.
-```
+## Prompt usage
+Typical usage inside a target repo:
+- for project bootstrap: use `prompts/new_project_riverpod.md`
+- for new features: use `prompts/new_feature_riverpod.md`
+- for review: use `prompts/review_architecture.md`
 
-### New feature
-
-```text
-Read AGENTS.md, CLAUDE.md, and prompts/new_feature.md. Then implement the feature using pragmatic Clean Architecture.
-```
-
-### Coherence pass
-
-```text
-Read skills/flutter-refactor-coherence-pass/SKILL.md and run a final coherence pass on the files you changed.
-```
+If a matching skill exists under `skills/`, use it as the more specific workflow guide.

@@ -1,111 +1,65 @@
 # Codex + Claude Mobile Toolkit
 
-Obsidian-friendly starter repo for **Flutter + Clean Architecture + Codex + Claude Code** workflows.
+Workflow-first starter toolkit for Flutter projects using Codex-style agents and Claude Code.
 
 ## Goals
+- keep shared architecture rules in one place
+- provide reusable prompts and skills for common Flutter workflows
+- make Riverpod + go_router + Isar + CSV-first localization a first-class preset
+- keep the toolkit markdown-first and easy to browse in Obsidian
+- prepare projects for optional plugin-style packaging later
 
-- Reusable **skills** for Codex-style workflows
-- Shared project conventions for **Codex** and **Claude Code**
-- Flutter-specific prompts for project bootstrap and feature work
-- MCP-ready config stubs for docs, repo utilities, and build status
-- Markdown-first docs that are easy to keep in Git and browse in Obsidian
+## Default preset
+This toolkit now treats the following stack as the default preset unless a project explicitly chooses otherwise:
+- Flutter
+- Riverpod
+- go_router
+- Isar
+- easy_localization
+- CSV-first localization source of truth
+- Material 3
 
-## Who this is for
+## Workflow model
+The toolkit is organized around workflows rather than one giant instruction file.
 
-This repo fits teams or solo developers who want AI coding agents to:
-
-- scaffold Flutter projects consistently
-- add features without breaking layer boundaries
-- keep localization CSV-first
-- run a final coherence pass after edits
-- follow the same architecture rules across Codex and Claude
-
-## Core idea
-
-Use the same architecture rules in three places:
-
-1. `AGENTS.md` for repo-wide guidance
-2. `CLAUDE.md` for Claude Code behavior
-3. `skills/*/SKILL.md` for Codex skill workflows
-
-That gives you one source of truth for engineering conventions, while still fitting each tool's preferred format.
+Primary workflows:
+1. scaffold or refresh a project foundation
+2. add or extend a feature
+3. maintain CSV-first localization
+4. review architecture and coherence
+5. evolve local persistence safely
+6. package workflows in plugin-style form
 
 ## Repo map
+- `AGENTS.md` — repo-wide conventions and default preset
+- `CLAUDE.md` — Claude Code operating guidance aligned to `AGENTS.md`
+- `prompts/` — reusable task prompts
+- `skills/` — workflow-specific reusable skills
+- `.codex-plugin/` — example plugin manifest
+- `agents/` — example agent metadata
+- `docs/` — supporting docs and migration guidance
 
-- `AGENTS.md` — repo-wide agent conventions
-- `CLAUDE.md` — Claude Code-specific usage guidance
-- `prompts/` — reusable prompts for new project / new feature work
-- `skills/` — Codex-style reusable skills
-- `plugins/` — example Codex plugin packaging layout
-- `.codex/config.toml` — project-scoped Codex config sample
-- `mcp/` — MCP notes and example config snippets
-- `docs/` — supporting architecture and rollout docs
+## Recommended usage
+### Codex-style agents
+Point the agent at this repo and enable relevant local skills.
 
-## Recommended rollout
-
-### Phase 1
-
-Use the repo directly with:
-
-- `AGENTS.md`
-- `CLAUDE.md`
-- `prompts/new_project.md`
-- `prompts/new_feature.md`
-- three core skills:
-  - `flutter-project-scaffold`
-  - `flutter-feature-clean-architecture`
-  - `flutter-localization-csv`
-
-### Phase 2
-
-Wire in MCP and repo utilities:
-
-- docs lookup
-- repo tree / layer checks
-- build status
-
-### Phase 3
-
-Package selected skills as Codex plugins for reuse across projects.
-
-## Suggested usage
-
-### Codex
-
-Point Codex at this repo and enable project skills from `./skills`.
-
-Then invoke tasks like:
-
-```text
-Use @flutter-project-scaffold to create a new Flutter app baseline.
-```
-
-```text
-Use @flutter-feature-clean-architecture to add a vehicle reminders feature.
-```
+Examples:
+- use the scaffold skill for a new Flutter foundation
+- use the localization skill to update CSV-first i18n
+- use the review skill after a major refactor
 
 ### Claude Code
+In the target project:
+1. place `AGENTS.md` at the root or keep this toolkit nearby
+2. ask Claude to read `AGENTS.md` and `CLAUDE.md`
+3. ask it to follow the matching prompt under `prompts/`
+4. ask it to finish with a review pass
 
-Open the repo containing this toolkit, keep `CLAUDE.md` at the project root, and reference prompts from `prompts/`.
-
-Typical flow:
-
-1. Ask Claude to read `AGENTS.md` and `CLAUDE.md`
-2. Ask it to follow `prompts/new_project.md` or `prompts/new_feature.md`
-3. Ask it to finish with the coherence checklist from `skills/flutter-refactor-coherence-pass`
-
-## Notes
-
-- The Codex plugin folders here are **starter examples**.
-- The skill folders here are usable as a local authoring base.
-- The Claude support is intentionally simple: clear root instructions, reusable prompts, and shared conventions.
+## Core docs
+- `docs/core-vs-project-overlay.md`
+- `docs/plugin-style-repo-model.md`
+- `docs/presets/riverpod-go-router-csv.md`
+- `docs/migration-audit.md`
 
 ## Next step
-
-Copy this repo into your own toolkit repo, then tailor:
-
-- state management choice
-- router choice
-- localization package details
-- design system rules
-- MCP server commands
+Use this repo as the shared toolkit layer, then keep product-specific rules in each app repo as an overlay.

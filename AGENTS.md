@@ -1,115 +1,209 @@
 # AGENTS.md
 
-## Purpose
+## Toolkit Identity
+This repository is a **workflow-first AI coding toolkit** for Flutter projects.
+It exists to help Codex-style agents and Claude Code follow the same engineering conventions across project bootstrap, feature work, localization, review, and future plugin-style packaging.
 
-This repository defines reusable AI workflows for Flutter projects using pragmatic Clean Architecture.
+The toolkit is intentionally:
+- markdown-first
+- reusable across multiple Flutter repos
+- friendly to Codex and Claude Code
+- pragmatic rather than over-engineered
+- designed for local skills first, then plugin-style packaging later
 
-All agents working in repos that adopt this toolkit should follow the same architectural rules unless a repo-level override says otherwise.
+---
 
-## Default engineering stance
+## Workflow Model
+Treat this repository as a set of reusable workflow bundles.
+Every task should map to one of these workflows before code generation begins.
 
-- Prefer maintainable code over clever code.
-- Prefer small reusable widgets over giant screens.
-- Prefer explicit boundaries over magic.
-- Prefer consistency with existing project conventions when those conventions are sound.
-- Avoid over-engineering.
+Primary workflows:
+1. scaffold or refresh a Flutter project foundation
+2. add or extend a feature without breaking architecture
+3. maintain CSV-first localization
+4. review architecture and coherence after edits
+5. evolve local persistence safely
+6. package or describe workflows in plugin-style form
 
-## Flutter architecture rules
+When a user request is ambiguous, choose the closest workflow and preserve consistency.
+Avoid one giant instruction blob when a task-specific skill or prompt is clearer.
 
-### Layering
+---
 
-Use three primary layers:
+## Default Stack Preset
+Unless the user explicitly changes the stack, the default preset for this toolkit is:
+- Flutter
+- Riverpod for state management
+- go_router for routing
+- Isar for local persistence
+- easy_localization for runtime localization
+- one CSV file as localization source of truth
+- generated JSON locale files for runtime
+- Material 3
 
-- `presentation`
-- `domain`
-- `data`
+These defaults exist to reduce ambiguity and keep generated projects coherent.
+Do not replace these choices casually.
 
-Direction of dependency:
+---
 
-- presentation -> domain
-- data -> domain
-- domain -> nothing project-specific
+## Architecture Rules
+Prefer a pragmatic, simple clean architecture.
+Use boundaries where they add clarity, not ceremony.
 
-### Presentation layer
+Suggested structure:
 
-Presentation should:
+```text
+lib/
+  app/
+    app.dart
+    bootstrap.dart
+    router/
+    theme/
+    l10n/
+    core/
+      constants/
+      errors/
+      utils/
+      services/
+      widgets/
+  features/
+    <feature_name>/
+  data/
+    models/
+    repositories/
+    datasources/
+  domain/
+    entities/
+    repositories/
+    usecases/
+```
 
-- compose widgets
-- handle visual states
-- delegate work to controllers / notifiers / providers / blocs depending on the repo
+Guidelines:
+- keep domain abstractions only when they improve clarity
+- do not generate boilerplate for trivial CRUD just because a pattern exists
+- keep files reasonably small
+- avoid giant god providers, giant god controllers, and giant god screens
+- keep persistence logic out of widgets
+- keep navigation definitions centralized and readable
+- prefer maintainability over cleverness
 
-Presentation should not:
+---
 
-- call HTTP directly
-- parse JSON
-- contain business rules
-- know DTO structure
+## State Management Rules
+Use Riverpod.
 
-### Domain layer
+Guidelines:
+- use repository providers for data access
+- use feature-level notifiers/providers for local feature state
+- use derived providers for filtered, sorted, and computed view state when helpful
+- keep async state easy to trace
+- avoid placing repository logic directly inside widgets
+- avoid creating one giant app-wide provider for everything
 
-Domain should contain:
+---
 
-- entities
-- repository contracts
-- use cases
-- domain-specific value objects if needed
+## Routing Rules
+Use go_router.
 
-Domain should stay framework-light.
+Guidelines:
+- centralize route definitions
+- use readable route names and paths
+- pass route params cleanly
+- keep navigation flows obvious
+- avoid scattering ad hoc navigation logic across the widget tree
 
-### Data layer
+---
 
-Data should contain:
+## Localization Rules
+Localization is **CSV-first**.
 
-- DTOs / models
-- mappers
-- repository implementations
-- remote data sources
-- local data sources
-- error translation
+Source of truth:
+- `assets/i18n/translations.csv`
 
-## UI rules
+Runtime artifacts:
+- generated locale files, for example:
+  - `assets/i18n/generated/en.json`
+  - `assets/i18n/generated/th.json`
 
-- Use Material 3 unless the repo explicitly says otherwise.
-- Centralize design tokens.
-- Support loading / empty / error / success states.
-- Keep pages thin.
-- Split large widget trees into focused components.
+Expected workflow:
+1. edit `assets/i18n/translations.csv`
+2. run `dart run scripts/generate_i18n.dart`
+3. update generated locale JSON files
+4. load generated locale files through `easy_localization`
 
-## Localization rules
+Rules:
+- do not manually maintain multiple source translation files
+- the CSV file is the master source
+- generated files are runtime artifacts
+- dotted keys should map to nested JSON when practical
+- structure the generator so new locales can be added later without rewriting the script
 
-- Prefer one CSV source of truth.
-- Generate locale JSON outputs from CSV.
-- Support dotted keys.
-- Do not hardcode user-facing strings when a translation key exists.
+---
 
-## Networking rules
+## Persistence Rules
+Use Isar for local-first persistence in the default preset.
 
-- Prefer Dio when the repo uses Dio.
-- Keep API clients outside widgets.
-- Map transport errors to app-facing failures.
+Guidelines:
+- keep schema changes understandable
+- isolate data mapping and persistence logic from UI code
+- avoid overbuilding for future cloud sync unless the user asks for it
+- favor migration sanity and readable schemas over premature flexibility
 
-## Refactor rules
+---
 
-When editing an existing repo:
+## UX Rules
+Generated projects should prioritize:
+- fast startup
+- clear navigation
+- mobile-first ergonomics
+- low visual noise
+- strong empty states
+- simple forms
+- understandable loading and error states
 
-1. Inspect local conventions first.
-2. Reuse sound patterns already present.
-3. Do not rewrite unrelated modules.
-4. End with a coherence pass:
-   - imports
-   - layer direction
-   - naming consistency
-   - registration / routing updates
-   - missing states
+Do not over-design decorative UI before the core product loop is solid.
 
-## Response format for agent work
+---
 
-When generating or changing code, prefer this order:
+## Plugin-Style Packaging Direction
+This toolkit should be usable in three layers:
+1. root repo guidance through `AGENTS.md` and `CLAUDE.md`
+2. task-specific prompts in `prompts/`
+3. reusable workflow bundles in `skills/`
 
-1. Assumptions
-2. Plan
-3. File changes
-4. Code
-5. Risks / follow-ups
+Optional packaging layers may be added later:
+- `.codex-plugin/plugin.json`
+- `agents/openai.yaml`
+- MCP config stubs
 
-Keep the output concise unless asked for more detail.
+The repository should become increasingly self-describing over time.
+
+---
+
+## What To Avoid
+Avoid these by default unless explicitly requested:
+- backend APIs
+- auth flows
+- cloud sync
+- payment or premium logic
+- enterprise workflow assumptions
+- team collaboration assumptions
+- random stack substitutions
+- boilerplate-heavy architecture drift
+
+---
+
+## Expected Agent Behavior
+When working in a project that uses this toolkit:
+1. identify the closest workflow
+2. preserve the declared stack preset unless asked otherwise
+3. generate compile-friendly code
+4. keep architecture consistent across files
+5. update localization through the CSV-first workflow
+6. finish with a coherence or review pass when the task is substantial
+
+When generating files:
+- label paths clearly
+- keep imports and naming consistent
+- write real implementation, not pseudo-code
+- make reasonable decisions and proceed when ambiguity is low-risk

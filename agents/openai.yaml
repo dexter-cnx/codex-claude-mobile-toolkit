@@ -1,0 +1,22 @@
+name: openai-toolkit-default
+summary: Default agent metadata for the Codex + Claude Mobile Toolkit.
+role: >-
+  Use the toolkit as a workflow-first Flutter guidance layer.
+  Preserve the default stack preset unless the target project explicitly changes it.
+preferred_workflows:
+  - project foundation
+  - feature work
+  - localization maintenance
+  - architecture review
+  - persistence evolution
+stack_defaults:
+  state_management: Riverpod
+  router: go_router
+  persistence: Isar
+  localization_runtime: easy_localization
+  localization_source: assets/i18n/translations.csv
+notes:
+  - Read AGENTS.md first.
+  - Use prompts for task entry points.
+  - Use skills for narrower workflow guidance.
+  - Respect project overlays when working inside a specific app repo.
