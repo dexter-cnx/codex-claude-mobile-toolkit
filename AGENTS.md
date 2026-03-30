@@ -18,6 +18,7 @@ This repository is a reusable toolkit for building and maintaining mobile apps, 
 It is not a finished application template by itself.
 It provides:
 - rules,
+- shared core rules and agent routing hints,
 - prompts,
 - workflows,
 - skills,
@@ -214,6 +215,8 @@ For implementation tasks, return:
 3. assumptions,
 4. verification performed,
 5. unresolved risks or follow-ups.
+
+When the deliverable is a note, summary, or decision log, prefer concise repo-friendly markdown that is easy to paste into Obsidian or a similar notes app.
 
 Do not claim completion without these items.
 

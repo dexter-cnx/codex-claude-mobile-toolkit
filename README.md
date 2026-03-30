@@ -1,6 +1,6 @@
 # codex-claude-mobile-toolkit
 
-A reusable mobile app toolkit for **Codex**, **Claude Code**, **Grok Code**, and **Antigravity** workflows, centered on Flutter-first project delivery.
+A reusable mobile app toolkit for **Codex**, **Claude Code**, **Grok Code**, **Antigravity**, and **OpenClaw** workflows, centered on Flutter-first project delivery.
 
 This repository is designed to be used as a shared toolkit layer that can be:
 - copied into a project,
@@ -9,10 +9,11 @@ This repository is designed to be used as a shared toolkit layer that can be:
 
 It provides:
 - repo-wide rules and conventions,
+- shared core rules and agent routing docs,
 - reusable prompts and workflows,
 - focused implementation skills,
 - Flutter/Dart MCP setup notes,
-- templates for implementation and verification artifacts.
+- templates for implementation, verification, and copyable entrypoint files.
 
 Fast navigation:
 - use `AGENTS.md` for durable rules,
@@ -63,6 +64,11 @@ Use:
 - `antigravity/artifacts/`
 - `mcp/flutter-dart-mcp-setup.md`
 
+### OpenClaw
+Use:
+- `OPENCLAW.md`
+- `docs/install-openclaw.md`
+
 ## When to use Antigravity
 
 Use the Antigravity layer when the task benefits from a stricter workflow shell around implementation work.
@@ -84,6 +90,7 @@ Adding the Antigravity layer does not replace the existing Codex, Claude Code, o
 - `Claude Code` continues to use `CLAUDE.md` plus the same repo-wide rules from `AGENTS.md`.
 - `Grok Code` continues to use `GROK.md` plus the same repo-wide rules from `AGENTS.md`.
 - `Antigravity` acts as an optional workflow and artifact layer on top of the same toolkit conventions.
+- `OpenClaw` can use `OPENCLAW.md` plus the same repo-wide rules from `AGENTS.md`.
 
 In other words, Antigravity should be treated as additive, not as a breaking change to the default Codex, Claude Code, or Grok Code operating model.
 
@@ -94,13 +101,19 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 ├─ AGENTS.md
 ├─ CLAUDE.md
 ├─ GROK.md
+├─ ANTIGRAVITY.md
+├─ CODEX.md
+├─ OPENCLAW.md
 ├─ README.md
+├─ agents/
+├─ core/
 ├─ antigravity/
 │  ├─ README.md
 │  ├─ rules/
 │  ├─ workflows/
 │  ├─ task-templates/
 │  └─ artifacts/
+├─ docs/
 ├─ prompts/
 ├─ skills/
 ├─ mcp/
@@ -114,6 +127,7 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 
 ### Rules
 Put durable project rules in `AGENTS.md` and `antigravity/rules/`.
+Use `core/` when you want the same durable principles broken out into smaller reusable rule files.
 
 Examples:
 - architecture boundaries,
@@ -146,6 +160,16 @@ Examples:
 - run build verification,
 - review architecture coherence.
 
+### Docs
+Put install notes, migration guidance, and skill authoring references in `docs/`.
+
+Useful docs from the production layout:
+- `docs/install-codex.md`
+- `docs/install-claude.md`
+- `docs/install-antigravity.md`
+- `docs/install-openclaw.md`
+- `docs/skill-authoring-guide.md`
+
 ### Quick Task Routing
 
 If you want the shortest path through this repo, start with [docs/skill-workflow-map.md](/Users/dxtr_m4/develop/mobile_projects/codex-claude-mobile-toolkit/codex-claude-mobile-toolkit/docs/skill-workflow-map.md).
@@ -156,8 +180,16 @@ These overlay skills complement the existing repo skills.
 They do not replace more specialized build-analysis, platform-analysis, game, or integration skills already present in this toolkit.
 
 First-class workflow skills:
+- use `flutter-project-bootstrap` when starting from a blank folder or refreshing a starter layout,
+- use `flutter-feature-scaffold` for a new feature or module,
+- use `flutter-existing-project-audit` for architecture review or refactor planning,
+- use `flutter-localization-csv` for CSV-first localization workflows,
+- use `flutter-performance-audit` for performance and rebuild review,
+- use `flutter-testing` for test planning or coverage gaps,
+- use `mobile-ui-refinement` for UI critique or design refinement,
+- use `api-integration` for API client and mapping design,
+- use `obsidian-doc-writer` for architecture notes, summaries, or decision logs,
 - use `flutter-repo-conventions` to align work with this toolkit's default preset and repo boundaries,
-- use `flutter-feature-scaffold` when adding a new Riverpod or go_router feature,
 - use `flutter-localization-csv-pipeline` when editing `assets/i18n/translations.csv` and regenerating locale outputs,
 - use `flutter-api-integration-pattern` when introducing a new HTTP-backed data flow,
 - use `flutter-pr-reviewer` before merge for a structured review pass,
