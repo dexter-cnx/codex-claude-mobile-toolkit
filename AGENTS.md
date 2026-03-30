@@ -1,215 +1,205 @@
 # AGENTS.md
 
-## Toolkit Identity
+This file defines the repo-wide operating rules for coding agents using this toolkit.
 
-This repository is a **workflow-first AI coding toolkit** for Flutter projects. It exists to help Codex-style agents and Claude Code follow the same engineering conventions across project bootstrap, feature work, localization, review, persistence changes, and build optimization.
+It is intentionally limited to **durable rules and constraints**.
 
-The toolkit is intentionally:
-
-- markdown-first
-- reusable across multiple Flutter repos
-- friendly to Codex and Claude Code
-- pragmatic rather than over-engineered
-- designed for local skills first, then plugin-style packaging later
-- evidence-first for build optimization work
+Task-specific instructions belong in:
+- `prompts/`
+- `antigravity/workflows/`
+- `skills/`
 
 ---
 
-## Workflow Model
+## 1. Repository purpose
 
-Treat this repository as a set of reusable workflow bundles. Every task should map to one of these workflows before code generation begins.
+This repository is a reusable toolkit for building and maintaining mobile apps, primarily with Flutter.
 
-Primary workflows:
-
-1. scaffold or refresh a Flutter project foundation
-2. add or extend a feature without breaking architecture
-3. maintain CSV-first localization
-4. review architecture and coherence after edits
-5. evolve local persistence safely
-6. analyze and improve Flutter build performance
-7. package or describe workflows in plugin-style form
-
-When a user request is ambiguous, choose the closest workflow and preserve consistency. Avoid one giant instruction blob when a task-specific skill or prompt is clearer.
+It is not a finished application template by itself.
+It provides:
+- rules,
+- prompts,
+- workflows,
+- skills,
+- templates,
+- integration notes.
 
 ---
 
-## Default Stack Preset
+## 2. Default Flutter stack
 
-Unless the user explicitly changes the stack, the default preset for this toolkit is:
-
+Unless the project explicitly overrides it, assume the default stack is:
 - Flutter
-- Riverpod for state management
-- go_router for routing
-- Isar for local persistence
-- easy_localization for runtime localization
-- one CSV file as localization source of truth
-- generated JSON locale files for runtime
+- Riverpod
+- go_router
 - Material 3
+- easy_localization
+- CSV-first localization workflow
+- Isar for local-first persistence where appropriate
+- Dio for HTTP/networking
 
-These defaults exist to reduce ambiguity and keep generated projects coherent. Do not replace these choices casually.
-
----
-
-## Architecture Rules
-
-Prefer a pragmatic, simple clean architecture. Use boundaries where they add clarity, not ceremony.
-
-Suggested structure:
-
-```text
-lib/
-  app/
-    app.dart
-    bootstrap.dart
-    router/
-    theme/
-    l10n/
-    core/
-      constants/
-      errors/
-      utils/
-      services/
-      widgets/
-  features/
-    <feature_name>/
-  data/
-    models/
-    repositories/
-    datasources/
-  domain/
-    entities/
-    repositories/
-    usecases/
-```
-
-Guidelines:
-
-- keep domain abstractions only when they improve clarity
-- do not generate boilerplate for trivial CRUD just because a pattern exists
-- keep files reasonably small
-- avoid giant god providers, giant god controllers, and giant god screens
-- keep persistence logic out of widgets
-- keep navigation definitions centralized and readable
-- prefer maintainability over cleverness
+Do not replace core stack choices unless the project prompt or repo context explicitly asks for it.
 
 ---
 
-## State Management Rules
+## 3. Architecture rules
 
-Use Riverpod.
+Use a clean, pragmatic architecture.
 
-Guidelines:
+Expected separation:
+- `presentation/` for UI composition and state wiring
+- `domain/` for entities, use cases, contracts
+- `data/` for DTOs, repositories, adapters, persistence, transport
 
-- use repository providers for data access
-- use feature-level notifiers/providers for local feature state
-- use derived providers for filtered, sorted, and computed view state when helpful
-- keep async state easy to trace
-- avoid placing repository logic directly inside widgets
-- avoid creating one giant app-wide provider for everything
+Rules:
+- Do not put API calls in widgets.
+- Do not parse JSON in widgets.
+- Do not place business logic directly in page widgets.
+- Prefer small reusable widgets over large monolithic screens.
+- Keep app-level composition separate from feature-level business logic.
 
----
-
-## Routing Rules
-
-Use go_router.
-
-Guidelines:
-
-- centralize route definitions
-- use readable route names and paths
-- pass route params cleanly
-- keep navigation flows obvious
-- avoid scattering ad hoc navigation logic across the widget tree
+Avoid over-engineering.
+Use only the amount of layering justified by the feature complexity.
 
 ---
 
-## Localization Rules
+## 4. UI and design system rules
 
-Localization is **CSV-first**.
+Default UI assumptions:
+- Material 3
+- token-oriented spacing, radii, colors, and typography
+- reusable components preferred over one-off widget duplication
 
-Source of truth:
+Rules:
+- Pages should focus on layout and composition.
+- Shared UI states must be explicit: loading, empty, error, success.
+- Avoid tightly coupling feature logic to visual widgets.
+- Prefer maintainable structures over clever abstractions.
 
+---
+
+## 5. Localization rules
+
+Localization is CSV-first unless the project says otherwise.
+
+Preferred source of truth:
 - `assets/i18n/translations.csv`
 
-Runtime artifacts:
-
-- generated locale files, for example:
-  - `assets/i18n/generated/en.json`
-  - `assets/i18n/generated/th.json`
-
-Expected workflow:
-
-1. edit `assets/i18n/translations.csv`
-2. run `dart run scripts/generate_i18n.dart`
-3. update generated locale JSON files
-4. load generated locale files through `easy_localization`
+Generated outputs may include:
+- `assets/i18n/en.json`
+- `assets/i18n/th.json`
+- `assets/i18n/ja.json`
 
 Rules:
-
-- do not manually maintain multiple source translation files
-- the CSV file is the master source
-- generated files are runtime artifacts
-- dotted keys should map to nested JSON when practical
-- structure the generator so new locales can be added later without rewriting the script
+- Do not hardcode user-facing text in feature code when localization is already enabled.
+- Preserve dotted-key structure consistency.
+- Do not manually edit generated locale JSON when the CSV is the declared source of truth.
 
 ---
 
-## Persistence Rules
+## 6. State management and navigation rules
 
-Use Isar for local-first persistence in the default preset.
-
-Guidelines:
-
-- keep schema changes understandable
-- isolate data mapping and persistence logic from UI code
-- avoid overbuilding for future cloud sync unless the user asks for it
-- favor migration sanity and readable schemas over premature flexibility
-
----
-
-## Build Optimization Rules
-
-Build optimization work must be **evidence-first, not guess-first**.
-
-Required flow:
-
-1. benchmark first
-2. analyze without changing project files
-3. generate a reviewable optimization plan
-4. wait for approval
-5. apply only approved fixes
-6. re-benchmark and verify
+Default expectations:
+- Riverpod for state management
+- go_router for routing
 
 Rules:
-
-- never silently tune build files before a plan exists
-- keep build outputs under `.build-benchmark/`
-- prefer reversible, minimal diffs
-- document rationale, expected impact, risk, affected files, and rollback notes
-- do not claim improvements without post-fix benchmark evidence
-
-Prioritize:
-
-1. local developer loop improvements
-2. incremental build improvements
-3. high-impact low-risk cleanup
-4. release build overhead
-5. artifact size where relevant
+- Keep state close to the feature boundary.
+- Do not use global mutable state unless clearly justified.
+- Keep routing definitions readable and organized by app/domain structure.
+- Avoid routing logic inside leaf widgets.
 
 ---
 
-## Plugin-Style Packaging Direction
+## 7. Dependency rules
 
-This toolkit should be usable in three layers:
+Before adding a dependency:
+- confirm it solves a real problem,
+- prefer established packages,
+- avoid overlapping libraries that duplicate responsibilities,
+- avoid introducing generators or runtime systems without clear payoff.
 
-1. root repo guidance through `AGENTS.md` and `CLAUDE.md`
-2. task-specific prompts in `prompts/`
-3. reusable workflow bundles in `skills/`
+When changing dependency strategy, explain:
+- what changes,
+- why it changes,
+- migration impact,
+- risks.
 
-Optional packaging layers may be added later:
+---
 
-- `.codex-plugin/plugin.json`
-- `agents/openai.yaml`
-- MCP config stubs
+## 8. Verification baseline
 
-The repository should become increasingly self-describing over time.
+Every non-trivial change must end with a verification summary.
+
+Minimum baseline unless impossible in the environment:
+- `flutter pub get`
+- `dart format .`
+- `flutter analyze`
+- `flutter test`
+
+If UI is changed, also attempt:
+- targeted smoke verification,
+- route/screen startup validation,
+- screenshot or equivalent visual summary when possible.
+
+If something cannot be verified, state it explicitly.
+Do not imply verification that did not happen.
+
+---
+
+## 9. Output contract for agent tasks
+
+For implementation tasks, return:
+1. what changed,
+2. files created or modified,
+3. assumptions,
+4. verification performed,
+5. unresolved risks or follow-ups.
+
+Do not claim completion without these items.
+
+---
+
+## 10. Skill usage rules
+
+Use `skills/` for focused implementation tasks.
+
+Each skill should:
+- solve one narrow job,
+- define when to use it,
+- define verification steps,
+- describe expected outputs.
+
+If a skill grows too large, split it.
+Do not create catch-all mega-skills.
+
+---
+
+## 11. Antigravity usage rules
+
+When working through Antigravity:
+- read `antigravity/README.md` first,
+- apply `antigravity/rules/` as the durable rule layer,
+- choose a matching workflow from `antigravity/workflows/`,
+- emit artifacts using templates from `templates/` or `antigravity/artifacts/`.
+
+Antigravity tasks should be verification-first.
+Treat Antigravity as an optional overlay on top of the same repository rules, not as a replacement for the default Codex or Claude Code operating model.
+If a task is not explicitly being run through Antigravity, continue using the normal repo entrypoints in `AGENTS.md`, `prompts/`, and `skills/`.
+
+Use Antigravity when:
+- the task needs a predefined workflow,
+- artifact output must be standardized,
+- verification sequencing must be explicit,
+- or MCP-assisted execution needs a documented operating path.
+
+---
+
+## 12. What not to do
+
+- Do not collapse all logic into the UI layer.
+- Do not introduce architecture patterns without explaining their value.
+- Do not hardcode strings if localization is enabled.
+- Do not mark work as done without a verification summary.
+- Do not silently change core stack assumptions.
+- Do not add large dependencies casually.

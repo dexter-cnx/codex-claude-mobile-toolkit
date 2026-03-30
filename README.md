@@ -1,110 +1,171 @@
-# Codex + Claude Mobile Toolkit
+# codex-claude-mobile-toolkit
 
-Workflow-first starter toolkit for Flutter projects using Codex-style agents and Claude Code.
+A reusable mobile app toolkit for **Codex**, **Claude Code**, and **Antigravity** workflows, centered on Flutter-first project delivery.
 
-## Goals
+This repository is designed to be used as a shared toolkit layer that can be:
+- copied into a project,
+- added as a submodule,
+- or referenced as a conventions/skills repo by coding agents.
 
-- keep shared architecture rules in one place
-- provide reusable prompts and skills for common Flutter workflows
-- make Riverpod + go_router + Isar + CSV-first localization a first-class preset
-- keep the toolkit markdown-first and easy to browse in Obsidian
-- prepare projects for optional plugin-style packaging later
-- add evidence-based Flutter build optimization workflows
+It provides:
+- repo-wide rules and conventions,
+- reusable prompts and workflows,
+- focused implementation skills,
+- Flutter/Dart MCP setup notes,
+- templates for implementation and verification artifacts.
 
-## Default preset
+## Primary usage model
 
-This toolkit treats the following stack as the default preset unless a project explicitly chooses otherwise:
+Use this repository as a **toolkit layer**, not as a finished app starter.
 
-- Flutter
-- Riverpod
-- go_router
-- Isar
-- easy_localization
-- CSV-first localization source of truth
-- Material 3
+Typical flow:
+1. Start from a blank project repository.
+2. Add this toolkit as a submodule or copy selected files in.
+3. Point your coding agent to `AGENTS.md` first.
+4. Use `prompts/` or `antigravity/workflows/` as the entrypoint for project tasks.
+5. Use `skills/` for focused implementation tasks.
+6. Require verification artifacts before considering work complete.
 
-## Workflow model
+## Agent surfaces supported
 
-The toolkit is organized around workflows rather than one giant instruction file.
-
-Primary workflows:
-
-1. scaffold or refresh a project foundation
-2. add or extend a feature
-3. maintain CSV-first localization
-4. review architecture and coherence
-5. evolve local persistence safely
-6. analyze and optimize Flutter build performance
-7. package workflows in plugin-style form
-
-## Repo map
-
-- `AGENTS.md` — repo-wide conventions and default preset
-- `CLAUDE.md` — Claude Code operating guidance aligned to `AGENTS.md`
-- `prompts/` — reusable task prompts
-- `skills/` — workflow-specific reusable skills
-- `docs/` — supporting docs and migration guidance
-- `schemas/` — machine-readable contracts for build optimization outputs
-- `scripts/` — automation entrypoints such as one-command app scaffolding
-- `templates/` — markdown templates for plans and reports
-- `examples/` — example optimization artifacts
-- `plugins/` — starter plugin packaging layouts
-- `mcp/` — MCP-ready notes and config stubs
-
-## Recommended usage
-
-### Codex-style agents
-
-Point the agent at this repo and enable relevant local skills.
-
-Examples:
-
-- use the scaffold skill for a new Flutter foundation
-- use the localization skill to update CSV-first i18n
-- use the review skill after a major refactor
-- use `flutter-build-orchestrator` to benchmark and plan build optimization work
-- use `flutter-build-fixer` after approval exists
-
-For project bootstrap work, also use:
-
-- `prompts/new_project_riverpod.md` as the task prompt
-- `skills/flutter-project-scaffold-riverpod-go-router/` as the scaffold workflow
-- `templates/flutter-starter/` for copy-ready `pubspec.yaml`, `lib/`, localization artifacts, and bootstrap checklist
-- `scripts/create_flutter_app.dart` to generate a new app in one command
-
-Example:
-
-```bash
-dart run scripts/create_flutter_app.dart my_app
-```
-
-Optional switches:
-
-- `--state-management riverpod|provider|none`
-- `--router go|navigator`
-- `--no-localize`
-- `--app-title "Acme Tasks"`
-- `--bundle-id com.acme.tasks`
+### Codex / Codex-style agents
+Use:
+- `AGENTS.md`
+- `prompts/`
+- `skills/`
+- `templates/`
 
 ### Claude Code
+Use:
+- `CLAUDE.md`
+- `AGENTS.md`
+- `prompts/`
+- `skills/`
 
-In the target project:
+### Antigravity
+Use:
+- `antigravity/README.md`
+- `antigravity/rules/`
+- `antigravity/workflows/`
+- `antigravity/task-templates/`
+- `antigravity/artifacts/`
+- `mcp/flutter-dart-mcp-setup.md`
 
-1. place `AGENTS.md` at the root or keep this toolkit nearby
-2. ask Claude to read `AGENTS.md` and `CLAUDE.md`
-3. ask it to follow the matching prompt under `prompts/`
-4. ask it to finish with a review pass
+## When to use Antigravity
 
-## Core docs
+Use the Antigravity layer when the task benefits from a stricter workflow shell around implementation work.
 
-- `docs/core-vs-project-overlay.md`
-- `docs/plugin-style-repo-model.md`
-- `docs/presets/riverpod-go-router-csv.md`
-- `docs/scaffold-workflow.md`
-- `docs/migration-audit.md`
-- `docs/flutter-build-optimization-overview.md`
-- `docs/flutter-build-optimization-checklist.md`
+Typical cases:
+- multi-step feature delivery that should follow an explicit workflow,
+- verification-heavy tasks where artifacts must be emitted consistently,
+- repeatable execution across different agents or contributors,
+- MCP-assisted Flutter/Dart tasks that need a documented setup path.
 
-## Next step
+You do not need Antigravity for every task.
+For smaller or direct coding tasks, `AGENTS.md`, `prompts/`, and `skills/` remain sufficient.
 
-Use this repo as the shared toolkit layer, then keep product-specific rules in each app repo as an overlay.
+## Compatibility notes
+
+Adding the Antigravity layer does not replace the existing Codex or Claude Code surfaces.
+
+- `Codex` continues to use `AGENTS.md`, `prompts/`, `skills/`, and `templates/`.
+- `Claude Code` continues to use `CLAUDE.md` plus the same repo-wide rules from `AGENTS.md`.
+- `Antigravity` acts as an optional workflow and artifact layer on top of the same toolkit conventions.
+
+In other words, Antigravity should be treated as additive, not as a breaking change to the default Codex or Claude Code operating model.
+
+## Repository structure
+
+```text
+.
+├─ AGENTS.md
+├─ CLAUDE.md
+├─ README.md
+├─ antigravity/
+│  ├─ README.md
+│  ├─ rules/
+│  ├─ workflows/
+│  ├─ task-templates/
+│  └─ artifacts/
+├─ prompts/
+├─ skills/
+├─ mcp/
+├─ templates/
+├─ scripts/
+├─ schemas/
+└─ examples/
+```
+
+## Recommended operating model
+
+### Rules
+Put durable project rules in `AGENTS.md` and `antigravity/rules/`.
+
+Examples:
+- architecture boundaries,
+- localization policy,
+- testing baseline,
+- package selection rules,
+- code style constraints,
+- do/don't guidance.
+
+### Workflows
+Put step-by-step task flows in:
+- `prompts/`
+- `antigravity/workflows/`
+
+Examples:
+- bootstrap new project,
+- add a feature,
+- refactor for coherence,
+- fix a bug,
+- optimize build configuration.
+
+### Skills
+Put narrow, reusable implementation procedures in `skills/`.
+
+Examples:
+- bootstrap Flutter project,
+- add Riverpod feature,
+- import localization CSV,
+- export locale JSON,
+- run build verification,
+- review architecture coherence.
+
+## Verification-first rule
+
+No code task should be considered complete without a verification summary.
+
+Minimum expected verification for most Flutter tasks:
+- `flutter pub get`
+- `dart format .`
+- `flutter analyze`
+- `flutter test`
+
+When UI changes are involved, also include:
+- target screen smoke check,
+- screenshots or equivalent notes,
+- known gaps if emulator/device verification was not possible.
+
+## Antigravity quick start
+
+1. Read `antigravity/README.md`.
+2. Read `antigravity/rules/global.md` and `antigravity/rules/flutter.md`.
+3. Pick a workflow from `antigravity/workflows/`.
+4. Use focused skills from `skills/`.
+5. Emit artifacts using templates in `templates/`.
+6. Configure Flutter/Dart MCP using `mcp/flutter-dart-mcp-setup.md`.
+
+## Notes for toolkit maintainers
+
+When adding new skills:
+- keep each skill focused on one job,
+- include a `Verification` section,
+- define the expected output contract,
+- link related skills instead of merging everything into one giant skill.
+
+When adding new prompts/workflows:
+- state goal and constraints clearly,
+- specify files to inspect first,
+- define what must be verified,
+- require a concise implementation report.

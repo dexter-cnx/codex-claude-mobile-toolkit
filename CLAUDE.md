@@ -5,6 +5,7 @@
 Read `AGENTS.md` first. Treat it as the primary source of truth for architecture, stack defaults, workflow selection, localization rules, and build optimization behavior.
 
 This file exists to adapt the same toolkit conventions to Claude Code usage. Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
+If the task is explicitly routed through Antigravity, use `antigravity/README.md` and the matching workflow as an additional execution layer, not as a replacement for the default Claude Code flow.
 
 ---
 
