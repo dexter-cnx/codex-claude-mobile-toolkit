@@ -1,6 +1,6 @@
 # codex-claude-mobile-toolkit
 
-A reusable mobile app toolkit for **Codex**, **Claude Code**, and **Antigravity** workflows, centered on Flutter-first project delivery.
+A reusable mobile app toolkit for **Codex**, **Claude Code**, **Grok Code**, and **Antigravity** workflows, centered on Flutter-first project delivery.
 
 This repository is designed to be used as a shared toolkit layer that can be:
 - copied into a project,
@@ -47,6 +47,13 @@ Use:
 - `prompts/`
 - `skills/`
 
+### Grok Code
+Use:
+- `GROK.md`
+- `AGENTS.md`
+- `prompts/`
+- `skills/`
+
 ### Antigravity
 Use:
 - `antigravity/README.md`
@@ -71,13 +78,14 @@ For smaller or direct coding tasks, `AGENTS.md`, `prompts/`, and `skills/` remai
 
 ## Compatibility notes
 
-Adding the Antigravity layer does not replace the existing Codex or Claude Code surfaces.
+Adding the Antigravity layer does not replace the existing Codex, Claude Code, or Grok Code surfaces.
 
 - `Codex` continues to use `AGENTS.md`, `prompts/`, `skills/`, and `templates/`.
 - `Claude Code` continues to use `CLAUDE.md` plus the same repo-wide rules from `AGENTS.md`.
+- `Grok Code` continues to use `GROK.md` plus the same repo-wide rules from `AGENTS.md`.
 - `Antigravity` acts as an optional workflow and artifact layer on top of the same toolkit conventions.
 
-In other words, Antigravity should be treated as additive, not as a breaking change to the default Codex or Claude Code operating model.
+In other words, Antigravity should be treated as additive, not as a breaking change to the default Codex, Claude Code, or Grok Code operating model.
 
 ## Repository structure
 
@@ -85,6 +93,7 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 .
 ├─ AGENTS.md
 ├─ CLAUDE.md
+├─ GROK.md
 ├─ README.md
 ├─ antigravity/
 │  ├─ README.md
