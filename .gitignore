@@ -1,1 +1,6 @@
 .DS_Store
+
+# Flutter-generated files inside copy-ready starter templates
+templates/flutter-starter/.dart_tool/
+templates/flutter-starter/.flutter-plugins-dependencies
+templates/flutter-starter/pubspec.lock
