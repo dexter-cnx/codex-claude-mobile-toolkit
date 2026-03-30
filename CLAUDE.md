@@ -32,6 +32,7 @@ Map requests into one of these categories:
 - **architecture review**
 - **persistence evolution**
 - **runtime responsiveness**
+- **apple-native boundary work**
 - **build optimization**
 - **plugin-style packaging**
 
@@ -48,6 +49,7 @@ When a matching skill exists, prefer these defaults:
 - API integration work: `flutter-api-integration-pattern`
 - bug investigation: `flutter-bug-investigation`
 - runtime responsiveness review: `flutter-event-loop-audit`
+- iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and theme work: `flutter-ux-ui-design-system`
 - reusable component API design: `flutter-component-contracts`
 - UX/UI presentation review: `flutter-design-review`
@@ -65,6 +67,53 @@ Use supporting skills when they fit the task:
 
 Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
 Use the build optimization flow for benchmark-driven build speed or artifact-size work.
+Use `flutter-apple-native-loop` when the task affects `ios/` or `macos/` and needs CLI-first Apple-native validation.
+
+---
+
+## Apple-native execution policy for Flutter repos
+
+When the task affects `ios/` or `macos/`, use this execution policy:
+
+1. Classify the change:
+   - Flutter-layer
+   - native iOS-layer
+   - native macOS-layer
+   - cross-layer
+
+2. Inspect before editing:
+   - existing Flutter plugin usage
+   - existing iOS/macOS project settings
+   - current schemes and targets
+   - existing tests, scripts, and CI hooks
+
+3. Validate with the smallest trustworthy loop:
+   - list schemes
+   - targeted build
+   - targeted test
+   - screenshot or log capture when behavior is visual or runtime-specific
+
+4. Escalate to XcodeBuildMCP only when needed:
+   - simulator automation
+   - screenshots
+   - runtime logs
+   - UI interaction flows
+   - detailed scheme or target inspection beyond basic CLI output
+
+5. Report in every response:
+   - boundary classification
+   - files changed
+   - commands run
+   - evidence gathered
+   - follow-up checks recommended
+
+Response template for native work:
+- Boundary:
+- Target platform:
+- Scheme:
+- Validation commands:
+- Evidence:
+- Risks or unverified areas:
 
 ---
 

@@ -135,6 +135,30 @@ Rules:
 - Recommend isolates only for clearly CPU-heavy work.
 - When reviewing code, prioritize first meaningful paint, duplicate fetch prevention, and rebuild stability.
 
+### Apple-native lane for Flutter projects
+
+When a task touches `ios/` or `macos/`, switch to an Apple-native validation loop.
+
+Goals:
+- Keep the project Flutter-first.
+- Treat native Apple work as a focused sub-workflow, not a separate architecture.
+- Prefer terminal-verifiable steps before introducing heavier automation.
+
+Rules:
+- Stay CLI-first.
+- Prefer `xcodebuild` for listing schemes, building, and testing.
+- Start with the smallest trustworthy validation command for the changed surface.
+- Reuse existing Flutter app structure, plugin wiring, and shared utilities before introducing new native abstractions.
+- If deeper simulator control, screenshots, logs, or UI automation are needed, use XcodeBuildMCP when available.
+
+Always report:
+- whether the task was Flutter-layer or native-layer
+- the exact scheme used
+- simulator or macOS target used
+- commands run
+- what was verified
+- what remains unverified
+
 ---
 
 ## 7. Dependency rules
@@ -205,6 +229,7 @@ Preferred skills by task type:
 - API-backed feature integration: `flutter-api-integration-pattern`
 - debugging and root-cause analysis: `flutter-bug-investigation`
 - runtime responsiveness and async timing review: `flutter-event-loop-audit`
+- iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and token mapping: `flutter-ux-ui-design-system`
 - reusable widget API definition: `flutter-component-contracts`
 - UX/UI quality review: `flutter-design-review`

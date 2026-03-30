@@ -153,7 +153,8 @@ Supporting skills:
 - use `flutter-testing-checklist` before final verification,
 - use `flutter-refactor-safely` when reshaping existing code without changing behavior,
 - use `flutter-event-loop-audit` when reviewing runtime responsiveness, async timing, startup smoothness, and UI-isolate hotspots,
-- use `flutter-ux-ui-design-system`, `flutter-component-contracts`, `flutter-design-review`, and `flutter-accessibility-audit` for design-system, UX review, and accessibility work.
+- use `flutter-ux-ui-design-system`, `flutter-component-contracts`, `flutter-design-review`, and `flutter-accessibility-audit` for design-system, UX review, and accessibility work,
+- use `flutter-apple-native-loop` when work crosses into `ios/` or `macos/` and needs a narrow Apple-native validation loop.
 
 ### Skill selection notes
 
@@ -164,6 +165,7 @@ Use these pairs to reduce overlap when multiple skills seem close:
 - prefer `flutter-event-loop-audit` for runtime responsiveness and async scheduling review; prefer `flutter-build-orchestrator` and related analyzers for compile/build-time optimization work,
 - prefer `flutter-design-review` for UX/UI consistency and presentation quality; prefer `flutter-pr-reviewer` for broader implementation review before merge,
 - prefer `flutter-accessibility-audit` for focused a11y review; prefer `flutter-design-review` when accessibility is only one part of a larger UI quality pass,
+- prefer `flutter-apple-native-loop` for iOS/macOS native boundary work; prefer the normal Flutter feature flow when the change stays inside Dart and shared app layers,
 - prefer the new overlay skills for Riverpod-centered feature delivery; prefer existing specialized skills for build optimization, analyzer-driven audits, game workflows, and shared-repo integration patches.
 
 ### Event loop audit assets
@@ -188,6 +190,22 @@ Use these repo assets for Flutter UX/UI work:
 - `templates/component-spec.md`
 - `templates/design-handoff.md`
 - `tokens/`
+
+### Apple-native lane assets
+
+Use these repo assets for iOS/macOS native-boundary work:
+- `skills/flutter-apple-native-loop/`
+- `prompts/native_ios_macos_flutter_bridge.md`
+- `prompts/fix_ios_macos_native_issue.md`
+- `docs/apple-native-lane-for-flutter.md`
+- `docs/xcodebuildmcp-when-to-use.md`
+- `docs/ios-macos-debug-playbook.md`
+- `mcp/xcodebuildmcp/`
+- `scripts/ios_list_schemes.sh`
+- `scripts/ios_build_sim.sh`
+- `scripts/ios_test_without_building.sh`
+- `scripts/ios_capture_screenshot.sh`
+- `scripts/macos_build.sh`
 
 ## Verification-first rule
 

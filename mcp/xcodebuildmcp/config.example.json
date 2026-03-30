@@ -1,0 +1,13 @@
+{
+  "name": "xcodebuildmcp",
+  "enabled": false,
+  "notes": "Enable only for tasks that need simulator automation, screenshots, runtime logs, or richer scheme/target inspection.",
+  "examples": {
+    "preferred_first_step": "Use xcodebuild CLI first",
+    "escalate_when": [
+      "Need simulator screenshots",
+      "Need runtime app logs",
+      "Need UI interaction automation"
+    ]
+  }
+}
