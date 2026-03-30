@@ -132,6 +132,35 @@ Examples:
 - run build verification,
 - review architecture coherence.
 
+### Recommended skills by workflow
+
+These overlay skills complement the existing repo skills.
+They do not replace more specialized build-analysis, platform-analysis, game, or integration skills already present in this toolkit.
+
+First-class workflow skills:
+- use `flutter-repo-conventions` to align work with this toolkit's default preset and repo boundaries,
+- use `flutter-feature-scaffold` when adding a new Riverpod or go_router feature,
+- use `flutter-localization-csv-pipeline` when editing `assets/i18n/translations.csv` and regenerating locale outputs,
+- use `flutter-api-integration-pattern` when introducing a new HTTP-backed data flow,
+- use `flutter-pr-reviewer` before merge for a structured review pass,
+- use `flutter-bug-investigation` before attempting a broad bug fix or root-cause hunt.
+
+Supporting skills:
+- use `flutter-new-project-bootstrap` for new project setup,
+- use `flutter-simple-clean-architecture-guard` to keep feature layering pragmatic,
+- use `flutter-state-management-pattern` for Riverpod structure decisions,
+- use `flutter-ui-screen-implementation` for screen composition work,
+- use `flutter-testing-checklist` before final verification,
+- use `flutter-refactor-safely` when reshaping existing code without changing behavior.
+
+### Skill selection notes
+
+Use these pairs to reduce overlap when multiple skills seem close:
+- prefer `flutter-new-project-bootstrap` for repo overlays and starter setup; prefer `flutter-project-scaffold-riverpod-go-router` when scaffolding or refreshing a target Flutter app structure directly,
+- prefer `flutter-localization-csv-pipeline` for day-to-day translation key and generation workflow; prefer `flutter-localization-csv` when defining or auditing the CSV-first localization contract itself,
+- prefer `flutter-pr-reviewer` for merge-oriented change review; prefer `flutter-review` for broader architecture drift review against the toolkit defaults,
+- prefer the new overlay skills for Riverpod-centered feature delivery; prefer existing specialized skills for build optimization, analyzer-driven audits, game workflows, and shared-repo integration patches.
+
 ## Verification-first rule
 
 No code task should be considered complete without a verification summary.

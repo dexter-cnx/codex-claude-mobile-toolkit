@@ -38,6 +38,27 @@ If a request spans multiple categories, handle the dominant category first and t
 
 ---
 
+## Preferred skill mapping
+
+When a matching skill exists, prefer these defaults:
+
+- feature work: `flutter-feature-scaffold`
+- localization maintenance: `flutter-localization-csv-pipeline`
+- API integration work: `flutter-api-integration-pattern`
+- bug investigation: `flutter-bug-investigation`
+- refactor safety pass: `flutter-refactor-safely`
+- review before merge: `flutter-pr-reviewer`
+- repo rules and boundary alignment: `flutter-repo-conventions`
+
+Use supporting skills when they fit the task:
+- `flutter-new-project-bootstrap`
+- `flutter-simple-clean-architecture-guard`
+- `flutter-state-management-pattern`
+- `flutter-ui-screen-implementation`
+- `flutter-testing-checklist`
+
+---
+
 ## Build optimization behavior
 
 For build optimization tasks:

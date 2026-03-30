@@ -173,6 +173,18 @@ Each skill should:
 If a skill grows too large, split it.
 Do not create catch-all mega-skills.
 
+Preferred skills by task type:
+- feature work: `flutter-feature-scaffold`
+- localization maintenance: `flutter-localization-csv-pipeline`
+- API-backed feature integration: `flutter-api-integration-pattern`
+- debugging and root-cause analysis: `flutter-bug-investigation`
+- refactoring without intended behavior changes: `flutter-refactor-safely`
+- PR review before merge: `flutter-pr-reviewer`
+- repo alignment and conventions checks: `flutter-repo-conventions`
+
+These preferred skills complement existing specialized skills in the repo.
+Do not replace dedicated build optimization, analyzer, game, or integration skills when those are the more precise match.
+
 ---
 
 ## 11. Antigravity usage rules
