@@ -32,6 +32,7 @@ Map requests into one of these categories:
 - **architecture review**
 - **persistence evolution**
 - **runtime responsiveness**
+- **cache-first retrofit**
 - **apple-native boundary work**
 - **build optimization**
 - **plugin-style packaging**
@@ -49,6 +50,7 @@ When a matching skill exists, prefer these defaults:
 - API integration work: `flutter-api-integration-pattern`
 - bug investigation: `flutter-bug-investigation`
 - runtime responsiveness review: `flutter-event-loop-audit`
+- cache-first retrofit and staged state: `flutter-cache-first-rendering`
 - iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and theme work: `flutter-ux-ui-design-system`
 - reusable component API design: `flutter-component-contracts`
@@ -66,6 +68,7 @@ Use supporting skills when they fit the task:
 - `flutter-testing-checklist`
 
 Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
+Use `flutter-cache-first-rendering` when the main goal is stale-while-revalidate UX, cache-first first render, or preserving optimistic local actions during refresh.
 Use the build optimization flow for benchmark-driven build speed or artifact-size work.
 Use `flutter-apple-native-loop` when the task affects `ios/` or `macos/` and needs CLI-first Apple-native validation.
 

@@ -154,7 +154,8 @@ Supporting skills:
 - use `flutter-refactor-safely` when reshaping existing code without changing behavior,
 - use `flutter-event-loop-audit` when reviewing runtime responsiveness, async timing, startup smoothness, and UI-isolate hotspots,
 - use `flutter-ux-ui-design-system`, `flutter-component-contracts`, `flutter-design-review`, and `flutter-accessibility-audit` for design-system, UX review, and accessibility work,
-- use `flutter-apple-native-loop` when work crosses into `ios/` or `macos/` and needs a narrow Apple-native validation loop.
+- use `flutter-apple-native-loop` when work crosses into `ios/` or `macos/` and needs a narrow Apple-native validation loop,
+- use `flutter-cache-first-rendering` when retrofitting existing features to render cached data first and refresh safely in the background.
 
 ### Skill selection notes
 
@@ -163,6 +164,7 @@ Use these pairs to reduce overlap when multiple skills seem close:
 - prefer `flutter-localization-csv-pipeline` for day-to-day translation key and generation workflow; prefer `flutter-localization-csv` when defining or auditing the CSV-first localization contract itself,
 - prefer `flutter-pr-reviewer` for merge-oriented change review; prefer `flutter-review` for broader architecture drift review against the toolkit defaults,
 - prefer `flutter-event-loop-audit` for runtime responsiveness and async scheduling review; prefer `flutter-build-orchestrator` and related analyzers for compile/build-time optimization work,
+- prefer `flutter-cache-first-rendering` for stale-while-revalidate UX, staged state, and non-destructive refresh behavior; prefer `flutter-event-loop-audit` when the main question is scheduling, jank, or UI-isolate timing,
 - prefer `flutter-design-review` for UX/UI consistency and presentation quality; prefer `flutter-pr-reviewer` for broader implementation review before merge,
 - prefer `flutter-accessibility-audit` for focused a11y review; prefer `flutter-design-review` when accessibility is only one part of a larger UI quality pass,
 - prefer `flutter-apple-native-loop` for iOS/macOS native boundary work; prefer the normal Flutter feature flow when the change stays inside Dart and shared app layers,
@@ -206,6 +208,17 @@ Use these repo assets for iOS/macOS native-boundary work:
 - `scripts/ios_test_without_building.sh`
 - `scripts/ios_capture_screenshot.sh`
 - `scripts/macos_build.sh`
+
+### Cache-first rendering assets
+
+Use these repo assets for cache-first and staged-state retrofits:
+- `skills/flutter-cache-first-rendering/`
+- `prompts/cache_first_upgrade_existing_project.md`
+- `prompts/cache_first_feature_refactor.md`
+- `docs/cache-first-rendering.md`
+- `docs/staged-state-pattern.md`
+- `templates/cache-first-migration-plan.md`
+- `templates/feature-cache-audit.md`
 
 ## Verification-first rule
 

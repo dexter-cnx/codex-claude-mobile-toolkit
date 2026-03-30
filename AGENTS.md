@@ -135,6 +135,15 @@ Rules:
 - Recommend isolates only for clearly CPU-heavy work.
 - When reviewing code, prioritize first meaningful paint, duplicate fetch prevention, and rebuild stability.
 
+### Cache-first rendering rules
+
+- Prefer rendering usable cached or local state before waiting on remote data when the feature benefits from revisit speed and continuity.
+- Keep cache orchestration out of widgets.
+- Preserve visible content during background refresh failures when cached state is already usable.
+- Do not blindly overwrite visible state with fresh remote payloads when optimistic local actions may still be pending.
+- Introduce staged state only where overlapping cache, refresh, and local mutations make it necessary.
+- Prefer incremental retrofit of one feature at a time over broad cache-architecture rewrites.
+
 ### Apple-native lane for Flutter projects
 
 When a task touches `ios/` or `macos/`, switch to an Apple-native validation loop.
@@ -229,6 +238,7 @@ Preferred skills by task type:
 - API-backed feature integration: `flutter-api-integration-pattern`
 - debugging and root-cause analysis: `flutter-bug-investigation`
 - runtime responsiveness and async timing review: `flutter-event-loop-audit`
+- cache-first retrofit and staged-state work: `flutter-cache-first-rendering`
 - iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and token mapping: `flutter-ux-ui-design-system`
 - reusable widget API definition: `flutter-component-contracts`
