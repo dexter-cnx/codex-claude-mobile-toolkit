@@ -76,6 +76,20 @@ Rules:
 - Avoid tightly coupling feature logic to visual widgets.
 - Prefer maintainable structures over clever abstractions.
 
+### UX/UI rules
+
+When the task involves Flutter UI, screens, design systems, widgets, or UX review:
+- Prefer token-driven styling over hardcoded colors, spacing, radius, and typography.
+- Reusable widgets must not contain business logic.
+- Page widgets should mostly compose sections and bind state.
+- Prefer semantic tokens before raw primitive values.
+- Every important interactive component should have an explicit state matrix.
+- Consider accessibility required, not optional.
+- Icon-only actions need semantic labels or tooltips.
+- Support large text, visible focus, and adequate tap target size.
+- Do not rely on color alone for critical state communication.
+- Prefer consistent shared components for repeated patterns such as buttons, inputs, cards, empty states, and banners.
+
 ---
 
 ## 5. Localization rules
@@ -191,6 +205,10 @@ Preferred skills by task type:
 - API-backed feature integration: `flutter-api-integration-pattern`
 - debugging and root-cause analysis: `flutter-bug-investigation`
 - runtime responsiveness and async timing review: `flutter-event-loop-audit`
+- design system and token mapping: `flutter-ux-ui-design-system`
+- reusable widget API definition: `flutter-component-contracts`
+- UX/UI quality review: `flutter-design-review`
+- focused accessibility review: `flutter-accessibility-audit`
 - refactoring without intended behavior changes: `flutter-refactor-safely`
 - PR review before merge: `flutter-pr-reviewer`
 - repo alignment and conventions checks: `flutter-repo-conventions`

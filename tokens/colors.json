@@ -1,0 +1,32 @@
+{
+  "primitive": {
+    "blue": {
+      "500": "#2563EB",
+      "600": "#1D4ED8"
+    },
+    "gray": {
+      "50": "#F9FAFB",
+      "100": "#F3F4F6",
+      "300": "#D1D5DB",
+      "700": "#374151",
+      "900": "#111827"
+    },
+    "red": {
+      "600": "#DC2626"
+    },
+    "green": {
+      "600": "#16A34A"
+    }
+  },
+  "semantic": {
+    "surface": "{primitive.gray.50}",
+    "surfaceContainer": "#FFFFFF",
+    "textPrimary": "{primitive.gray.900}",
+    "textSecondary": "{primitive.gray.700}",
+    "borderSubtle": "{primitive.gray.300}",
+    "actionPrimary": "{primitive.blue.600}",
+    "actionPrimaryForeground": "#FFFFFF",
+    "success": "{primitive.green.600}",
+    "error": "{primitive.red.600}"
+  }
+}

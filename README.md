@@ -152,7 +152,8 @@ Supporting skills:
 - use `flutter-ui-screen-implementation` for screen composition work,
 - use `flutter-testing-checklist` before final verification,
 - use `flutter-refactor-safely` when reshaping existing code without changing behavior,
-- use `flutter-event-loop-audit` when reviewing runtime responsiveness, async timing, startup smoothness, and UI-isolate hotspots.
+- use `flutter-event-loop-audit` when reviewing runtime responsiveness, async timing, startup smoothness, and UI-isolate hotspots,
+- use `flutter-ux-ui-design-system`, `flutter-component-contracts`, `flutter-design-review`, and `flutter-accessibility-audit` for design-system, UX review, and accessibility work.
 
 ### Skill selection notes
 
@@ -161,6 +162,8 @@ Use these pairs to reduce overlap when multiple skills seem close:
 - prefer `flutter-localization-csv-pipeline` for day-to-day translation key and generation workflow; prefer `flutter-localization-csv` when defining or auditing the CSV-first localization contract itself,
 - prefer `flutter-pr-reviewer` for merge-oriented change review; prefer `flutter-review` for broader architecture drift review against the toolkit defaults,
 - prefer `flutter-event-loop-audit` for runtime responsiveness and async scheduling review; prefer `flutter-build-orchestrator` and related analyzers for compile/build-time optimization work,
+- prefer `flutter-design-review` for UX/UI consistency and presentation quality; prefer `flutter-pr-reviewer` for broader implementation review before merge,
+- prefer `flutter-accessibility-audit` for focused a11y review; prefer `flutter-design-review` when accessibility is only one part of a larger UI quality pass,
 - prefer the new overlay skills for Riverpod-centered feature delivery; prefer existing specialized skills for build optimization, analyzer-driven audits, game workflows, and shared-repo integration patches.
 
 ### Event loop audit assets
@@ -172,6 +175,19 @@ Use these repo assets for runtime responsiveness work:
 - `docs/flutter-event-loop-performance.md`
 - `templates/event-loop-audit-report.md`
 - `schemas/event_loop_audit.schema.json`
+
+### UX/UI overlay assets
+
+Use these repo assets for Flutter UX/UI work:
+- `skills/flutter-ux-ui-design-system/`
+- `skills/flutter-component-contracts/`
+- `skills/flutter-design-review/`
+- `skills/flutter-accessibility-audit/`
+- `docs/ux-ui/`
+- `templates/ux-audit-report.md`
+- `templates/component-spec.md`
+- `templates/design-handoff.md`
+- `tokens/`
 
 ## Verification-first rule
 

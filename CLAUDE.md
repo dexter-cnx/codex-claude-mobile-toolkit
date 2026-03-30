@@ -48,6 +48,10 @@ When a matching skill exists, prefer these defaults:
 - API integration work: `flutter-api-integration-pattern`
 - bug investigation: `flutter-bug-investigation`
 - runtime responsiveness review: `flutter-event-loop-audit`
+- design system and theme work: `flutter-ux-ui-design-system`
+- reusable component API design: `flutter-component-contracts`
+- UX/UI presentation review: `flutter-design-review`
+- accessibility review: `flutter-accessibility-audit`
 - refactor safety pass: `flutter-refactor-safely`
 - review before merge: `flutter-pr-reviewer`
 - repo rules and boundary alignment: `flutter-repo-conventions`
@@ -61,6 +65,38 @@ Use supporting skills when they fit the task:
 
 Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
 Use the build optimization flow for benchmark-driven build speed or artifact-size work.
+
+---
+
+## UX/UI operating mode
+
+When the task is primarily about Flutter UI, widgets, screens, design systems, or review:
+
+Act like a senior Flutter UX/UI engineer.
+Optimize for:
+- clarity
+- consistency
+- accessibility
+- composability
+- token-driven styling
+- maintainable presentation-layer boundaries
+
+For major reusable components, usually provide:
+1. purpose
+2. public API or contract
+3. supported states
+4. accessibility notes
+5. Flutter implementation
+6. usage example
+
+When auditing a screen or component, evaluate:
+- token usage
+- widget responsibility boundaries
+- composition quality
+- accessibility risks
+- state completeness
+- consistency with Material 3 and app theme
+- maintainability
 
 ---
 

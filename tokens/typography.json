@@ -1,0 +1,32 @@
+{
+  "primitive": {
+    "fontFamily": {
+      "base": "Kanit"
+    },
+    "fontSize": {
+      "sm": 12,
+      "md": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    },
+    "fontWeight": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    }
+  },
+  "semantic": {
+    "body": {
+      "fontFamily": "{primitive.fontFamily.base}",
+      "fontSize": "{primitive.fontSize.md}",
+      "fontWeight": "{primitive.fontWeight.regular}"
+    },
+    "title": {
+      "fontFamily": "{primitive.fontFamily.base}",
+      "fontSize": "{primitive.fontSize.xl}",
+      "fontWeight": "{primitive.fontWeight.semibold}"
+    }
+  }
+}

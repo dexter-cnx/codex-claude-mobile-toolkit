@@ -1,0 +1,19 @@
+{
+  "primitive": {
+    "0": 0,
+    "1": 4,
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "5": 20,
+    "6": 24,
+    "8": 32
+  },
+  "semantic": {
+    "xs": "{primitive.1}",
+    "sm": "{primitive.2}",
+    "md": "{primitive.4}",
+    "lg": "{primitive.6}",
+    "xl": "{primitive.8}"
+  }
+}
