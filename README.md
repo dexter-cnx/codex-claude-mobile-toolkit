@@ -151,7 +151,8 @@ Supporting skills:
 - use `flutter-state-management-pattern` for Riverpod structure decisions,
 - use `flutter-ui-screen-implementation` for screen composition work,
 - use `flutter-testing-checklist` before final verification,
-- use `flutter-refactor-safely` when reshaping existing code without changing behavior.
+- use `flutter-refactor-safely` when reshaping existing code without changing behavior,
+- use `flutter-event-loop-audit` when reviewing runtime responsiveness, async timing, startup smoothness, and UI-isolate hotspots.
 
 ### Skill selection notes
 
@@ -159,7 +160,18 @@ Use these pairs to reduce overlap when multiple skills seem close:
 - prefer `flutter-new-project-bootstrap` for repo overlays and starter setup; prefer `flutter-project-scaffold-riverpod-go-router` when scaffolding or refreshing a target Flutter app structure directly,
 - prefer `flutter-localization-csv-pipeline` for day-to-day translation key and generation workflow; prefer `flutter-localization-csv` when defining or auditing the CSV-first localization contract itself,
 - prefer `flutter-pr-reviewer` for merge-oriented change review; prefer `flutter-review` for broader architecture drift review against the toolkit defaults,
+- prefer `flutter-event-loop-audit` for runtime responsiveness and async scheduling review; prefer `flutter-build-orchestrator` and related analyzers for compile/build-time optimization work,
 - prefer the new overlay skills for Riverpod-centered feature delivery; prefer existing specialized skills for build optimization, analyzer-driven audits, game workflows, and shared-repo integration patches.
+
+### Event loop audit assets
+
+Use these repo assets for runtime responsiveness work:
+- `skills/flutter-event-loop-audit/`
+- `prompts/review_event_loop_async.md`
+- `prompts/fix_event_loop_hotspots.md`
+- `docs/flutter-event-loop-performance.md`
+- `templates/event-loop-audit-report.md`
+- `schemas/event_loop_audit.schema.json`
 
 ## Verification-first rule
 

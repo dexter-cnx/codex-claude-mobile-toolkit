@@ -31,6 +31,7 @@ Map requests into one of these categories:
 - **localization maintenance**
 - **architecture review**
 - **persistence evolution**
+- **runtime responsiveness**
 - **build optimization**
 - **plugin-style packaging**
 
@@ -46,6 +47,7 @@ When a matching skill exists, prefer these defaults:
 - localization maintenance: `flutter-localization-csv-pipeline`
 - API integration work: `flutter-api-integration-pattern`
 - bug investigation: `flutter-bug-investigation`
+- runtime responsiveness review: `flutter-event-loop-audit`
 - refactor safety pass: `flutter-refactor-safely`
 - review before merge: `flutter-pr-reviewer`
 - repo rules and boundary alignment: `flutter-repo-conventions`
@@ -56,6 +58,9 @@ Use supporting skills when they fit the task:
 - `flutter-state-management-pattern`
 - `flutter-ui-screen-implementation`
 - `flutter-testing-checklist`
+
+Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
+Use the build optimization flow for benchmark-driven build speed or artifact-size work.
 
 ---
 

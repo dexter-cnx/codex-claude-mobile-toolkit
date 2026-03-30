@@ -109,6 +109,18 @@ Rules:
 - Keep routing definitions readable and organized by app/domain structure.
 - Avoid routing logic inside leaf widgets.
 
+### Runtime responsiveness rules
+
+- Prefer showing shell UI or cached/local data before waiting on non-critical remote work.
+- Avoid async side effects in `build()`.
+- Use `Future.microtask` only when strict ordering is required.
+- Prefer event-queue deferral for non-critical follow-up work.
+- Do not use post-frame callbacks as a generic timing patch.
+- Parallelize independent async work when safe.
+- Avoid heavy synchronous transforms on the UI isolate during render-sensitive paths.
+- Recommend isolates only for clearly CPU-heavy work.
+- When reviewing code, prioritize first meaningful paint, duplicate fetch prevention, and rebuild stability.
+
 ---
 
 ## 7. Dependency rules
@@ -178,12 +190,15 @@ Preferred skills by task type:
 - localization maintenance: `flutter-localization-csv-pipeline`
 - API-backed feature integration: `flutter-api-integration-pattern`
 - debugging and root-cause analysis: `flutter-bug-investigation`
+- runtime responsiveness and async timing review: `flutter-event-loop-audit`
 - refactoring without intended behavior changes: `flutter-refactor-safely`
 - PR review before merge: `flutter-pr-reviewer`
 - repo alignment and conventions checks: `flutter-repo-conventions`
 
 These preferred skills complement existing specialized skills in the repo.
 Do not replace dedicated build optimization, analyzer, game, or integration skills when those are the more precise match.
+Use `flutter-event-loop-audit` for runtime behavior on the UI isolate and async scheduling.
+Use the build optimization stack for compile-time, packaging, and toolchain performance issues.
 
 ---
 
