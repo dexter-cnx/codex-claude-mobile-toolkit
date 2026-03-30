@@ -14,6 +14,11 @@ It provides:
 - Flutter/Dart MCP setup notes,
 - templates for implementation and verification artifacts.
 
+Fast navigation:
+- use `AGENTS.md` for durable rules,
+- use `docs/skill-workflow-map.md` for quick task routing,
+- use `README.md` for the high-level repository map.
+
 ## Primary usage model
 
 Use this repository as a **toolkit layer**, not as a finished app starter.
@@ -131,6 +136,10 @@ Examples:
 - export locale JSON,
 - run build verification,
 - review architecture coherence.
+
+### Quick Task Routing
+
+If you want the shortest path through this repo, start with [docs/skill-workflow-map.md](/Users/dxtr_m4/develop/mobile_projects/codex-claude-mobile-toolkit/codex-claude-mobile-toolkit/docs/skill-workflow-map.md).
 
 ### Recommended skills by workflow
 

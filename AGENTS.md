@@ -251,6 +251,8 @@ Preferred skills by task type:
 These preferred skills complement existing specialized skills in the repo.
 Do not replace dedicated build optimization, analyzer, game, or integration skills when those are the more precise match.
 Use `flutter-event-loop-audit` for runtime behavior on the UI isolate and async scheduling.
+Use `flutter-cache-first-rendering` when the core problem is remote-first first render, stale-while-revalidate behavior, or pending optimistic action preservation.
+Use `flutter-apple-native-loop` when validation must cross into `ios/` or `macos/`.
 Use the build optimization stack for compile-time, packaging, and toolchain performance issues.
 
 ---

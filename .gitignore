@@ -1,4 +1,7 @@
+# macOS Finder metadata
 .DS_Store
+**/.DS_Store
+__MACOSX/
 
 # Flutter-generated files inside copy-ready starter templates
 templates/flutter-starter/.dart_tool/
