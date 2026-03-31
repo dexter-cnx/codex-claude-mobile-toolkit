@@ -1,63 +1,99 @@
-# Antigravity Integration Layer
+# Antigravity integration layer
 
 This folder adds an Antigravity-friendly operating layer on top of the existing `codex-claude-mobile-toolkit` repository.
 
 ## Goals
-- Keep the current toolkit structure intact.
-- Add a clear separation between **rules**, **workflows**, and **task templates**.
-- Make every implementation flow **verification-first**.
-- Make Flutter/Dart MCP setup explicit and repeatable.
-- Stay compatible with the existing Codex and Claude Code entrypoints.
 
-## How to use
+- keep the current toolkit structure intact,
+- add a clear separation between **rules**, **workflows**, and **task templates**,
+- make every meaningful implementation flow **verification-first**,
+- standardize artifact output,
+- stay compatible with the existing Codex, Claude Code, and Grok Code entrypoints.
+
+## Core operating idea
+
+Antigravity is a **stricter workflow shell** around the same repository rules.
+
+It should be used when the task benefits from:
+
+- declared execution phases,
+- consistent artifact output,
+- repeatable sequencing across contributors or agents,
+- explicit verification gates,
+- documented MCP-assisted operating paths.
+
+For smaller or direct coding tasks, the base toolkit flow may still be enough without Antigravity.
+
+## How to use this layer
+
 1. Read `AGENTS.md` at the repo root for global engineering rules.
 2. Read `antigravity/rules/global.md` and `antigravity/rules/flutter.md`.
 3. Pick a workflow from `antigravity/workflows/`.
-4. Use a task template from `antigravity/task-templates/` if you need a ready-made prompt.
-5. Return artifacts following `antigravity/artifacts/README.md`.
+4. Use a task template from `antigravity/task-templates/` if you need a ready-made shell prompt.
+5. Use focused skills from `skills/`.
+6. Return artifacts following `antigravity/artifacts/README.md`.
 
-## When to use this layer
+## Recommended workflow order
 
-Use Antigravity when you want a more structured execution path than a direct prompt-and-edit flow.
+### Project creation or foundation work
+- `bootstrap-project.md`
 
-Good fits:
-- feature work that benefits from a declared workflow,
-- bugfix or optimization tasks with strict verification expectations,
-- tasks that should always produce consistent artifacts,
-- Flutter/Dart MCP-driven work that needs explicit operating steps.
+### Feature delivery
+- `add-feature.md`
+- `finalize-mobile-change.md`
 
-For simpler or ad hoc implementation tasks, the base toolkit flow may be enough without Antigravity.
+### Bug fixing and investigation
+- `investigate-flutter-bug.md`
+- `bugfix-verify.md`
+
+### Review and repository health work
+- `review-mobile-change.md`
+- `audit-mobile-repo.md`
+- `refactor-review.md`
+
+### Toolkit evolution
+- `self-improve-toolkit.md`
 
 ## Compatibility boundary
 
 This layer is additive.
-It does not change the default meaning of `AGENTS.md` or `CLAUDE.md`, and it should not be treated as a mandatory entrypoint for every task.
+
+It does not change the default meaning of `AGENTS.md`, `CLAUDE.md`, or `GROK.md`, and it should not be treated as a mandatory entrypoint for every task.
 
 Expected impact on other agent surfaces:
-- `Codex`: no required behavior change unless the task explicitly opts into an Antigravity workflow.
-- `Claude Code`: no required behavior change unless the task explicitly opts into an Antigravity workflow.
-- Shared rules: still come from the repo root and remain the common source of truth.
 
-## Recommended workflow order
-- New project: `bootstrap-project.md`
-- New feature: `add-feature.md`
-- Offline-first feature: `implement_offline_first_feature.md`
-- Refactor/review: `refactor-review.md`
-- Localization changes: `localization-update.md`
-- Build issues: `bugfix-verify.md` or `build-optimize.md`
+- `Codex`: no required behavior change unless the task explicitly opts into an Antigravity workflow
+- `Claude Code`: no required behavior change unless the task explicitly opts into an Antigravity workflow
+- `Grok Code`: no required behavior change unless the task explicitly opts into an Antigravity workflow
+- shared rules still come from the repository root and remain the common source of truth
 
 ## Verification baseline
-Unless explicitly told otherwise, every task should end with:
+
+Unless explicitly told otherwise, every non-trivial task should end with:
+
 - `flutter pub get`
 - `dart format .`
 - `flutter analyze`
 - `flutter test`
 
-If the task changes UI behavior, also perform a smoke validation on at least one target.
+If the task changes UI behavior, also perform:
+
+- at least one target smoke validation,
+- screenshot or visual note when possible,
+- explicit reporting of what remained unverified.
 
 ## Expected artifacts
-Each completed task should produce:
+
+Each completed Antigravity task should usually produce:
+
 - task summary
 - implementation report
 - verification report
-- risk log (if relevant)
+- risk log when relevant
+- audit or root-cause artifact when the workflow calls for it
+
+## Artifact locations
+
+Use repo-level `templates/` for standard formats and `antigravity/artifacts/` for Antigravity-specific storage conventions.
+
+See `antigravity/artifacts/README.md`.

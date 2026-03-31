@@ -2,9 +2,13 @@
 
 ## How to operate in this repo
 
-Read `AGENTS.md` first. Treat it as the primary source of truth for architecture, stack defaults, workflow selection, localization rules, runtime behavior, and verification expectations.
+Read `AGENTS.md` first.
 
-This file adapts the same toolkit conventions to Grok Code usage. Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
+Treat it as the primary source of truth for architecture, stack defaults, workflow selection, localization rules, runtime behavior, verification expectations, and self-improvement routing.
+
+This file adapts the same toolkit conventions to Grok Code usage.
+Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
+
 If the task is explicitly routed through Antigravity, use `antigravity/README.md` and the matching workflow as an additional execution layer, not as a replacement for the default Grok Code flow.
 
 ---
@@ -13,12 +17,27 @@ If the task is explicitly routed through Antigravity, use `antigravity/README.md
 
 For most tasks in a project using this toolkit, follow this order:
 
-1. identify the workflow category
-2. read the relevant prompt in `prompts/` if one exists
-3. read the matching skill in `skills/` if one exists
-4. inspect the current codebase before editing
-5. make the smallest coherent set of changes that fully solves the task
-6. end with a short coherence review
+1. identify the workflow category,
+2. read the relevant prompt in `prompts/` if one exists,
+3. read the matching skill in `skills/` if one exists,
+4. inspect the current codebase before editing,
+5. make the smallest coherent set of changes that fully solves the task,
+6. end with a short coherence review,
+7. produce an explicit verification summary.
+
+---
+
+## Pipeline-first routing
+
+Prefer starting with a pipeline when the task needs coordinated execution:
+
+- `prompts/finalize_mobile_change.md`
+- `prompts/audit_mobile_repo.md`
+- `prompts/investigate_flutter_bug.md`
+- `prompts/review_mobile_change.md`
+- `prompts/self_improve_toolkit.md`
+
+Use skills after the lane is clear.
 
 ---
 
@@ -35,6 +54,9 @@ Map requests into one of these categories:
 - **cache-first retrofit**
 - **apple-native boundary work**
 - **build optimization**
+- **review and finalize**
+- **repo health audit**
+- **toolkit self-improvement**
 - **plugin-style packaging**
 
 If a request spans multiple categories, handle the dominant category first and then apply the others only where necessary.
@@ -59,6 +81,11 @@ When a matching skill exists, prefer these defaults:
 - refactor safety pass: `flutter-refactor-safely`
 - review before merge: `flutter-pr-reviewer`
 - repo rules and boundary alignment: `flutter-repo-conventions`
+- finalize lane orchestration: `flutter-finalize-change`
+- repo health audit orchestration: `flutter-audit-repo`
+- structured review orchestration: `flutter-review-change`
+- toolkit learning capture: `flutter-self-improve`
+- commit readiness: `flutter-commit-readiness`
 
 Use supporting skills when they fit the task:
 - `flutter-new-project-bootstrap`
@@ -66,6 +93,10 @@ Use supporting skills when they fit the task:
 - `flutter-state-management-pattern`
 - `flutter-ui-screen-implementation`
 - `flutter-testing-checklist`
+- `flutter-review-architecture`
+- `flutter-review-localization`
+- `flutter-review-testing`
+- `flutter-review-platform-config`
 
 Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
 Use `flutter-cache-first-rendering` when the main goal is stale-while-revalidate UX, cache-first first render, or preserving optimistic local actions during refresh.
@@ -74,11 +105,12 @@ Use `flutter-apple-native-loop` when the task affects `ios/` or `macos/` and nee
 
 ---
 
-## Grok Code Notes
+## Grok Code notes
 
 When using Grok Code in this repo:
 
-- stay aligned with `AGENTS.md` for durable rules
-- use `docs/skill-workflow-map.md` when the correct prompt or skill is not obvious
-- prefer focused skills over broad freeform instructions
-- keep the final report explicit about assumptions, verification, and unresolved risks
+- stay aligned with `AGENTS.md` for durable rules,
+- use `docs/skill-workflow-map.md` when the correct prompt or skill is not obvious,
+- prefer focused skills over broad freeform instructions,
+- use pipeline prompts for multi-step work,
+- keep the final report explicit about assumptions, verification, and unresolved risks.

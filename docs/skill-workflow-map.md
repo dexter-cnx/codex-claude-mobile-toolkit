@@ -8,6 +8,11 @@ Choose the dominant task shape first:
 
 - New Flutter app foundation: `prompts/new_project.md` or `prompts/new_project_riverpod.md` + `skills/flutter-new-project-bootstrap/`
 - New feature in an existing app: `prompts/new_feature.md` or `prompts/new_feature_riverpod.md` + `skills/flutter-feature-scaffold/`
+- Finalize a completed change: `prompts/finalize_mobile_change.md` + `skills/flutter-finalize-change/`
+- Repo health audit: `prompts/audit_mobile_repo.md` + `skills/flutter-audit-repo/`
+- Bug investigation: `prompts/investigate_flutter_bug.md` + `skills/flutter-bug-investigation/`
+- Structured review pass: `prompts/review_mobile_change.md` + `skills/flutter-review-change/`
+- Toolkit maintenance and lesson capture: `prompts/self_improve_toolkit.md` + `skills/flutter-self-improve/`
 - Offline-first feature: `prompts/patterns/offline_first_repository.md` + `skills/flutter-offline-first/`
 - Local indexed search: `prompts/patterns/local_search_fts.md` + `skills/flutter-local-search-fts/`
 - Local-first sync: `prompts/patterns/sync_supabase_local_first.md` + `skills/flutter-supabase-sync/`

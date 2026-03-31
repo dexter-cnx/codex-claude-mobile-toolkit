@@ -280,6 +280,41 @@ Use `flutter-cache-first-rendering` when the core problem is remote-first first 
 Use `flutter-apple-native-loop` when validation must cross into `ios/` or `macos/`.
 Use the build optimization stack for compile-time, packaging, and toolchain performance issues.
 
+### Pipeline and self-improvement routing
+
+Use `prompts/` and `antigravity/workflows/` for end-to-end execution lanes.
+Use `skills/` for focused reusable procedures.
+
+Preferred pipeline entrypoints:
+
+- `finalize_mobile_change`
+- `audit_mobile_repo`
+- `investigate_flutter_bug`
+- `review_mobile_change`
+- `self_improve_toolkit`
+
+Preferred orchestrator skills:
+
+- `flutter-finalize-change`
+- `flutter-audit-repo`
+- `flutter-review-change`
+- `flutter-self-improve`
+- `flutter-commit-readiness`
+- `flutter-review-architecture`
+- `flutter-review-localization`
+- `flutter-review-testing`
+- `flutter-review-platform-config`
+
+Rules:
+
+- Each pipeline should solve one end-to-end lane.
+- Each skill should solve one narrow reusable procedure.
+- Each skill must define verification steps and expected outputs.
+- If a skill grows too large, split it.
+- Do not create catch-all mega-skills.
+- Prefer a pipeline only when sequencing or artifact discipline genuinely matters.
+- Do not create duplicate prompts and skills that solve the same job with different names.
+
 ---
 
 ## 11. Antigravity usage rules

@@ -22,6 +22,18 @@ For most tasks in a project using this toolkit, follow this order:
 
 ---
 
+## Pipeline-first routing
+
+When the task needs an explicit end-to-end lane, prefer a pipeline prompt first:
+
+- finalize change: `prompts/finalize_mobile_change.md`
+- repo audit: `prompts/audit_mobile_repo.md`
+- bug investigation: `prompts/investigate_flutter_bug.md`
+- structured review: `prompts/review_mobile_change.md`
+- toolkit self-improvement: `prompts/self_improve_toolkit.md`
+
+---
+
 ## Workflow categories
 
 Map requests into one of these categories:
@@ -51,6 +63,11 @@ When a matching skill exists, prefer these defaults:
 - bug investigation: `flutter-bug-investigation`
 - runtime responsiveness review: `flutter-event-loop-audit`
 - cache-first retrofit and staged state: `flutter-cache-first-rendering`
+- finalize change orchestration: `flutter-finalize-change`
+- repo audit orchestration: `flutter-audit-repo`
+- structured review orchestration: `flutter-review-change`
+- toolkit self-improvement: `flutter-self-improve`
+- commit readiness: `flutter-commit-readiness`
 - offline-first feature work: `flutter-offline-first`
 - indexed local search: `flutter-local-search-fts`
 - local-first sync: `flutter-supabase-sync`
@@ -71,6 +88,10 @@ Use supporting skills when they fit the task:
 - `flutter-state-management-pattern`
 - `flutter-ui-screen-implementation`
 - `flutter-testing-checklist`
+- `flutter-review-architecture`
+- `flutter-review-localization`
+- `flutter-review-testing`
+- `flutter-review-platform-config`
 
 Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, first-paint delays, and UI-isolate hotspots.
 Use `flutter-cache-first-rendering` when the main goal is stale-while-revalidate UX, cache-first first render, or preserving optimistic local actions during refresh.

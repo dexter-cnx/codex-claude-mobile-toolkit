@@ -1,32 +1,13 @@
-# Artifact Contract
+# Antigravity artifacts
 
-Each Antigravity task should return structured artifacts.
+Use this folder to store task artifacts when a workflow explicitly wants Antigravity-scoped outputs.
 
-## Minimum artifact set
-1. Task Summary
-2. Implementation Report
-3. Verification Report
-4. Risk Log (only if relevant)
+Preferred artifact types:
 
-## What each artifact should contain
+- `verification/`
+- `audits/`
+- `investigations/`
+- `reviews/`
+- `improvements/`
 
-### Task Summary
-- task goal
-- assumptions
-- scope boundary
-
-### Implementation Report
-- files added/changed/deleted
-- architecture decisions
-- notable trade-offs
-
-### Verification Report
-- commands run
-- pass/fail status
-- runtime checks performed
-- unverified areas
-
-### Risk Log
-- unresolved risks
-- environment blockers
-- recommended follow-up
+Each artifact should remain markdown-first, concise, and explicit about evidence, unknowns, and next steps.

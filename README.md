@@ -32,6 +32,30 @@ Typical flow:
 5. Use `skills/` for focused implementation tasks.
 6. Require verification artifacts before considering work complete.
 
+## Pipeline orchestration model
+
+This repository works best when end-to-end work is treated as a layered system:
+
+1. **Rules layer** - durable constraints from `AGENTS.md` and agent-specific files.
+2. **Pipeline layer** - end-to-end execution lanes from `prompts/` or `antigravity/workflows/`.
+3. **Skill layer** - narrow reusable procedures in `skills/`.
+4. **Artifact layer** - standardized reports and summaries in `templates/`.
+
+### Main pipeline entrypoints
+
+- `prompts/finalize_mobile_change.md`
+- `prompts/audit_mobile_repo.md`
+- `prompts/investigate_flutter_bug.md`
+- `prompts/review_mobile_change.md`
+- `prompts/self_improve_toolkit.md`
+
+Use pipelines when you need:
+- a review-ready final pass,
+- a repo health audit,
+- root-cause investigation,
+- a structured change review,
+- toolkit self-improvement capture.
+
 ## Agent surfaces supported
 
 ### Codex / Codex-style agents
@@ -173,18 +197,30 @@ Useful docs from the production layout:
 - `docs/install-claude.md`
 - `docs/install-antigravity.md`
 - `docs/install-openclaw.md`
+- `docs/workflow-pipelines.md`
+- `docs/pipeline-vs-skill.md`
+- `docs/self-improvement-routing.md`
+- `docs/verification-artifacts.md`
+- `docs/release-checklist.md`
 - `docs/repo-integration-playbook.md`
 - `docs/markdown-workspace-adoption.md`
 - `docs/skill-authoring-guide.md`
 
 ### Quick Task Routing
 
-If you want the shortest path through this repo, start with [docs/skill-workflow-map.md](/Users/dxtr_m4/develop/mobile_projects/codex-claude-mobile-toolkit/codex-claude-mobile-toolkit/docs/skill-workflow-map.md).
+If you want the shortest path through this repo, start with [docs/skill-workflow-map.md](docs/skill-workflow-map.md).
 
 ### Recommended skills by workflow
 
 These overlay skills complement the existing repo skills.
 They do not replace more specialized build-analysis, platform-analysis, game, or integration skills already present in this toolkit.
+
+Pipeline skills:
+- `flutter-finalize-change`
+- `flutter-audit-repo`
+- `flutter-review-change`
+- `flutter-self-improve`
+- `flutter-commit-readiness`
 
 First-class workflow skills:
 - use `flutter-project-bootstrap` when starting from a blank folder or refreshing a starter layout,
