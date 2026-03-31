@@ -1,39 +1,52 @@
-# Flutter Component Contracts Skill
+# flutter-component-contracts
 
 ## Purpose
+Define reusable Flutter component contracts before or during UI implementation.
 
-Use this skill to define reusable Flutter components before implementation so agents generate clearer, more stable, and more maintainable widget APIs.
+## When to use
+Use this skill when:
+- a screen is repeating similar UI blocks,
+- a reusable widget should be introduced,
+- props and state handling are becoming unclear,
+- design review needs a component-level handoff.
 
-## Use this skill for
+## Inputs
+- target screen or feature
+- repeated UI patterns
+- current reusable widget library if any
+- theming rules
+- interaction requirements
 
-- buttons
-- text fields
-- cards
-- banners
-- list items
-- empty states
-- app bars and section headers
+## Procedure
+1. Identify repeated UI structures.
+2. Decide which ones deserve abstraction.
+3. For each reusable component, define:
+   - responsibility,
+   - public API,
+   - required inputs,
+   - optional inputs,
+   - callback behavior,
+   - loading / disabled / error variants,
+   - localization expectations,
+   - accessibility expectations.
+4. Note whether the component should remain stateless or have a narrow internal state.
+5. Describe composition boundaries and anti-patterns.
 
-## Expected outputs
+## Output contract
+Use `templates/component-spec.md` where possible.
 
-Usually return:
-1. purpose
-2. public API
-3. supported states
-4. sizing/layout behavior
-5. accessibility behavior
-6. theming hooks
-7. example usage
+For each component, produce:
+- name
+- purpose
+- props
+- states
+- composition notes
+- accessibility notes
+- test notes
+- implementation caution notes
 
-## Rules
-
-- prefer small and focused APIs
-- do not leak feature-specific business rules into shared widgets
-- identify whether the widget belongs in shared/core or only inside a feature
-- define accessibility behavior explicitly
-
-## References
-
-- `references/button-contract.md`
-- `references/textfield-contract.md`
-- `references/card-contract.md`
+## Verification
+Check that:
+- the component contract maps to existing architecture,
+- the abstraction reduces duplication instead of hiding logic,
+- the proposed API is still understandable from the call site.

@@ -207,6 +207,23 @@ When auditing a screen or component, evaluate:
 - consistency with Material 3 and app theme
 - maintainability
 
+### UI/UX routing
+
+When the task is about screen quality or design tokens, use:
+
+- `prompts/new_screen.md`
+- `prompts/improve_existing_ui.md`
+- `prompts/generate_design_tokens.md`
+- `prompts/review_flutter_ui.md`
+- `skills/flutter-ux-ui-design-system/`
+- `skills/flutter-component-contracts/`
+- `skills/flutter-design-review/`
+- `skills/flutter-accessibility-audit/`
+- `core/routing/ui-ux-lane.md`
+- `core/checklists/ui-screen-quality.md`
+- `docs/ux-ui/mobile-design-system-lane.md`
+- `tokens/README.md`
+
 ---
 
 ## Build optimization behavior

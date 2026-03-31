@@ -133,6 +133,9 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 ├─ README.md
 ├─ agents/
 ├─ core/
+│  ├─ rules/
+│  ├─ routing/
+│  └─ checklists/
 ├─ antigravity/
 │  ├─ README.md
 │  ├─ rules/
@@ -149,6 +152,7 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 │  ├─ architecture/
 │  ├─ examples/
 │  └─ ...
+├─ tokens/
 ├─ scripts/
 ├─ schemas/
 └─ examples/
@@ -211,6 +215,7 @@ Useful docs from the production layout:
 - `docs/realtime-state-patterns.md`
 - `docs/source-adapter-guidelines.md`
 - `docs/tv-ui-guidelines.md`
+- `docs/ux-ui/mobile-design-system-lane.md`
 
 ### Quick Task Routing
 
@@ -311,6 +316,15 @@ Use these repo assets for Flutter UX/UI work:
 - `skills/flutter-component-contracts/`
 - `skills/flutter-design-review/`
 - `skills/flutter-accessibility-audit/`
+- `prompts/new_screen.md`
+- `prompts/improve_existing_ui.md`
+- `prompts/generate_design_tokens.md`
+- `prompts/review_flutter_ui.md`
+- `core/rules/flutter-defaults.md`
+- `core/rules/verification-first.md`
+- `core/routing/ui-ux-lane.md`
+- `core/checklists/ui-screen-quality.md`
+- `docs/ux-ui/mobile-design-system-lane.md`
 - `docs/ux-ui/`
 - `templates/ux-audit-report.md`
 - `templates/component-spec.md`

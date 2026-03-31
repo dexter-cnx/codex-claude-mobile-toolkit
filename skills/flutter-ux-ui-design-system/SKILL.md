@@ -1,37 +1,71 @@
-# Flutter UX/UI Design System Skill
+# flutter-ux-ui-design-system
 
 ## Purpose
+Define or refine a Flutter-oriented design-system direction for a product, feature, or screen family.
 
-Use this skill when the task is about building or evolving a Flutter design system, creating reusable UI primitives, or mapping tokens into Flutter theme and component layers.
+## When to use
+Use this skill when:
+- a repo needs more consistent visual rules,
+- a feature needs token-aware styling guidance,
+- a new screen should align with an explicit design direction,
+- the team needs a practical bridge between design intent and Flutter implementation.
 
-## Use this skill for
+## Inputs
+- app purpose or feature purpose
+- target screen or flow
+- existing theme files if any
+- existing reusable components if any
+- platform constraints
+- localization and accessibility expectations
 
-- token-driven theming
-- Material 3 aligned design-system setup
-- shared button/input/card/banner patterns
-- ThemeExtension mapping
-- design-system cleanup or refactor
+## Procedure
+1. Identify the product type and the screen's job.
+2. Identify the dominant action model: browse, read, input, compare, manage, approve, track, or inspect.
+3. Determine presentation priorities:
+   - content-first,
+   - action-first,
+   - data-dense,
+   - workflow-driven,
+   - media-forward,
+   - form-heavy.
+4. Propose token-level guidance:
+   - semantic colors,
+   - typography scale,
+   - spacing rhythm,
+   - shape and elevation rules.
+5. Map the guidance to real Flutter surfaces:
+   - app bars,
+   - cards,
+   - lists,
+   - forms,
+   - bottom sheets,
+   - dialogs,
+   - buttons,
+   - chips,
+   - empty and error states.
+6. Check mobile-specific risks:
+   - long text,
+   - small screens,
+   - touch target size,
+   - keyboard overlap,
+   - dense layouts,
+   - offline or stale-data messaging.
+7. Summarize the recommended system in implementation-ready language.
 
-## Expected outputs
+## Output contract
+Produce:
+- design direction summary
+- token guidance
+- component usage guidance
+- state presentation guidance
+- anti-patterns to avoid
+- implementation notes for Flutter
 
-Usually produce:
-1. assumptions
-2. token mapping plan
-3. theme structure
-4. component structure
-5. Flutter implementation guidance
-6. risks or tradeoffs
+## Verification
+Validate against:
+- current theme structure
+- existing component patterns
+- localization needs
+- accessibility expectations
 
-## Rules
-
-- prefer semantic tokens before raw values
-- avoid business logic inside shared UI widgets
-- keep component APIs small and clear
-- consider dark mode and accessibility where relevant
-- define explicit states for interactive components
-
-## References
-
-- `references/token-architecture.md`
-- `references/theme-extension-mapping.md`
-- `references/material3-component-rules.md`
+Mark any missing theme or component evidence as unverified.

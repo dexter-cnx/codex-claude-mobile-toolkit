@@ -46,6 +46,9 @@ Use skills after the lane is clear.
 - multiple upstream providers → `skills/flutter-source-adapter-pattern/`
 - shared core across more than one app shell → `skills/flutter-shared-core-multi-surface/`
 - Android TV or remote-driven UI → `skills/flutter-tv-ui-pattern/`
+- screen quality or design tokens → `prompts/new_screen.md`, `prompts/improve_existing_ui.md`, `prompts/generate_design_tokens.md`, `prompts/review_flutter_ui.md`
+- UI system and review assets → `skills/flutter-ux-ui-design-system/`, `skills/flutter-component-contracts/`, `skills/flutter-design-review/`, `skills/flutter-accessibility-audit/`
+- UI lane docs → `core/routing/ui-ux-lane.md`, `core/checklists/ui-screen-quality.md`, `docs/ux-ui/mobile-design-system-lane.md`, `tokens/README.md`
 
 ---
 

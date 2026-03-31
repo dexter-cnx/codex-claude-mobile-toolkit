@@ -1,34 +1,48 @@
-# Flutter Design Review Skill
+# flutter-design-review
 
 ## Purpose
+Run a structured UX/UI quality review on Flutter code or screen plans.
 
-Use this skill to review Flutter UI for consistency, clarity, state completeness, and architecture-aware presentation quality.
+## When to use
+Use this skill when:
+- a screen has been implemented and needs critique,
+- a PR has meaningful UI change,
+- a feature feels correct but not polished,
+- the team wants explicit UX findings before merge.
 
-## Use this skill for
+## Review dimensions
+- objective clarity
+- information hierarchy
+- spacing and rhythm
+- interaction clarity
+- state handling
+- readability
+- consistency with existing components
+- localization resilience
+- accessibility
+- maintainability of the implementation
 
-- reviewing a screen after a feature is added
-- finding inconsistencies across pages
-- evaluating whether a design system is being applied correctly
-- spotting state handling or presentational architecture issues
+## Procedure
+1. Identify the screen objective and primary user action.
+2. Inspect current layout and action hierarchy.
+3. Inspect explicit handling of loading, empty, error, and success.
+4. Check whether text length and localization can break the layout.
+5. Check component consistency against the repo's existing UI patterns.
+6. Review forms, lists, dialogs, and navigation affordances where relevant.
+7. Rate issues by severity and implementation cost.
+8. Suggest fixes that fit the current repo instead of assuming a greenfield redesign.
 
-## Expected outputs
+## Output contract
+Use `templates/ux-audit-report.md` when possible.
 
-Return:
-1. what is working
-2. inconsistencies
-3. accessibility risks
-4. architecture/UI boundary issues
-5. recommended refactor order
+Produce:
+- summary
+- findings
+- severity
+- recommended fixes
+- implementation complexity
+- verification notes
 
-## Rules
-
-- review both visual and structural quality
-- call out repeated patterns that should become shared widgets
-- verify loading, empty, error, and disabled states are intentional
-- identify when widgets are doing too much
-
-## References
-
-- `references/review-rubric.md`
-- `references/state-matrix.md`
-- `references/ui-consistency.md`
+## Verification
+Base findings on visible code structure, theme usage, and explicit state handling.
+Do not claim runtime behavior that was not observed or verified.

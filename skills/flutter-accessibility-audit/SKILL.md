@@ -1,35 +1,44 @@
-# Flutter Accessibility Audit Skill
+# flutter-accessibility-audit
 
 ## Purpose
+Audit a Flutter screen or feature for accessibility risks.
 
-Use this skill to audit a Flutter screen, flow, or widget for accessibility risks and pragmatic WCAG-aligned improvements.
+## When to use
+Use this skill when:
+- a screen is close to release,
+- forms or interactions were added,
+- UI was redesigned,
+- a structured a11y pass is needed.
 
-## Use this skill for
+## Review areas
+- text readability
+- contrast risk
+- tappable target size
+- focus order
+- screen-reader labeling risk
+- form error clarity
+- semantics for icons and controls
+- keyboard and input flow
+- motion or distraction risk where relevant
+- localization impact on usability
 
-- screen audits
-- custom widget audits
-- form accessibility review
-- text scaling review
-- semantics and focus review
+## Procedure
+1. Identify the main user tasks on the screen.
+2. Check whether core actions are easy to perceive and reach.
+3. Check whether icons and controls need semantics labels.
+4. Check whether small text or dense layouts reduce usability.
+5. Check whether errors are communicated clearly.
+6. Check whether long translated strings could reduce readability or cause truncation.
+7. Summarize critical, moderate, and minor risks.
 
-## Expected outputs
+## Output contract
+Produce:
+- audit summary
+- risk list by severity
+- recommended remediation
+- implementation notes
+- verification gaps
 
-Return:
-1. pass areas
-2. risks
-3. severity
-4. recommended fixes
-5. code-level notes when useful
-
-## Rules
-
-- treat accessibility as part of product quality, not polish
-- check semantics, focus, tap targets, text scaling, and clarity
-- do not rely on color alone for critical meaning
-- identify whether risk is low, medium, or high
-
-## References
-
-- `references/semantics.md`
-- `references/text-scaling.md`
-- `references/focus-navigation.md`
+## Verification
+Use code evidence where possible.
+If runtime accessibility inspection was not available, state that explicitly.

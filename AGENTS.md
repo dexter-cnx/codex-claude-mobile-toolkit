@@ -198,6 +198,21 @@ When the feature targets Android TV, desktop keyboard navigation, kiosk, or any 
 
 Use `skills/flutter-tv-ui-pattern/` when the task explicitly involves TV or remote-driven UI.
 
+### UI/UX lane routing
+
+When the task involves a screen redesign, design-token work, or a structured UI review:
+
+- use `prompts/new_screen.md`
+- use `prompts/improve_existing_ui.md`
+- use `prompts/generate_design_tokens.md`
+- use `prompts/review_flutter_ui.md`
+- use `core/routing/ui-ux-lane.md`
+- use `core/checklists/ui-screen-quality.md`
+- use `docs/ux-ui/mobile-design-system-lane.md`
+- use `tokens/README.md`
+
+Keep these assets focused on screen quality, component contracts, and design-system alignment rather than general feature delivery.
+
 ### Offline-first, search, sync, and secure data patterns
 
 Use these patterns when the product needs stronger local-first behavior:
