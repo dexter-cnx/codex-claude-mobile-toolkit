@@ -429,7 +429,7 @@ String _replacePlistStringValue(String content, String key, String value) {
 String _projectNameFromBundleId(String bundleId) {
   final segments = bundleId.split('.');
   if (segments.length < 2) {
-    throw FormatException(
+    throw const FormatException(
       '--bundle-id must contain at least one domain segment and one app segment.',
     );
   }
@@ -448,7 +448,7 @@ String _projectNameFromBundleId(String bundleId) {
 String _orgFromBundleId(String bundleId) {
   final segments = bundleId.split('.');
   if (segments.length < 2) {
-    throw FormatException(
+    throw const FormatException(
       '--bundle-id must contain at least one domain segment and one app segment.',
     );
   }
