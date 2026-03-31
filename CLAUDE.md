@@ -2,7 +2,7 @@
 
 ## How to operate in this repo
 
-Read `AGENTS.md` first. Treat it as the primary source of truth for architecture, stack defaults, workflow selection, localization rules, and build optimization behavior.
+Read `AGENTS.md` first. Treat it as the primary source of truth for architecture, stack defaults, workflow selection, localization rules, realtime patterns, multi-surface boundaries, TV/non-touch constraints, and build optimization behavior.
 
 This file exists to adapt the same toolkit conventions to Claude Code usage. Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
 If the task is explicitly routed through Antigravity, use `antigravity/README.md` and the matching workflow as an additional execution layer, not as a replacement for the default Claude Code flow.
@@ -31,6 +31,14 @@ When the task needs an explicit end-to-end lane, prefer a pipeline prompt first:
 - bug investigation: `prompts/investigate_flutter_bug.md`
 - structured review: `prompts/review_mobile_change.md`
 - toolkit self-improvement: `prompts/self_improve_toolkit.md`
+- realtime feature delivery: `prompts/new_realtime_feature.md`
+
+## Common routing
+
+- realtime / stream-driven feature → `prompts/new_realtime_feature.md` + `skills/flutter-realtime-feature-pattern/`
+- multiple upstream providers → `skills/flutter-source-adapter-pattern/`
+- shared core across more than one app shell → `skills/flutter-shared-core-multi-surface/`
+- Android TV or remote-driven UI → `skills/flutter-tv-ui-pattern/`
 
 ---
 
@@ -45,6 +53,10 @@ Map requests into one of these categories:
 - **persistence evolution**
 - **runtime responsiveness**
 - **cache-first retrofit**
+- **realtime feature work**
+- **source adapter / multi-provider integration**
+- **shared-core multi-surface planning**
+- **TV / non-touch UI work**
 - **apple-native boundary work**
 - **build optimization**
 - **plugin-style packaging**
@@ -68,6 +80,10 @@ When a matching skill exists, prefer these defaults:
 - structured review orchestration: `flutter-review-change`
 - toolkit self-improvement: `flutter-self-improve`
 - commit readiness: `flutter-commit-readiness`
+- realtime feature work: `flutter-realtime-feature-pattern`
+- source adapter / multi-provider integration: `flutter-source-adapter-pattern`
+- shared-core multi-surface planning: `flutter-shared-core-multi-surface`
+- TV / non-touch UI work: `flutter-tv-ui-pattern`
 - offline-first feature work: `flutter-offline-first`
 - indexed local search: `flutter-local-search-fts`
 - local-first sync: `flutter-supabase-sync`

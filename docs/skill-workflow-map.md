@@ -8,6 +8,10 @@ Choose the dominant task shape first:
 
 - New Flutter app foundation: `prompts/new_project.md` or `prompts/new_project_riverpod.md` + `skills/flutter-new-project-bootstrap/`
 - New feature in an existing app: `prompts/new_feature.md` or `prompts/new_feature_riverpod.md` + `skills/flutter-feature-scaffold/`
+- Realtime feature delivery: `prompts/new_realtime_feature.md` + `skills/flutter-realtime-feature-pattern/`
+- Multi-provider source integration: `skills/flutter-source-adapter-pattern/`
+- Shared-core multi-surface planning: `skills/flutter-shared-core-multi-surface/`
+- TV / remote-driven UI: `skills/flutter-tv-ui-pattern/`
 - Finalize a completed change: `prompts/finalize_mobile_change.md` + `skills/flutter-finalize-change/`
 - Repo health audit: `prompts/audit_mobile_repo.md` + `skills/flutter-audit-repo/`
 - Bug investigation: `prompts/investigate_flutter_bug.md` + `skills/flutter-bug-investigation/`
@@ -32,6 +36,10 @@ Choose the dominant task shape first:
 
 - Use `flutter-event-loop-audit` when the main question is jank, async scheduling, lifecycle timing, duplicate side effects, or UI-isolate pressure.
 - Use `flutter-cache-first-rendering` when the main goal is showing cached data first, preserving optimistic local actions, and keeping refresh errors non-destructive.
+- Use `flutter-realtime-feature-pattern` when the main problem is stream lifecycle, reconnect behavior, or live-edge UX.
+- Use `flutter-source-adapter-pattern` when one feature normalizes more than one upstream provider.
+- Use `flutter-shared-core-multi-surface` when more than one real delivery surface shares business logic.
+- Use `flutter-tv-ui-pattern` when D-pad focus, remote-driven navigation, or TV layout is part of the task.
 - Use `flutter-pr-reviewer` for merge-oriented review of a concrete change set.
 - Use `flutter-review` for broader architecture drift review against toolkit conventions.
 - Use `flutter-apple-native-loop` only when work crosses into `ios/` or `macos/`.
@@ -50,6 +58,18 @@ Choose the dominant task shape first:
 
 - Feature delivery with offline-first storage:
   `flutter-feature-scaffold` + `flutter-offline-first`
+
+- Feature delivery with realtime updates:
+  `flutter-feature-scaffold` + `flutter-realtime-feature-pattern`
+
+- Feature delivery with multi-provider sources:
+  `flutter-feature-scaffold` + `flutter-source-adapter-pattern`
+
+- Feature delivery with multiple app surfaces:
+  `flutter-feature-scaffold` + `flutter-shared-core-multi-surface`
+
+- Feature delivery with TV / remote-driven UI:
+  `flutter-feature-scaffold` + `flutter-tv-ui-pattern`
 
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`

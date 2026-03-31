@@ -36,8 +36,16 @@ Prefer starting with a pipeline when the task needs coordinated execution:
 - `prompts/investigate_flutter_bug.md`
 - `prompts/review_mobile_change.md`
 - `prompts/self_improve_toolkit.md`
+- `prompts/new_realtime_feature.md`
 
 Use skills after the lane is clear.
+
+## Common routing
+
+- realtime / stream-driven feature → `prompts/new_realtime_feature.md` + `skills/flutter-realtime-feature-pattern/`
+- multiple upstream providers → `skills/flutter-source-adapter-pattern/`
+- shared core across more than one app shell → `skills/flutter-shared-core-multi-surface/`
+- Android TV or remote-driven UI → `skills/flutter-tv-ui-pattern/`
 
 ---
 
@@ -52,6 +60,10 @@ Map requests into one of these categories:
 - **persistence evolution**
 - **runtime responsiveness**
 - **cache-first retrofit**
+- **realtime feature work**
+- **source adapter / multi-provider integration**
+- **shared-core multi-surface planning**
+- **TV / non-touch UI work**
 - **apple-native boundary work**
 - **build optimization**
 - **review and finalize**
@@ -86,6 +98,10 @@ When a matching skill exists, prefer these defaults:
 - structured review orchestration: `flutter-review-change`
 - toolkit learning capture: `flutter-self-improve`
 - commit readiness: `flutter-commit-readiness`
+- realtime feature work: `flutter-realtime-feature-pattern`
+- source adapter / multi-provider integration: `flutter-source-adapter-pattern`
+- shared-core multi-surface planning: `flutter-shared-core-multi-surface`
+- TV / non-touch UI work: `flutter-tv-ui-pattern`
 
 Use supporting skills when they fit the task:
 - `flutter-new-project-bootstrap`

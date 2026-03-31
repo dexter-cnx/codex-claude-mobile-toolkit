@@ -9,6 +9,7 @@ This folder adds an Antigravity-friendly operating layer on top of the existing 
 - make every meaningful implementation flow **verification-first**,
 - standardize artifact output,
 - stay compatible with the existing Codex, Claude Code, and Grok Code entrypoints.
+- support higher-level workflow shells such as realtime delivery and multi-surface architecture work.
 
 ## Core operating idea
 
@@ -21,6 +22,8 @@ It should be used when the task benefits from:
 - repeatable sequencing across contributors or agents,
 - explicit verification gates,
 - documented MCP-assisted operating paths.
+- realtime features with explicit lifecycle and verification requirements,
+- architecture work that should emit a decision log and risks.
 
 For smaller or direct coding tasks, the base toolkit flow may still be enough without Antigravity.
 
@@ -41,6 +44,7 @@ For smaller or direct coding tasks, the base toolkit flow may still be enough wi
 ### Feature delivery
 - `add-feature.md`
 - `finalize-mobile-change.md`
+- `realtime-feature-delivery.md`
 
 ### Bug fixing and investigation
 - `investigate-flutter-bug.md`
@@ -82,6 +86,10 @@ If the task changes UI behavior, also perform:
 - screenshot or visual note when possible,
 - explicit reporting of what remained unverified.
 
+If the task affects TV or focus-based UI, include focus traversal verification.
+
+If the task affects a realtime feature, include reconnect and degraded-state verification.
+
 ## Expected artifacts
 
 Each completed Antigravity task should usually produce:
@@ -91,6 +99,7 @@ Each completed Antigravity task should usually produce:
 - verification report
 - risk log when relevant
 - audit or root-cause artifact when the workflow calls for it
+- architecture note when boundaries changed
 
 ## Artifact locations
 

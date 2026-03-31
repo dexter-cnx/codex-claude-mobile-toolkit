@@ -48,13 +48,15 @@ This repository works best when end-to-end work is treated as a layered system:
 - `prompts/investigate_flutter_bug.md`
 - `prompts/review_mobile_change.md`
 - `prompts/self_improve_toolkit.md`
+- `prompts/new_realtime_feature.md`
 
 Use pipelines when you need:
 - a review-ready final pass,
 - a repo health audit,
 - root-cause investigation,
 - a structured change review,
-- toolkit self-improvement capture.
+- toolkit self-improvement capture,
+- a realtime feature delivery lane.
 
 ## Agent surfaces supported
 
@@ -205,6 +207,10 @@ Useful docs from the production layout:
 - `docs/repo-integration-playbook.md`
 - `docs/markdown-workspace-adoption.md`
 - `docs/skill-authoring-guide.md`
+- `docs/multi-surface-architecture.md`
+- `docs/realtime-state-patterns.md`
+- `docs/source-adapter-guidelines.md`
+- `docs/tv-ui-guidelines.md`
 
 ### Quick Task Routing
 
@@ -225,6 +231,10 @@ Pipeline skills:
 First-class workflow skills:
 - use `flutter-project-bootstrap` when starting from a blank folder or refreshing a starter layout,
 - use `flutter-feature-scaffold` for a new feature or module,
+- use `flutter-realtime-feature-pattern` for stream-driven or append-style features,
+- use `flutter-source-adapter-pattern` for multiple upstream providers behind one feature,
+- use `flutter-shared-core-multi-surface` when more than one real app shell shares core behavior,
+- use `flutter-tv-ui-pattern` for Android TV or any remote-driven focus-based surface,
 - use `flutter-existing-project-audit` for architecture review or refactor planning,
 - use `flutter-localization-csv` for CSV-first localization workflows,
 - use `flutter-performance-audit` for performance and rebuild review,
@@ -333,6 +343,20 @@ Use these repo assets for cache-first and staged-state retrofits:
 - `docs/staged-state-pattern.md`
 - `templates/cache-first-migration-plan.md`
 - `templates/feature-cache-audit.md`
+
+### Realtime, source adapter, shared-core, and TV assets
+
+Use these repo assets when the product needs live updates, multiple upstream sources, shared behavior across surfaces, or remote-driven UI:
+- `skills/flutter-realtime-feature-pattern/`
+- `skills/flutter-source-adapter-pattern/`
+- `skills/flutter-shared-core-multi-surface/`
+- `skills/flutter-tv-ui-pattern/`
+- `prompts/new_realtime_feature.md`
+- `docs/multi-surface-architecture.md`
+- `docs/realtime-state-patterns.md`
+- `docs/source-adapter-guidelines.md`
+- `docs/tv-ui-guidelines.md`
+- `antigravity/workflows/realtime-feature-delivery.md`
 
 ## Verification-first rule
 

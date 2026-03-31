@@ -145,6 +145,59 @@ Rules:
 - Introduce staged state only where overlapping cache, refresh, and local mutations make it necessary.
 - Prefer incremental retrofit of one feature at a time over broad cache-architecture rewrites.
 
+### Shared-core and multi-surface rules
+
+When a product has more than one delivery surface, such as mobile + TV, mobile + desktop, or app + console/dev shell:
+
+- Prefer a shared domain/data core before duplicating business logic across apps.
+- Keep surface-specific routing, navigation, focus handling, and shell composition out of the shared core.
+- Keep provider-specific transport details behind source or repository boundaries.
+- Treat multi-surface support as a deliberate architecture choice, not an incidental folder split.
+- If a project only has one delivery surface, do not introduce multi-surface structure speculatively.
+
+Use `skills/flutter-shared-core-multi-surface/` when the architecture must support more than one real surface.
+
+### Source adapter rules
+
+When a feature integrates more than one upstream provider:
+
+- Define a shared domain contract first.
+- Normalize provider differences inside the data layer.
+- Keep raw provider models and quirks out of UI and domain layers.
+- Expose feature capability differences explicitly rather than hiding them through fragile assumptions.
+- Prefer capability matrices and feature flags over silent partial support.
+
+Use `skills/flutter-source-adapter-pattern/` when the task involves multiple providers or upstreams.
+
+### Realtime feature rules
+
+When a feature receives live or streaming updates:
+
+- Keep connection lifecycle management out of widgets.
+- Distinguish initial snapshot loading from live stream maintenance.
+- Represent reconnecting, degraded, stale, and disconnected states explicitly.
+- Deduplicate live events before mutating visible collections when upstream duplication is possible.
+- Prevent unbounded list growth in long-lived sessions.
+- Avoid auto-scroll behavior that overrides user intent.
+- Model background/foreground resume behavior deliberately.
+- Treat live transport errors separately from domain validation errors.
+
+Use `skills/flutter-realtime-feature-pattern/` when the main feature is stream-driven or event-driven.
+
+### TV and non-touch UI rules
+
+When the feature targets Android TV, desktop keyboard navigation, kiosk, or any remote-driven UI:
+
+- Design focus traversal intentionally.
+- Never assume touch-first interaction.
+- Maintain visible focus at all times.
+- Restore focus predictably after route changes, drawers, dialogs, and overlays.
+- Prefer larger targets and clearer grouping than phone-first layouts.
+- Validate D-pad traversal across primary flows.
+- Avoid hidden actions that only become discoverable through gesture habits.
+
+Use `skills/flutter-tv-ui-pattern/` when the task explicitly involves TV or remote-driven UI.
+
 ### Offline-first, search, sync, and secure data patterns
 
 Use these patterns when the product needs stronger local-first behavior:
@@ -265,6 +318,10 @@ Preferred skills by task type:
 - secure local data: `flutter-secure-local-data`
 - export and backup flows: `flutter-export-backup`
 - iOS/macOS native boundary work: `flutter-apple-native-loop`
+- realtime feature delivery: `flutter-realtime-feature-pattern`
+- source adapter / multi-provider integration: `flutter-source-adapter-pattern`
+- shared-core / multi-surface planning: `flutter-shared-core-multi-surface`
+- TV / remote-driven UI: `flutter-tv-ui-pattern`
 - design system and token mapping: `flutter-ux-ui-design-system`
 - reusable widget API definition: `flutter-component-contracts`
 - UX/UI quality review: `flutter-design-review`
