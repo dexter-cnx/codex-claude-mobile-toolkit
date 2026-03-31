@@ -13,6 +13,7 @@ Choose the dominant task shape first:
 - Multi-provider source integration: `skills/flutter-source-adapter-pattern/`
 - Shared-core multi-surface planning: `skills/flutter-shared-core-multi-surface/`
 - TV / remote-driven UI: `skills/flutter-tv-ui-pattern/`
+- REST catalog project or feature: `prompts/new_catalog_project.md` or `prompts/new_catalog_feature.md` + `skills/flutter-rest-catalog-feature/`
 - Finalize a completed change: `prompts/finalize_mobile_change.md` + `skills/flutter-finalize-change/`
 - Repo health audit: `prompts/audit_mobile_repo.md` + `skills/flutter-audit-repo/`
 - Bug investigation: `prompts/investigate_flutter_bug.md` + `skills/flutter-bug-investigation/`
@@ -41,6 +42,7 @@ Choose the dominant task shape first:
 - Use `flutter-source-adapter-pattern` when one feature normalizes more than one upstream provider.
 - Use `flutter-shared-core-multi-surface` when more than one real delivery surface shares business logic.
 - Use `flutter-tv-ui-pattern` when D-pad focus, remote-driven navigation, or TV layout is part of the task.
+- Use `flutter-rest-catalog-feature` when the feature is a read-mostly public REST catalog with list/detail/search and cache-first rendering.
 - Use `flutter-design-review` when you need a broad Flutter UI critique, and `flutter-accessibility-audit` when the task is mostly a11y risk review.
 - Use `flutter-pr-reviewer` for merge-oriented review of a concrete change set.
 - Use `flutter-review` for broader architecture drift review against toolkit conventions.
@@ -72,6 +74,9 @@ Choose the dominant task shape first:
 
 - Feature delivery with TV / remote-driven UI:
   `flutter-feature-scaffold` + `flutter-tv-ui-pattern`
+
+- Feature delivery with REST catalog behavior:
+  `flutter-feature-scaffold` + `flutter-rest-catalog-feature` + `flutter-cache-first-rendering`
 
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`

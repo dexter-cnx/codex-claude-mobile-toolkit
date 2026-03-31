@@ -9,7 +9,7 @@ This folder adds an Antigravity-friendly operating layer on top of the existing 
 - make every meaningful implementation flow **verification-first**,
 - standardize artifact output,
 - stay compatible with the existing Codex, Claude Code, and Grok Code entrypoints.
-- support higher-level workflow shells such as realtime delivery and multi-surface architecture work.
+- support higher-level workflow shells such as realtime delivery, REST catalog delivery, and multi-surface architecture work.
 
 ## Core operating idea
 
@@ -30,11 +30,12 @@ For smaller or direct coding tasks, the base toolkit flow may still be enough wi
 ## How to use this layer
 
 1. Read `AGENTS.md` at the repo root for global engineering rules.
-2. Read `antigravity/rules/global.md` and `antigravity/rules/flutter.md`.
-3. Pick a workflow from `antigravity/workflows/`.
-4. Use a task template from `antigravity/task-templates/` if you need a ready-made shell prompt.
-5. Use focused skills from `skills/`.
-6. Return artifacts following `antigravity/artifacts/README.md`.
+2. Read `antigravity/rules/00-read-order.md`.
+3. Read `antigravity/rules/global.md` and `antigravity/rules/flutter.md`.
+4. Pick a workflow from `antigravity/workflows/`.
+5. Use a task template from `antigravity/task-templates/` if you need a ready-made shell prompt.
+6. Use focused skills from `skills/`.
+7. Return artifacts following `antigravity/artifacts/README.md`.
 
 ## Recommended workflow order
 
@@ -45,6 +46,7 @@ For smaller or direct coding tasks, the base toolkit flow may still be enough wi
 - `add-feature.md`
 - `finalize-mobile-change.md`
 - `realtime-feature-delivery.md`
+- `07-rest-catalog-feature.md`
 
 ### Bug fixing and investigation
 - `investigate-flutter-bug.md`
@@ -100,6 +102,7 @@ Each completed Antigravity task should usually produce:
 - risk log when relevant
 - audit or root-cause artifact when the workflow calls for it
 - architecture note when boundaries changed
+- rest-catalog feature report when the workflow is catalog-oriented
 
 ## Artifact locations
 

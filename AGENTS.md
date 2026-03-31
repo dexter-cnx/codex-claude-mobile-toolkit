@@ -8,6 +8,7 @@ Task-specific instructions belong in:
 - `prompts/`
 - `antigravity/workflows/`
 - `skills/`
+- `templates/`
 
 ---
 
@@ -19,11 +20,16 @@ It is not a finished application template by itself.
 It provides:
 - rules,
 - shared core rules and agent routing hints,
+- shared rule fragments under `core/` and `agents/shared/`,
 - prompts,
 - workflows,
 - skills,
 - templates,
 - integration notes.
+
+### Shared rule composition
+
+When the same policy needs to be reused across surfaces, prefer shared files under `core/` and `agents/shared/` rather than copying the same guidance into every root agent file.
 
 ---
 
@@ -144,6 +150,21 @@ Rules:
 - Do not blindly overwrite visible state with fresh remote payloads when optimistic local actions may still be pending.
 - Introduce staged state only where overlapping cache, refresh, and local mutations make it necessary.
 - Prefer incremental retrofit of one feature at a time over broad cache-architecture rewrites.
+
+### REST catalog apps
+
+When a feature is a read-mostly REST catalog or public API browser:
+
+- prefer cache-first list and detail rendering,
+- keep related resources lazy unless eager loading is clearly justified,
+- keep favorites and recently viewed items local when relevant,
+- use `prompts/new_catalog_project.md` or `prompts/new_catalog_feature.md`,
+- use `skills/flutter-rest-catalog-feature/`,
+- use `docs/rest-catalog-pattern.md`,
+- use `templates/rest-catalog-audit.md`,
+- use `antigravity/workflows/07-rest-catalog-feature.md` when working through Antigravity.
+
+This pattern is a good fit for browse/detail experiences with modest write complexity and high tolerance for stale-but-useful content.
 
 ### Shared-core and multi-surface rules
 

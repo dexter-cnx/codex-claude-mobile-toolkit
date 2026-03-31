@@ -10,6 +10,7 @@ This repository is designed to be used as a shared toolkit layer that can be:
 It provides:
 - repo-wide rules and conventions,
 - shared core rules and agent routing docs,
+- shared rule fragments in `core/` and `agents/shared/`,
 - reusable prompts and workflows,
 - focused implementation skills,
 - Flutter/Dart MCP setup notes,
@@ -63,6 +64,7 @@ Use pipelines when you need:
 ### Codex / Codex-style agents
 Use:
 - `AGENTS.md`
+- `agents/shared/`
 - `prompts/`
 - `skills/`
 - `templates/`
@@ -71,6 +73,7 @@ Use:
 Use:
 - `CLAUDE.md`
 - `AGENTS.md`
+- `agents/shared/`
 - `prompts/`
 - `skills/`
 
@@ -78,6 +81,7 @@ Use:
 Use:
 - `GROK.md`
 - `AGENTS.md`
+- `agents/shared/`
 - `prompts/`
 - `skills/`
 
@@ -93,6 +97,7 @@ Use:
 ### OpenClaw
 Use:
 - `OPENCLAW.md`
+- `agents/shared/`
 - `docs/install-openclaw.md`
 
 ## When to use Antigravity
@@ -132,6 +137,9 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 ├─ OPENCLAW.md
 ├─ README.md
 ├─ agents/
+│  ├─ shared/
+│  ├─ claude/
+│  └─ antigravity/
 ├─ core/
 │  ├─ rules/
 │  ├─ routing/
@@ -215,6 +223,7 @@ Useful docs from the production layout:
 - `docs/realtime-state-patterns.md`
 - `docs/source-adapter-guidelines.md`
 - `docs/tv-ui-guidelines.md`
+- `docs/rest-catalog-pattern.md`
 - `docs/ux-ui/mobile-design-system-lane.md`
 
 ### Quick Task Routing
@@ -330,6 +339,18 @@ Use these repo assets for Flutter UX/UI work:
 - `templates/component-spec.md`
 - `templates/design-handoff.md`
 - `tokens/`
+
+### REST catalog lane assets
+
+Use these repo assets for read-mostly public REST catalog apps:
+- `skills/flutter-rest-catalog-feature/`
+- `prompts/new_catalog_project.md`
+- `prompts/new_catalog_feature.md`
+- `docs/rest-catalog-pattern.md`
+- `templates/rest-catalog-audit.md`
+- `antigravity/workflows/07-rest-catalog-feature.md`
+- `antigravity/task-templates/catalog-feature-task.md`
+- `antigravity/artifacts/rest-catalog-feature-report.md`
 
 ### Apple-native lane assets
 
