@@ -11,7 +11,7 @@ void main() async {
 
   final lines = await csvFile.readAsLines();
   final rows = lines
-      .map((line) => _parseCsvLine(line))
+      .map(_parseCsvLine)
       .where((row) => row.any((cell) => cell.trim().isNotEmpty))
       .toList();
 

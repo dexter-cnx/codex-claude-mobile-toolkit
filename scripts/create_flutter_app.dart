@@ -437,7 +437,7 @@ String _projectNameFromBundleId(String bundleId) {
   final projectName = segments.last;
   final validProjectName = RegExp(r'^[a-z][a-z0-9_]*$');
   if (!validProjectName.hasMatch(projectName)) {
-    throw FormatException(
+    throw const FormatException(
       'The last segment of --bundle-id must be a valid Flutter project name using lowercase letters, numbers, and underscores.',
     );
   }
@@ -456,7 +456,7 @@ String _orgFromBundleId(String bundleId) {
   final orgSegments = segments.sublist(0, segments.length - 1);
   final validOrgSegment = RegExp(r'^[a-zA-Z][a-zA-Z0-9_]*$');
   if (orgSegments.any((segment) => !validOrgSegment.hasMatch(segment))) {
-    throw FormatException(
+    throw const FormatException(
       'Each domain segment in --bundle-id must start with a letter and contain only letters, numbers, or underscores.',
     );
   }
@@ -466,8 +466,8 @@ String _orgFromBundleId(String bundleId) {
 
 String _buildPubspec(ScaffoldOptions options) {
   final dependencies = <String>[
-    "  flutter:\n    sdk: flutter",
-    "  flutter_localizations:\n    sdk: flutter",
+    '  flutter:\n    sdk: flutter',
+    '  flutter_localizations:\n    sdk: flutter',
     if (options.localize) '  easy_localization: ^3.0.7+1',
     if (options.stateManagement == 'riverpod') '  flutter_riverpod: ^2.6.1',
     if (options.stateManagement == 'provider') '  provider: ^6.1.5',
