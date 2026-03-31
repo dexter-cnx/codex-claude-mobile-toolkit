@@ -41,6 +41,7 @@ Expected impact on other agent surfaces:
 ## Recommended workflow order
 - New project: `bootstrap-project.md`
 - New feature: `add-feature.md`
+- Offline-first feature: `implement_offline_first_feature.md`
 - Refactor/review: `refactor-review.md`
 - Localization changes: `localization-update.md`
 - Build issues: `bugfix-verify.md` or `build-optimize.md`

@@ -1,14 +1,27 @@
 # Repo Integration Playbook
 
-## Objective
-Integrate the toolkit into an existing Flutter + Flame puzzle repo with minimal disruption.
+This document explains how to integrate `codex-claude-mobile-toolkit` into a real product repository without letting the toolkit take over app-specific concerns.
 
-## Order
-1. Audit the repo
-2. Align `AGENTS.md`
-3. Add telemetry sink/service
-4. Hook level/session lifecycle events
-5. Hook move/wait/undo/restart/fail/complete
-6. Align level JSON parsing with shared schema
-7. Add smoke tests
-8. Document asset/report conventions
+## Integration models
+
+### 1. Submodule model
+### 2. Copy-in model
+### 3. Overlay model
+
+## Recommended overlay boundaries
+
+### Keep in toolkit
+- general Flutter engineering rules
+- reusable prompts
+- reusable skills
+- generic architecture templates
+- agent operating guidance
+- workflow shells
+- implementation artifact templates
+
+### Keep in project repo
+- routes and screens specific to the product
+- business entities and rules
+- backend environments
+- package allowlists tied to one repo
+- copywriting and localization content

@@ -145,6 +145,23 @@ Rules:
 - Introduce staged state only where overlapping cache, refresh, and local mutations make it necessary.
 - Prefer incremental retrofit of one feature at a time over broad cache-architecture rewrites.
 
+### Offline-first, search, sync, and secure data patterns
+
+Use these patterns when the product needs stronger local-first behavior:
+
+- offline-first repositories
+- local indexed search
+- optional cloud sync
+- export / backup flows
+- secure local data
+
+Rules:
+- Keep local persistence behind a repository boundary.
+- Keep sync state separate from domain state.
+- Expose searchable state and sync failures explicitly.
+- Treat encryption and backup semantics as first-class design decisions.
+- Keep these capabilities optional unless the product clearly needs them.
+
 ### Apple-native lane for Flutter projects
 
 When a task touches `ios/` or `macos/`, switch to an Apple-native validation loop.
@@ -242,6 +259,11 @@ Preferred skills by task type:
 - debugging and root-cause analysis: `flutter-bug-investigation`
 - runtime responsiveness and async timing review: `flutter-event-loop-audit`
 - cache-first retrofit and staged-state work: `flutter-cache-first-rendering`
+- offline-first feature delivery: `flutter-offline-first`
+- indexed local search: `flutter-local-search-fts`
+- Supabase local-first sync: `flutter-supabase-sync`
+- secure local data: `flutter-secure-local-data`
+- export and backup flows: `flutter-export-backup`
 - iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and token mapping: `flutter-ux-ui-design-system`
 - reusable widget API definition: `flutter-component-contracts`

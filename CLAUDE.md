@@ -51,6 +51,11 @@ When a matching skill exists, prefer these defaults:
 - bug investigation: `flutter-bug-investigation`
 - runtime responsiveness review: `flutter-event-loop-audit`
 - cache-first retrofit and staged state: `flutter-cache-first-rendering`
+- offline-first feature work: `flutter-offline-first`
+- indexed local search: `flutter-local-search-fts`
+- local-first sync: `flutter-supabase-sync`
+- secure local data: `flutter-secure-local-data`
+- export / backup flows: `flutter-export-backup`
 - iOS/macOS native boundary work: `flutter-apple-native-loop`
 - design system and theme work: `flutter-ux-ui-design-system`
 - reusable component API design: `flutter-component-contracts`
@@ -71,6 +76,21 @@ Use `flutter-event-loop-audit` for runtime async behavior, lifecycle timing, fir
 Use `flutter-cache-first-rendering` when the main goal is stale-while-revalidate UX, cache-first first render, or preserving optimistic local actions during refresh.
 Use the build optimization flow for benchmark-driven build speed or artifact-size work.
 Use `flutter-apple-native-loop` when the task affects `ios/` or `macos/` and needs CLI-first Apple-native validation.
+
+### Capability packs
+
+Use these routing hints when the product needs deeper local-first behavior:
+- `prompts/patterns/offline_first_repository.md`
+- `prompts/patterns/local_search_fts.md`
+- `prompts/patterns/sync_supabase_local_first.md`
+- `prompts/patterns/export_backup_architecture.md`
+- `prompts/patterns/client_side_encryption.md`
+- `docs/repo-integration-playbook.md`
+- `skills/flutter-offline-first/SKILL.md`
+- `skills/flutter-local-search-fts/SKILL.md`
+- `skills/flutter-supabase-sync/SKILL.md`
+- `skills/flutter-secure-local-data/SKILL.md`
+- `skills/flutter-export-backup/SKILL.md`
 
 ---
 

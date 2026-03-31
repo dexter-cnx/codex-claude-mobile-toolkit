@@ -115,9 +115,14 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 │  └─ artifacts/
 ├─ docs/
 ├─ prompts/
+│  ├─ patterns/
+│  └─ ...
 ├─ skills/
 ├─ mcp/
 ├─ templates/
+│  ├─ architecture/
+│  ├─ examples/
+│  └─ ...
 ├─ scripts/
 ├─ schemas/
 └─ examples/
@@ -168,6 +173,8 @@ Useful docs from the production layout:
 - `docs/install-claude.md`
 - `docs/install-antigravity.md`
 - `docs/install-openclaw.md`
+- `docs/repo-integration-playbook.md`
+- `docs/markdown-workspace-adoption.md`
 - `docs/skill-authoring-guide.md`
 
 ### Quick Task Routing
@@ -206,6 +213,27 @@ Supporting skills:
 - use `flutter-ux-ui-design-system`, `flutter-component-contracts`, `flutter-design-review`, and `flutter-accessibility-audit` for design-system, UX review, and accessibility work,
 - use `flutter-apple-native-loop` when work crosses into `ios/` or `macos/` and needs a narrow Apple-native validation loop,
 - use `flutter-cache-first-rendering` when retrofitting existing features to render cached data first and refresh safely in the background.
+
+### Capability packs
+
+Use these when the product needs a deeper local-first or content-heavy workflow:
+- `flutter-offline-first` for features that must remain useful offline
+- `flutter-local-search-fts` for indexed local search
+- `flutter-supabase-sync` for optional local-first cloud sync
+- `flutter-secure-local-data` for protected local storage
+- `flutter-export-backup` for export, restore, or backup flows
+
+Related artifacts:
+- `prompts/patterns/offline_first_repository.md`
+- `prompts/patterns/local_search_fts.md`
+- `prompts/patterns/sync_supabase_local_first.md`
+- `prompts/patterns/export_backup_architecture.md`
+- `prompts/patterns/client_side_encryption.md`
+- `templates/architecture/offline_first_feature_template.md`
+- `templates/architecture/search_enabled_feature_template.md`
+- `templates/architecture/sync_enabled_feature_template.md`
+- `templates/examples/markdown_workspace_reference.md`
+- `docs/repo-integration-playbook.md`
 
 ### Skill selection notes
 

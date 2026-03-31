@@ -1,23 +1,37 @@
-# Prompt: New Project
+# New Project Bootstrap Prompt
 
 Use `flutter-project-bootstrap` as the primary skill.
 
-## Goal
-Design a new Flutter project from a blank folder using practical Clean Architecture, explicit app-shell decisions, and a small but scalable file structure.
+## Purpose
 
-## Expected output
-- assumptions
-- recommended stack
-- folder tree
-- package setup notes
-- route strategy
-- state-management choice handling
-- localization setup plan
-- initial feature/module layout
-- acceptance checklist
+Use this prompt to scaffold a new project repository using this toolkit as the conventions and workflow layer.
 
-## Constraints to honor
-- do not over-engineer the starter
-- keep widgets focused on composition
-- keep architecture ready for growth
-- externalize strings early if multilingual support is expected
+## Inputs to collect
+
+- project name
+- product type
+- target platforms
+- state management choice
+- routing choice
+- localization strategy
+- backend choice
+- offline-first requirement
+- local search requirement
+- sync requirement
+- export / backup requirement
+- secure local data requirement
+
+## Capability flags
+
+- `offline_first`: true / false
+- `local_search`: none / basic / fts
+- `sync`: none / supabase / custom
+- `export_backup`: none / basic / advanced
+- `client_side_encryption`: none / basic / advanced
+
+## Rules
+
+- choose only the capability packs the project actually needs
+- do not include note-specific workspace features unless the product asks for them
+- prefer minimal initial dependencies
+- keep root rules and project overlay rules separate

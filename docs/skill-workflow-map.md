@@ -6,8 +6,13 @@ Use this document as the fastest routing guide when the repo feels too broad.
 
 Choose the dominant task shape first:
 
-- New Flutter app foundation: `prompts/new_project_riverpod.md` + `skills/flutter-new-project-bootstrap/`
-- New feature in an existing app: `prompts/new_feature_riverpod.md` + `skills/flutter-feature-scaffold/`
+- New Flutter app foundation: `prompts/new_project.md` or `prompts/new_project_riverpod.md` + `skills/flutter-new-project-bootstrap/`
+- New feature in an existing app: `prompts/new_feature.md` or `prompts/new_feature_riverpod.md` + `skills/flutter-feature-scaffold/`
+- Offline-first feature: `prompts/patterns/offline_first_repository.md` + `skills/flutter-offline-first/`
+- Local indexed search: `prompts/patterns/local_search_fts.md` + `skills/flutter-local-search-fts/`
+- Local-first sync: `prompts/patterns/sync_supabase_local_first.md` + `skills/flutter-supabase-sync/`
+- Export / backup: `prompts/patterns/export_backup_architecture.md` + `skills/flutter-export-backup/`
+- Secure local data: `prompts/patterns/client_side_encryption.md` + `skills/flutter-secure-local-data/`
 - Localization update: `skills/flutter-localization-csv-pipeline/`
 - Architecture or implementation review: `prompts/review_architecture.md` + `skills/flutter-pr-reviewer/` or `skills/flutter-review/`
 - Build optimization: `prompts/analyze_flutter_build.md` + `skills/flutter-build-orchestrator/`
@@ -37,6 +42,9 @@ Choose the dominant task shape first:
 
 - Feature delivery with cache-first UX:
   `flutter-feature-scaffold` + `flutter-cache-first-rendering`
+
+- Feature delivery with offline-first storage:
+  `flutter-feature-scaffold` + `flutter-offline-first`
 
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`
