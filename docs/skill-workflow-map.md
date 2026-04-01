@@ -14,6 +14,7 @@ Choose the dominant task shape first:
 - Shared-core multi-surface planning: `skills/flutter-shared-core-multi-surface/`
 - TV / remote-driven UI: `skills/flutter-tv-ui-pattern/`
 - REST catalog project or feature: `prompts/new_catalog_project.md` or `prompts/new_catalog_feature.md` + `skills/flutter-rest-catalog-feature/`
+- GraphQL catalog feature: `prompts/new_graphql_feature.md`, `prompts/add_graphql_endpoint.md`, or `prompts/graphql_cache_refactor.md` + `skills/flutter-graphql-feature/`, `skills/flutter-graphql-schema-codegen/`, `skills/flutter-graphql-cache-strategy/`
 - Finalize a completed change: `prompts/finalize_mobile_change.md` + `skills/flutter-finalize-change/`
 - Repo health audit: `prompts/audit_mobile_repo.md` + `skills/flutter-audit-repo/`
 - Bug investigation: `prompts/investigate_flutter_bug.md` + `skills/flutter-bug-investigation/`
@@ -43,6 +44,9 @@ Choose the dominant task shape first:
 - Use `flutter-shared-core-multi-surface` when more than one real delivery surface shares business logic.
 - Use `flutter-tv-ui-pattern` when D-pad focus, remote-driven navigation, or TV layout is part of the task.
 - Use `flutter-rest-catalog-feature` when the feature is a read-mostly public REST catalog with list/detail/search and cache-first rendering.
+- Use `flutter-graphql-feature` when the feature is a read-mostly GraphQL browse/detail flow that benefits from typed operations, codegen, and explicit cache behavior.
+- Use `flutter-graphql-schema-codegen` when the main task is schema refresh, operation layout, generated artifacts, or codegen hygiene.
+- Use `flutter-graphql-cache-strategy` when the main problem is GraphQL cache behavior, stale refresh UX, partial data, or local-only state composition.
 - Use `flutter-design-review` when you need a broad Flutter UI critique, and `flutter-accessibility-audit` when the task is mostly a11y risk review.
 - Use `flutter-pr-reviewer` for merge-oriented review of a concrete change set.
 - Use `flutter-review` for broader architecture drift review against toolkit conventions.
@@ -77,6 +81,9 @@ Choose the dominant task shape first:
 
 - Feature delivery with REST catalog behavior:
   `flutter-feature-scaffold` + `flutter-rest-catalog-feature` + `flutter-cache-first-rendering`
+
+- Feature delivery with GraphQL catalog behavior:
+  `flutter-feature-scaffold` + `flutter-graphql-feature` + `flutter-graphql-schema-codegen` + `flutter-graphql-cache-strategy`
 
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`

@@ -166,6 +166,36 @@ When a feature is a read-mostly REST catalog or public API browser:
 
 This pattern is a good fit for browse/detail experiences with modest write complexity and high tolerance for stale-but-useful content.
 
+### GraphQL catalog apps
+
+When a feature is a read-mostly GraphQL catalog or public schema browser:
+
+- prefer operation-document-first delivery,
+- prefer generated models and typed access over handwritten raw map traversal,
+- keep schema/codegen refresh steps explicit and reviewable,
+- keep GraphQL transport and cache details inside the data layer,
+- keep local-only user state such as favorites and recent items separate from remote GraphQL entities,
+- use cache-first list and detail rendering when stale-but-useful content improves revisit speed,
+- model partial data, nullability, pagination, and refresh states explicitly.
+
+Use:
+
+- `prompts/new_graphql_feature.md`
+- `prompts/add_graphql_endpoint.md`
+- `prompts/graphql_cache_refactor.md`
+- `prompts/patterns/graphql_repository_pattern.md`
+- `skills/flutter-graphql-feature/`
+- `skills/flutter-graphql-schema-codegen/`
+- `skills/flutter-graphql-cache-strategy/`
+- `docs/graphql-flutter-pattern.md`
+- `docs/graphql-schema-codegen-playbook.md`
+- `docs/pokedex-graphql-lane.md`
+- `templates/graphql-feature-audit.md`
+- `templates/architecture/graphql_feature_template.md`
+- `antigravity/workflows/08-graphql-catalog-feature.md`
+
+This pattern is a good fit for browse/detail experiences that benefit from typed queries, related-entity traversal, and cache-aware rendering.
+
 ### Shared-core and multi-surface rules
 
 When a product has more than one delivery surface, such as mobile + TV, mobile + desktop, or app + console/dev shell:
@@ -345,6 +375,9 @@ Preferred skills by task type:
 - feature work: `flutter-feature-scaffold`
 - localization maintenance: `flutter-localization-csv-pipeline`
 - API-backed feature integration: `flutter-api-integration-pattern`
+- GraphQL feature integration: `flutter-graphql-feature`
+- GraphQL schema/codegen maintenance: `flutter-graphql-schema-codegen`
+- GraphQL cache strategy and stale refresh behavior: `flutter-graphql-cache-strategy`
 - debugging and root-cause analysis: `flutter-bug-investigation`
 - runtime responsiveness and async timing review: `flutter-event-loop-audit`
 - cache-first retrofit and staged-state work: `flutter-cache-first-rendering`

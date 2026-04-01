@@ -57,7 +57,8 @@ Use pipelines when you need:
 - root-cause investigation,
 - a structured change review,
 - toolkit self-improvement capture,
-- a realtime feature delivery lane.
+- a realtime feature delivery lane,
+- a GraphQL catalog delivery lane.
 
 ## Agent surfaces supported
 
@@ -224,6 +225,9 @@ Useful docs from the production layout:
 - `docs/source-adapter-guidelines.md`
 - `docs/tv-ui-guidelines.md`
 - `docs/rest-catalog-pattern.md`
+- `docs/graphql-flutter-pattern.md`
+- `docs/graphql-schema-codegen-playbook.md`
+- `docs/pokedex-graphql-lane.md`
 - `docs/ux-ui/mobile-design-system-lane.md`
 
 ### Quick Task Routing
@@ -351,6 +355,25 @@ Use these repo assets for read-mostly public REST catalog apps:
 - `antigravity/workflows/07-rest-catalog-feature.md`
 - `antigravity/task-templates/catalog-feature-task.md`
 - `antigravity/artifacts/rest-catalog-feature-report.md`
+
+### GraphQL catalog lane assets
+
+Use these repo assets for read-mostly GraphQL catalog apps:
+- `skills/flutter-graphql-feature/`
+- `skills/flutter-graphql-schema-codegen/`
+- `skills/flutter-graphql-cache-strategy/`
+- `prompts/new_graphql_feature.md`
+- `prompts/add_graphql_endpoint.md`
+- `prompts/graphql_cache_refactor.md`
+- `prompts/patterns/graphql_repository_pattern.md`
+- `docs/graphql-flutter-pattern.md`
+- `docs/graphql-schema-codegen-playbook.md`
+- `docs/pokedex-graphql-lane.md`
+- `templates/graphql-feature-audit.md`
+- `templates/architecture/graphql_feature_template.md`
+- `antigravity/workflows/08-graphql-catalog-feature.md`
+- `antigravity/task-templates/graphql-catalog-feature-task.md`
+- `antigravity/artifacts/graphql-catalog-feature-report.md`
 
 ### Apple-native lane assets
 
