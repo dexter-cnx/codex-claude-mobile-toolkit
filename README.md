@@ -19,6 +19,9 @@ It provides:
 Fast navigation:
 - use `AGENTS.md` for durable rules,
 - use `docs/skill-workflow-map.md` for quick task routing,
+- use `docs/adoption-playbook.md` for staged toolkit adoption,
+- use `docs/runtime-matrix.md` for runtime and surface selection,
+- use `docs/stitch-handoff-playbook.md` when design work starts outside the repo,
 - use `README.md` for the high-level repository map.
 
 ## Primary usage model
@@ -41,6 +44,7 @@ This repository works best when end-to-end work is treated as a layered system:
 2. **Pipeline layer** - end-to-end execution lanes from `prompts/` or `antigravity/workflows/`.
 3. **Skill layer** - narrow reusable procedures in `skills/`.
 4. **Artifact layer** - standardized reports and summaries in `templates/`.
+5. **Memory layer** - durable project context in `project_memory/` and supporting docs.
 
 ### Main pipeline entrypoints
 
@@ -50,6 +54,11 @@ This repository works best when end-to-end work is treated as a layered system:
 - `prompts/review_mobile_change.md`
 - `prompts/self_improve_toolkit.md`
 - `prompts/new_realtime_feature.md`
+- `prompts/plan_feature.md`
+- `prompts/verification_pass.md`
+- `prompts/update_project_memory.md`
+- `prompts/coherence_pass.md`
+- `prompts/architecture_review.md`
 
 Use pipelines when you need:
 - a review-ready final pass,
@@ -214,6 +223,15 @@ Useful docs from the production layout:
 - `docs/install-openclaw.md`
 - `docs/workflow-pipelines.md`
 - `docs/pipeline-vs-skill.md`
+- `docs/feature-registry.md`
+- `docs/runtime-matrix.md`
+- `docs/project-memory-system.md`
+- `docs/verification-workflow.md`
+- `docs/automation-patterns.md`
+- `docs/adoption-playbook.md`
+- `docs/submodule-installation.md`
+- `docs/agent-surface-contract.md`
+- `docs/stitch-handoff-playbook.md`
 - `docs/self-improvement-routing.md`
 - `docs/verification-artifacts.md`
 - `docs/release-checklist.md`
@@ -233,6 +251,37 @@ Useful docs from the production layout:
 ### Quick Task Routing
 
 If you want the shortest path through this repo, start with [docs/skill-workflow-map.md](docs/skill-workflow-map.md).
+
+### Governance and memory assets
+
+Use these repo assets when the work needs stronger planning discipline, explicit verification, or durable project memory:
+- `prompts/plan_feature.md`
+- `prompts/verification_pass.md`
+- `prompts/update_project_memory.md`
+- `prompts/coherence_pass.md`
+- `prompts/architecture_review.md`
+- `docs/feature-registry.md`
+- `docs/runtime-matrix.md`
+- `docs/project-memory-system.md`
+- `docs/verification-workflow.md`
+- `docs/automation-patterns.md`
+- `project_memory/`
+- `templates/project-memory-update-report.md`
+- `templates/feature-registry-entry.template.md`
+- `schemas/feature-status.schema.yaml`
+
+### Adoption and handoff assets
+
+Use these repo assets when onboarding a project, choosing how to consume the toolkit, or converting design exploration into implementation-ready context:
+- `docs/adoption-playbook.md`
+- `docs/submodule-installation.md`
+- `docs/agent-surface-contract.md`
+- `docs/stitch-handoff-playbook.md`
+- `prompts/new_project_blueprint.md`
+- `prompts/stitch_handoff.md`
+- `templates/pr-summary.template.md`
+- `templates/verification-report.template.md`
+- `CHANGELOG.md`
 
 ### Recommended skills by workflow
 

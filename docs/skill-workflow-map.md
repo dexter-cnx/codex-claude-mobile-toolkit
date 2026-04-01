@@ -15,6 +15,13 @@ Choose the dominant task shape first:
 - TV / remote-driven UI: `skills/flutter-tv-ui-pattern/`
 - REST catalog project or feature: `prompts/new_catalog_project.md` or `prompts/new_catalog_feature.md` + `skills/flutter-rest-catalog-feature/`
 - GraphQL catalog feature: `prompts/new_graphql_feature.md`, `prompts/add_graphql_endpoint.md`, or `prompts/graphql_cache_refactor.md` + `skills/flutter-graphql-feature/`, `skills/flutter-graphql-schema-codegen/`, `skills/flutter-graphql-cache-strategy/`
+- Feature planning before implementation: `prompts/plan_feature.md`
+- New project blueprint: `prompts/new_project_blueprint.md`
+- Formal verification pass before sign-off: `prompts/verification_pass.md`
+- Project memory refresh after meaningful changes: `prompts/update_project_memory.md`
+- Toolkit coherence review after repo workflow changes: `prompts/coherence_pass.md`
+- Architecture-focused review: `prompts/architecture_review.md`
+- Design-to-implementation Stitch handoff: `prompts/stitch_handoff.md` + `docs/stitch-handoff-playbook.md`
 - Finalize a completed change: `prompts/finalize_mobile_change.md` + `skills/flutter-finalize-change/`
 - Repo health audit: `prompts/audit_mobile_repo.md` + `skills/flutter-audit-repo/`
 - Bug investigation: `prompts/investigate_flutter_bug.md` + `skills/flutter-bug-investigation/`
@@ -47,6 +54,13 @@ Choose the dominant task shape first:
 - Use `flutter-graphql-feature` when the feature is a read-mostly GraphQL browse/detail flow that benefits from typed operations, codegen, and explicit cache behavior.
 - Use `flutter-graphql-schema-codegen` when the main task is schema refresh, operation layout, generated artifacts, or codegen hygiene.
 - Use `flutter-graphql-cache-strategy` when the main problem is GraphQL cache behavior, stale refresh UX, partial data, or local-only state composition.
+- Use `prompts/plan_feature.md` when the task is medium or large enough that implementation should be preceded by an explicit file-touch, architecture, and verification plan.
+- Use `prompts/new_project_blueprint.md` when the repo or app structure does not exist yet and the first need is an implementation-ready blueprint.
+- Use `prompts/verification_pass.md` when implementation exists and the main question is whether the current result is actually trustworthy and review-ready.
+- Use `prompts/update_project_memory.md` when a task changed durable project knowledge such as architecture decisions, glossary terms, UI rules, known issues, or handoff state.
+- Use `prompts/coherence_pass.md` after toolkit-level prompt, skill, template, or doc changes to catch routing drift and registry/runtime updates.
+- Use `prompts/architecture_review.md` when the main concern is layer placement, boundary integrity, coupling, or design consistency.
+- Use `prompts/stitch_handoff.md` when the starting point is a design exploration that must be converted into screen, state, component, and implementation context.
 - Use `flutter-design-review` when you need a broad Flutter UI critique, and `flutter-accessibility-audit` when the task is mostly a11y risk review.
 - Use `flutter-pr-reviewer` for merge-oriented review of a concrete change set.
 - Use `flutter-review` for broader architecture drift review against toolkit conventions.
@@ -87,6 +101,12 @@ Choose the dominant task shape first:
 
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`
+
+- Medium or large feature delivery with planning and verification:
+  `prompts/plan_feature.md` + implementation workflow + `prompts/verification_pass.md` + `prompts/update_project_memory.md`
+
+- Design-first project kickoff:
+  `prompts/stitch_handoff.md` + `prompts/new_project_blueprint.md` + `prompts/plan_feature.md`
 
 - Native iOS/macOS bug:
   `flutter-bug-investigation` + `flutter-apple-native-loop`
