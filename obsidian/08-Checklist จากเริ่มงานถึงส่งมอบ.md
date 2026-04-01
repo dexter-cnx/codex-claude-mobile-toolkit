@@ -1,4 +1,4 @@
-# Checklist จากเริ่มงานถึงส่งมอบ
+﻿# Checklist จากเริ่มงานถึงส่งมอบ
 
 หน้านี้คือ checklist ที่ใช้ซ้ำได้จริง
 
@@ -51,6 +51,8 @@
 - [ ] update `docs/runtime-matrix.md` หรือยัง
 - [ ] run `prompts/coherence_pass.md` หรือยัง
 - [ ] ถ้ามีบทเรียนใหม่ run `prompts/self_improve_toolkit.md` หรือยัง
+- [ ] ถ้ามี prompt, skill, workflow, docs, template, schema หรือ lane ใหม่ update `obsidian/` แล้วหรือยัง
+- [ ] ถ้าวิธีใช้งานของ repo เปลี่ยน คู่มือภาษาไทยใน `obsidian/` ถูกปรับตามแล้วหรือยัง
 
 ## ลำดับแนะนำแบบสั้นมาก
 
