@@ -7,6 +7,15 @@ Read `AGENTS.md` first. Treat it as the primary source of truth for architecture
 This file exists to adapt the same toolkit conventions to Claude Code usage. Do not diverge from `AGENTS.md` unless the user explicitly asks for a different setup.
 If the task is explicitly routed through Antigravity, use `antigravity/README.md` and the matching workflow as an additional execution layer, not as a replacement for the default Claude Code flow.
 
+For context-heavy or long-running sessions, also use:
+- `docs/ai-context-management.md`
+- `docs/ai-working-rules.md`
+- `docs/checklists/ai-session-checklist.md`
+- `prompts/context_guard.md`
+- `prompts/focused_debug.md`
+- `prompts/bounded_refactor.md`
+- `prompts/low_context_handoff.md`
+
 ---
 
 ## Default operating sequence
@@ -19,6 +28,37 @@ For most tasks in a project using this toolkit, follow this order:
 4. inspect the current codebase before editing
 5. make the smallest coherent set of changes that fully solves the task
 6. end with a short coherence review
+
+## Context management rules
+
+- Keep context lean. Prefer small, focused tasks over broad multi-goal sessions.
+- Read only files directly relevant to the current task.
+- Avoid scanning the entire repository unless explicitly required.
+- Avoid repeating prior summaries, diffs, logs, or file contents.
+- Limit terminal output aggressively.
+- Prefer targeted CLI inspection over verbose integrations when either would solve the task.
+- When changing task scope, create a short handoff summary and reset focus.
+- If confidence is below 95%, stop and ask for clarification before making structural changes.
+- Do not continue with speculative implementation when requirements, APIs, architecture, or expected behavior are unclear.
+
+## Command output rules
+
+- Use filtering tools such as `rg`, `head`, `tail`, `sed`, `awk`, and `jq` to bound output.
+- Never print long logs, generated files, dependency trees, or massive diffs by default.
+- For failing commands, show only the smallest output needed to diagnose the problem.
+
+## Session reset rules
+
+- If the task changes from debugging to feature work, summarize current state first.
+- If the workstream changes substantially, recommend a fresh session or compact handoff.
+- Do not carry stale context into unrelated tasks.
+
+## Safety against guessing
+
+- Ask when repository conventions are ambiguous.
+- Ask when multiple architectural directions are plausible.
+- Ask when a change could affect app structure, navigation, persistence, API contracts, or user data.
+- Never invent hidden requirements.
 
 ---
 

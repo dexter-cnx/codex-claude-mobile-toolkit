@@ -21,6 +21,10 @@ Fast navigation:
 - use `docs/skill-workflow-map.md` for quick task routing,
 - use `docs/adoption-playbook.md` for staged toolkit adoption,
 - use `docs/runtime-matrix.md` for runtime and surface selection,
+- use `docs/ai-context-management.md` for context-efficient agent sessions,
+- use `docs/repo_discipline/INDEX.md` for repo discipline and release checks,
+- use `core/routing/flutter-skill-routing.md` for the supplemental Flutter skill pack,
+- use `docs/ux-ui/mobile-design-direction-lane.md` for design-direction planning before screen implementation,
 - use `docs/stitch-handoff-playbook.md` when design work starts outside the repo,
 - use `README.md` for the high-level repository map.
 
@@ -139,41 +143,41 @@ In other words, Antigravity should be treated as additive, not as a breaking cha
 
 ```text
 .
-├─ AGENTS.md
-├─ CLAUDE.md
-├─ GROK.md
-├─ ANTIGRAVITY.md
-├─ CODEX.md
-├─ OPENCLAW.md
-├─ README.md
-├─ agents/
-│  ├─ shared/
-│  ├─ claude/
-│  └─ antigravity/
-├─ core/
-│  ├─ rules/
-│  ├─ routing/
-│  └─ checklists/
-├─ antigravity/
-│  ├─ README.md
-│  ├─ rules/
-│  ├─ workflows/
-│  ├─ task-templates/
-│  └─ artifacts/
-├─ docs/
-├─ prompts/
-│  ├─ patterns/
-│  └─ ...
-├─ skills/
-├─ mcp/
-├─ templates/
-│  ├─ architecture/
-│  ├─ examples/
-│  └─ ...
-├─ tokens/
-├─ scripts/
-├─ schemas/
-└─ examples/
+|- AGENTS.md
+|- CLAUDE.md
+|- GROK.md
+|- ANTIGRAVITY.md
+|- CODEX.md
+|- OPENCLAW.md
+|- README.md
+|- agents/
+|  |- shared/
+|  |- claude/
+|  `- antigravity/
+|- core/
+|  |- rules/
+|  |- routing/
+|  `- checklists/
+|- antigravity/
+|  |- README.md
+|  |- rules/
+|  |- workflows/
+|  |- task-templates/
+|  `- artifacts/
+|- docs/
+|- prompts/
+|  |- patterns/
+|  `- ...
+|- skills/
+|- mcp/
+|- templates/
+|  |- architecture/
+|  |- examples/
+|  `- ...
+|- tokens/
+|- scripts/
+|- schemas/
+`- examples/
 ```
 
 ## Recommended operating model
@@ -225,9 +229,14 @@ Useful docs from the production layout:
 - `docs/pipeline-vs-skill.md`
 - `docs/feature-registry.md`
 - `docs/runtime-matrix.md`
+- `docs/ai-context-management.md`
+- `docs/ai-working-rules.md`
+- `docs/checklists/ai-session-checklist.md`
 - `docs/project-memory-system.md`
 - `docs/verification-workflow.md`
 - `docs/automation-patterns.md`
+- `docs/repo_discipline/INDEX.md`
+- `docs/system-design-notes-pack-integration.md`
 - `docs/adoption-playbook.md`
 - `docs/submodule-installation.md`
 - `docs/agent-surface-contract.md`
@@ -247,6 +256,9 @@ Useful docs from the production layout:
 - `docs/graphql-schema-codegen-playbook.md`
 - `docs/pokedex-graphql-lane.md`
 - `docs/ux-ui/mobile-design-system-lane.md`
+- `docs/ux-ui/mobile-design-direction-lane.md`
+- `docs/research/anthropic-skills-assessment.md`
+- `docs/integrations/anthropic-skills-adoption-plan.md`
 
 ### Quick Task Routing
 
@@ -270,6 +282,39 @@ Use these repo assets when the work needs stronger planning discipline, explicit
 - `templates/feature-registry-entry.template.md`
 - `schemas/feature-status.schema.yaml`
 
+### Repo discipline and release assets
+
+Use these repo assets when the work needs stronger validation, accessibility review, error-handling review, module discipline, or release-readiness gates:
+- `docs/repo_discipline/INDEX.md`
+- `docs/repo_discipline/module-first-architecture.md`
+- `docs/repo_discipline/validation-standard.md`
+- `docs/repo_discipline/accessibility-standard.md`
+- `docs/repo_discipline/error-handling-standard.md`
+- `docs/repo_discipline/release-readiness-standard.md`
+- `prompts/validate_repo_release.md`
+- `prompts/accessibility_pass.md`
+- `prompts/error_handling_pass.md`
+- `prompts/module_scaffold_pass.md`
+- `skills/repo/release_readiness/`
+- `templates/checklists/release-readiness.md`
+- `templates/checklists/accessibility-review.md`
+- `templates/checklists/error-handling-review.md`
+- `scripts/validate_toolkit.ps1`
+- `scripts/validate_toolkit.sh`
+- `.github/workflows/toolkit-validate.yml`
+
+### AI context assets
+
+Use these repo assets when the main problem is keeping agent sessions focused, bounded, and context-efficient:
+- `docs/ai-context-management.md`
+- `docs/ai-working-rules.md`
+- `docs/checklists/ai-session-checklist.md`
+- `prompts/context_guard.md`
+- `prompts/focused_debug.md`
+- `prompts/bounded_refactor.md`
+- `prompts/low_context_handoff.md`
+- `CLAUDE.md`
+
 ### Adoption and handoff assets
 
 Use these repo assets when onboarding a project, choosing how to consume the toolkit, or converting design exploration into implementation-ready context:
@@ -282,6 +327,92 @@ Use these repo assets when onboarding a project, choosing how to consume the too
 - `templates/pr-summary.template.md`
 - `templates/verification-report.template.md`
 - `CHANGELOG.md`
+
+### Supplemental Flutter skill-pack assets
+
+Use these repo assets when you want additional Flutter task-scoped skills and a second routing layer focused on app-building primitives:
+- `core/routing/flutter-skill-routing.md`
+- `prompts/plan_flutter_feature_with_skill_router.md`
+- `prompts/self_improve_flutter_skill_pack.md`
+- `docs/flutter-skills-pack/adoption-roadmap.md`
+- `docs/flutter-skills-pack/maintenance-guide.md`
+- `skills/README.flutter-skills-pack.md`
+- `skills/flutter-architecting-apps/`
+- `skills/flutter-building-layouts/`
+- `skills/flutter-managing-state-getx/`
+- `skills/flutter-managing-state-riverpod/`
+- `skills/flutter-implementing-navigation-and-routing/`
+- `skills/flutter-handling-http-and-json/`
+- `skills/flutter-caching-data-offline-first/`
+- `skills/flutter-working-with-databases/`
+- `skills/flutter-building-forms/`
+- `skills/flutter-theming-material3-tokens/`
+- `skills/flutter-localizing-apps-csv-json/`
+- `skills/flutter-testing-apps-baseline/`
+- `skills/flutter-accessibility/`
+- `skills/flutter-reducing-app-size/`
+- `skills/flutter-handling-concurrency/`
+- `skills/flutter-animating-apps/`
+- `skills/flutter-native-interop/`
+
+### Anthropic-inspired skill overlay assets
+
+Use these repo assets when you want stronger design-direction planning, black-box Flutter web smoke verification, MCP server design planning, or a cleaner internal skill-authoring loop:
+- `docs/research/anthropic-skills-assessment.md`
+- `docs/integrations/anthropic-skills-adoption-plan.md`
+- `docs/ux-ui/mobile-design-direction-lane.md`
+- `prompts/design/mobile_ui_art_direction.md`
+- `prompts/testing/flutter_web_playwright_smoke.md`
+- `skills/flutter-art-direction/`
+- `skills/flutter-web-smoke-testing/`
+- `skills/mcp-server-design/`
+- `skills/toolkit-skill-author/`
+- `templates/ux/mobile_theme_brief.template.md`
+- `templates/verification/web_smoke_report.template.md`
+- `ATTRIBUTION.md`
+
+### AI rules assets
+
+Use these repo assets when you want reusable, installable rule packs and tool-specific adapters rather than editing only the root repo rule files:
+- `ai_rules/README.md`
+- `ai_rules/flutter_master_rules.md`
+- `ai_rules/flutter_rules_10k.md`
+- `ai_rules/flutter_rules_4k.md`
+- `ai_rules/flutter_rules_1k.md`
+- `ai_rules/adapters/`
+- `ai_rules/profiles/`
+- `ai_rules/packs/`
+- `ai_rules/prompts/`
+- `ai_rules/checklists/rules_verification_checklist.md`
+- `scripts/install_ai_rules.ps1`
+- `scripts/install_ai_rules.sh`
+
+### System design note-pack assets
+
+Use these repo assets when you want Thai system design study notes and architecture review prompts inside the same Obsidian workspace:
+- `docs/system-design-notes-pack-integration.md`
+- `prompts/system_design_review_th.md`
+- `skills/system-design-notes/README.md`
+- `obsidian/system-design-notes-th/`
+
+### Content-source and filter-schema assets
+
+Use these repo assets when a product needs browse/latest/search/detail flows across one or more content providers with pagination, filters, and restore-safe identifiers:
+- `docs/mangayomi-toolkit-integration-notes.md`
+- `docs/patterns/source-adapter-pattern.md`
+- `docs/patterns/filter-schema-pattern.md`
+- `docs/patterns/backup-restore-rehydration.md`
+- `docs/patterns/cross-platform-capability-matrix.md`
+- `prompts/new_content_source_feature.md`
+- `prompts/patterns/content_source_adapter.md`
+- `skills/flutter-content-source-adapter/`
+- `skills/flutter-offline-content-feature/`
+- `schemas/filter_schema.schema.json`
+- `schemas/filter_schema.example.json`
+- `templates/architecture/content_source_feature_template.md`
+- `templates/architecture/filter_schema_template.md`
+- `templates/examples/content_source_adapter.dart`
+- `templates/examples/filter_driven_search_use_case.dart`
 
 ### Recommended skills by workflow
 

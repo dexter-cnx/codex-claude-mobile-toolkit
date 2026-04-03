@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "featureId": "catalog.search",
+  "fields": [
+    {
+      "id": "query",
+      "type": "text",
+      "label": "Search",
+      "defaultValue": "",
+      "persist": true
+    },
+    {
+      "id": "contentType",
+      "type": "select",
+      "label": "Content Type",
+      "defaultValue": "all",
+      "persist": true,
+      "options": [
+        {
+          "value": "all",
+          "label": "All"
+        },
+        {
+          "value": "article",
+          "label": "Articles"
+        },
+        {
+          "value": "video",
+          "label": "Videos"
+        }
+      ]
+    },
+    {
+      "id": "nsfw",
+      "type": "tri_state",
+      "label": "Sensitive Content",
+      "defaultValue": "ignore",
+      "persist": true
+    },
+    {
+      "id": "sort",
+      "type": "sort",
+      "label": "Sort",
+      "defaultValue": {
+        "field": "updatedAt",
+        "direction": "desc"
+      },
+      "persist": true,
+      "options": [
+        {
+          "value": "updatedAt",
+          "label": "Recently Updated"
+        },
+        {
+          "value": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ]
+}
