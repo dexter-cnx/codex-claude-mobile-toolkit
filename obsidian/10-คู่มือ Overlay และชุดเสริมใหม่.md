@@ -141,3 +141,88 @@
 - ถ้าจะวางทิศทาง UI หรือ smoke test เว็บ: ใช้ Anthropic-inspired overlay
 
 ไปต่อ: [[11-สูตรใช้งาน Overlay ใหม่]]
+
+## 8. Nothing-inspired design overlay
+
+ใช้เมื่ออยากได้ visual language แบบ monochrome, industrial, typography-led โดยยังรักษา Flutter UX/UI discipline เดิมไว้
+
+ของสำคัญ:
+- `docs/ux-ui/nothing-inspired-design-lane.md`
+- `docs/legal/source-attribution-nothing-skill.md`
+- `prompts/generate_nothing_tokens.md`
+- `prompts/implement_nothing_screen.md`
+- `prompts/review_nothing_flutter_ui.md`
+- `skills/flutter-nothing-style/`
+- `templates/nothing-component-spec.md`
+- `examples/flutter_nothing_theme_extensions.dart`
+- `tokens/nothing/`
+
+เหมาะกับ:
+- dashboard
+- settings / utility app
+- hardware-adjacent product
+- หน้าจอที่ hierarchy ต้องมากับ typography และ spacing มากกว่าสี
+
+## 9. Gradient system pack
+
+ใช้เมื่อ gradient ต้องถูกจัดการเป็นระบบ ไม่ใช่ใส่สวย ๆ แบบ ad hoc
+
+ของสำคัญ:
+- `docs/ux-ui/gradient-system-lane.md`
+- `docs/ux-ui/gradient-performance-and-accessibility.md`
+- `core/checklists/gradient-quality-checklist.md`
+- `prompts/improve_gradient_ui.md`
+- `prompts/patterns/gradient_surface_pattern.md`
+- `skills/flutter-gradient-system/`
+- `templates/design-handoff-gradient.template.md`
+- `tokens/gradient-tokens.example.json`
+
+เหมาะกับ:
+- hero surfaces
+- glow, ring, progress, premium cards
+- งานที่ต้องคุมทั้ง brand expression และ accessibility/performance
+
+## 10. AI UX pattern pack
+
+ใช้เมื่อ feature มี AI, agent, recommendation, command palette, หรือ workflow ที่ต้อง explain และ resume ได้ดี
+
+ของสำคัญ:
+- `agents/shared/patterns-ai-ux.md`
+- `docs/patterns/README.md`
+- `docs/patterns/epistemic-disclosure.md`
+- `docs/patterns/algorithmic-transparency.md`
+- `docs/patterns/historical-trails.md`
+- `docs/patterns/command-palette.md`
+- `docs/patterns/programmable-notes.md`
+- `prompts/design_ai_feature_with_patterns.md`
+- `skills/ai-ux-patterns/`
+- `templates/ai-feature-pattern-review.md`
+
+เหมาะกับ:
+- AI output surfaces
+- explainability-heavy UX
+- internal tooling
+- knowledge workflows
+
+## 11. Toolbox and operator-stack pack
+
+ใช้เมื่ออยากทำ workflow ฝั่ง operator / multi-agent / Obsidian / self-hosted helpers ให้กลายเป็นระบบใน repo
+
+ของสำคัญ:
+- `docs/toolbox-integration-assessment.md`
+- `docs/tooling-ecosystem.md`
+- `docs/operator-stack.md`
+- `docs/obsidian-pkm-playbook.md`
+- `docs/multi-agent-control-plane.md`
+- `docs/self-hosted-companions.md`
+- `prompts/plan_operator_stack.md`
+- `prompts/capture_operator_stack.md`
+- `skills/agent-operator-stack/`
+- `skills/obsidian-agent-memory-ops/`
+- `templates/tooling-stack/`
+- `project_memory/tooling-stack.md`
+
+เหมาะกับ:
+- ทีมที่ใช้หลาย assistant พร้อมกัน
+- งานที่ต้อง handoff ระหว่าง session บ่อย
+- งานที่มี personal PKM คู่กับ project memory

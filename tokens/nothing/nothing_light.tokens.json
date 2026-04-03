@@ -1,0 +1,92 @@
+{
+  "name": "nothing_light",
+  "mode": "light",
+  "colors": {
+    "backgroundBase": "#F5F5F5",
+    "surfaceBase": "#FFFFFF",
+    "surfaceRaised": "#F0F0F0",
+    "borderSubtle": "#E8E8E8",
+    "borderVisible": "#CCCCCC",
+    "textDisplay": "#000000",
+    "textPrimary": "#1A1A1A",
+    "textSecondary": "#666666",
+    "textDisabled": "#999999",
+    "accentSignal": "#D71921",
+    "accentSubtle": "#26D71921",
+    "valueSuccess": "#4A9E5C",
+    "valueWarning": "#D4A843",
+    "interactiveLink": "#007AFF",
+    "dotGridColor": "#CCCCCC"
+  },
+  "typography": {
+    "fontFamilyDisplay": "Doto",
+    "fontFamilyBody": "Space Grotesk",
+    "fontFamilyMono": "Space Mono",
+    "displayLarge": {
+      "fontSize": 72,
+      "lineHeight": 1.0,
+      "letterSpacingEm": -0.03
+    },
+    "displayMedium": {
+      "fontSize": 48,
+      "lineHeight": 1.05,
+      "letterSpacingEm": -0.02
+    },
+    "displaySmall": {
+      "fontSize": 36,
+      "lineHeight": 1.1,
+      "letterSpacingEm": -0.02
+    },
+    "headlineMedium": {
+      "fontSize": 24,
+      "lineHeight": 1.2,
+      "letterSpacingEm": -0.01
+    },
+    "titleMedium": {
+      "fontSize": 18,
+      "lineHeight": 1.3,
+      "letterSpacingEm": 0.0
+    },
+    "bodyLarge": {
+      "fontSize": 16,
+      "lineHeight": 1.5,
+      "letterSpacingEm": 0.0
+    },
+    "bodyMedium": {
+      "fontSize": 14,
+      "lineHeight": 1.5,
+      "letterSpacingEm": 0.01
+    },
+    "labelSmall": {
+      "fontSize": 11,
+      "lineHeight": 1.2,
+      "letterSpacingEm": 0.08
+    }
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "2xl": 48,
+    "3xl": 64,
+    "4xl": 96
+  },
+  "radius": {
+    "technical": 4,
+    "compact": 8,
+    "card": 16,
+    "pill": 999
+  },
+  "motion": {
+    "microMs": 180,
+    "transitionMs": 320,
+    "curve": "easeOut"
+  },
+  "notes": [
+    "Light mode should feel like a technical manual, not a washed-out inversion of dark mode.",
+    "Cards should separate through surface contrast rather than shadow.",
+    "Keep metadata quieter than primary content."
+  ]
+}

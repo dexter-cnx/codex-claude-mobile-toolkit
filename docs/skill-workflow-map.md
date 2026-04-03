@@ -19,6 +19,10 @@ Choose the dominant task shape first:
 - Repo release-readiness and discipline pass: `prompts/validate_repo_release.md`, `prompts/accessibility_pass.md`, `prompts/error_handling_pass.md`, or `prompts/module_scaffold_pass.md`
 - Supplemental Flutter skill-router planning: `prompts/plan_flutter_feature_with_skill_router.md` + `core/routing/flutter-skill-routing.md`
 - Mobile design-direction planning before implementation: `prompts/design/mobile_ui_art_direction.md` + `skills/flutter-art-direction/` + `docs/ux-ui/mobile-design-direction-lane.md`
+- Nothing-inspired screen or token work: `prompts/generate_nothing_tokens.md`, `prompts/implement_nothing_screen.md`, or `prompts/review_nothing_flutter_ui.md` + `skills/flutter-nothing-style/`
+- Gradient-heavy visual system work: `prompts/improve_gradient_ui.md` or `prompts/patterns/gradient_surface_pattern.md` + `skills/flutter-gradient-system/`
+- AI UX pattern planning: `prompts/design_ai_feature_with_patterns.md` + `skills/ai-ux-patterns/` + `docs/patterns/README.md`
+- Operator stack or Obsidian memory workflow planning: `prompts/plan_operator_stack.md` or `prompts/capture_operator_stack.md` + `skills/agent-operator-stack/` or `skills/obsidian-agent-memory-ops/`
 - Flutter web smoke verification: `prompts/testing/flutter_web_playwright_smoke.md` + `skills/flutter-web-smoke-testing/`
 - MCP server planning or review: `skills/mcp-server-design/`
 - Authoring or refining toolkit-native skills: `skills/toolkit-skill-author/`
@@ -76,6 +80,19 @@ Choose the dominant task shape first:
 - Use `prompts/plan_flutter_feature_with_skill_router.md` when you want the supplemental Flutter skills pack to choose a primary and supporting skill set before implementation.
 - Use `prompts/design/mobile_ui_art_direction.md` when product notes are too vague for implementation and the missing piece is a buildable visual direction, token stance, and component hierarchy.
 - Use `flutter-art-direction` when the core problem is design direction, screen refinement, or turning aesthetic intent into Flutter-ready implementation guidance.
+- Use `prompts/generate_nothing_tokens.md` when the missing piece is a Nothing-inspired token layer before component implementation.
+- Use `prompts/implement_nothing_screen.md` when the product already chose the Nothing-style lane and the main job is turning that direction into a concrete Flutter screen.
+- Use `prompts/review_nothing_flutter_ui.md` when a Nothing-inspired screen exists and the main question is whether it still feels precise, restrained, and accessible.
+- Use `flutter-nothing-style` when the core problem is mapping an industrial monochrome direction into reusable Flutter tokens and components.
+- Use `prompts/improve_gradient_ui.md` when the interface already has gradients but needs better hierarchy, contrast, performance, or token discipline.
+- Use `prompts/patterns/gradient_surface_pattern.md` when the task is defining a reusable gradient role rather than polishing a single screen.
+- Use `flutter-gradient-system` when the main job is building or reviewing semantic gradient tokens, surfaces, and Flutter mapping rules.
+- Use `prompts/design_ai_feature_with_patterns.md` when the product involves AI, agent assistance, explainability, command-palette behavior, or resumable workflows and needs stronger UX patterns before implementation.
+- Use `skills/ai-ux-patterns/` when the main job is selecting and applying concrete AI UX patterns such as epistemic disclosure, algorithmic transparency, historical trails, or programmable notes.
+- Use `prompts/plan_operator_stack.md` when the task is choosing or documenting the runtime operator stack for sessions, tools, and assistants before rollout.
+- Use `prompts/capture_operator_stack.md` when the stack already exists and the main need is to capture it into reusable repo memory.
+- Use `agent-operator-stack` when the main problem is shaping a multi-tool operating model for developers or agents.
+- Use `obsidian-agent-memory-ops` when the main problem is promoting personal notes or PKM material into stable repo docs and project memory.
 - Use `prompts/testing/flutter_web_playwright_smoke.md` when you want a narrow smoke gate for Flutter web or an adjacent local web surface instead of full E2E automation.
 - Use `flutter-web-smoke-testing` when the main job is black-box verification, screenshot evidence, and console-aware smoke coverage.
 - Use `mcp-server-design` when the task is deciding tool shape, naming, pagination, and error behavior for an MCP server before coding.
@@ -141,6 +158,18 @@ Choose the dominant task shape first:
 
 - Design-direction-first UI planning:
   `prompts/design/mobile_ui_art_direction.md` + `flutter-art-direction` + `templates/ux/mobile_theme_brief.template.md`
+
+- Nothing-inspired UI delivery:
+  `prompts/generate_nothing_tokens.md` + `flutter-nothing-style` + `prompts/implement_nothing_screen.md`
+
+- Gradient design-system refinement:
+  `prompts/patterns/gradient_surface_pattern.md` + `flutter-gradient-system` + `core/checklists/gradient-quality-checklist.md`
+
+- AI-assisted feature with explainability and workflow memory:
+  `prompts/design_ai_feature_with_patterns.md` + `skills/ai-ux-patterns/` + `docs/patterns/README.md`
+
+- Operator stack and Obsidian-aware project memory setup:
+  `prompts/plan_operator_stack.md` + `prompts/capture_operator_stack.md` + `skills/agent-operator-stack/` + `skills/obsidian-agent-memory-ops/`
 
 - Flutter web smoke pass before merge:
   `prompts/testing/flutter_web_playwright_smoke.md` + `flutter-web-smoke-testing` + `templates/verification/web_smoke_report.template.md`
