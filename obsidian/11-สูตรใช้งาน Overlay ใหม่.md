@@ -143,3 +143,75 @@
 - ถ้างานเป็นการ “route งาน Flutter ให้แคบลง” ใช้ Flutter skills pack
 - ถ้างานเป็นการ “คุย architecture ก่อนเขียน” ใช้ system design notes TH
 - ถ้างานเป็นการ “วาง UI direction หรือ smoke test เว็บ” ใช้ Anthropic-inspired overlay
+
+## สูตร 10: วางหน้าจอแนว Nothing-inspired ให้ไม่หลุดธีม
+
+ใช้เมื่อ:
+- อยากได้ UI แนว monochrome / industrial
+- อยากคุม hierarchy ด้วย typography และ spacing
+- อยากได้ token และ component spec ก่อน implement หนัก
+
+ลำดับแนะนำ:
+1. อ่าน `docs/ux-ui/nothing-inspired-design-lane.md`
+2. ใช้ `prompts/generate_nothing_tokens.md`
+3. ใช้ `skills/flutter-nothing-style/`
+4. ทำ screen ด้วย `prompts/implement_nothing_screen.md`
+5. ปิดงานด้วย `prompts/review_nothing_flutter_ui.md`
+
+ผลลัพธ์ที่ควรได้:
+- token layer ที่ชัด
+- component spec ที่ reuse ได้
+- หน้าจอที่ distinct แต่ยัง accessible
+
+## สูตร 11: ทำ gradient ให้สวยและยัง review ได้
+
+ใช้เมื่อ:
+- UI มี hero surface หรือ glow/ring/progress
+- gradient เริ่มรกหรือ hardcode กระจาย
+- ต้องคุม performance และ contrast ไปพร้อมกัน
+
+ลำดับแนะนำ:
+1. อ่าน `docs/ux-ui/gradient-system-lane.md`
+2. ใช้ `prompts/patterns/gradient_surface_pattern.md`
+3. ใช้ `skills/flutter-gradient-system/`
+4. ถ้างานมีอยู่แล้วและอยาก polish เพิ่ม ใช้ `prompts/improve_gradient_ui.md`
+5. ปิดด้วย `core/checklists/gradient-quality-checklist.md`
+
+## สูตร 12: ออกแบบ AI UX ให้เชื่อใจได้และ resume ได้
+
+ใช้เมื่อ:
+- feature มี AI summary / recommendation / ranking
+- ผู้ใช้ต้องรู้ว่าระบบคิดหรือสรุปอย่างไร
+- workflow ต้องกลับมาทำต่อได้
+
+ลำดับแนะนำ:
+1. อ่าน `docs/patterns/README.md`
+2. เลือก pattern หลักจาก:
+   - `docs/patterns/epistemic-disclosure.md`
+   - `docs/patterns/algorithmic-transparency.md`
+   - `docs/patterns/historical-trails.md`
+   - `docs/patterns/command-palette.md`
+   - `docs/patterns/programmable-notes.md`
+3. ใช้ `prompts/design_ai_feature_with_patterns.md`
+4. ใช้ `skills/ai-ux-patterns/`
+5. ทบทวนด้วย `templates/ai-feature-pattern-review.md`
+
+## สูตร 13: จัด operator stack และ Obsidian memory ให้เป็นระบบ
+
+ใช้เมื่อ:
+- ทีมใช้หลาย assistant/tools
+- มี personal notes คู่กับ project memory
+- อยากทำ handoff ข้าม session ให้แน่นขึ้น
+
+ลำดับแนะนำ:
+1. อ่าน `docs/toolbox-integration-assessment.md`
+2. ใช้ `prompts/plan_operator_stack.md`
+3. สรุปของจริงด้วย `prompts/capture_operator_stack.md`
+4. ใช้ `skills/agent-operator-stack/`
+5. ถ้ามีโน้ตนอก repo ที่ต้อง promote เข้า repo ใช้ `skills/obsidian-agent-memory-ops/`
+6. บันทึกผลลง `project_memory/tooling-stack.md`
+
+- ถ้างานเป็นการ “ทำหน้าจอแนว monochrome/industrial” ใช้ Nothing-inspired overlay
+- ถ้างานเป็นการ “ทำ gradient ให้เป็นระบบ” ใช้ Gradient system pack
+- ถ้างานเป็นการ “ออกแบบ AI UX ที่อธิบายได้และ resume ได้” ใช้ AI UX pattern pack
+- ถ้างานเป็นการ “จัด operator stack / Obsidian / multi-agent flow” ใช้ Toolbox and operator-stack pack

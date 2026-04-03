@@ -1,0 +1,55 @@
+{
+  "$schema_note": "Example structure for toolkit adoption. Adjust schema rules to match your repo conventions.",
+  "gradients": {
+    "surface.hero.brand": {
+      "type": "linear",
+      "begin": "topLeft",
+      "end": "bottomRight",
+      "colors": ["#5B8CFF", "#7A5CFF", "#B45CFF"],
+      "stops": [0.0, 0.55, 1.0],
+      "usage": "Hero headers, onboarding banners, premium CTA surfaces.",
+      "contrast_notes": "Do not place low-contrast secondary text directly on the most saturated zone.",
+      "animation_notes": "If animated, prefer subtle translation or opacity layering instead of changing stops every frame."
+    },
+    "surface.card.premium": {
+      "type": "linear",
+      "begin": "topCenter",
+      "end": "bottomCenter",
+      "colors": ["#1E2433", "#2A1F49"],
+      "stops": [0.0, 1.0],
+      "usage": "Premium cards, upgrade surfaces, subscription highlights.",
+      "contrast_notes": "Use light foreground tokens only.",
+      "animation_notes": "Keep static by default."
+    },
+    "accent.glow.primary": {
+      "type": "radial",
+      "center": [0.2, -0.3],
+      "radius": 0.95,
+      "colors": ["#667A5CFF", "#225B8CFF", "#005B8CFF"],
+      "stops": [0.0, 0.55, 1.0],
+      "usage": "Focal glow behind featured content or key CTA clusters.",
+      "contrast_notes": "Do not use as the only background for dense text.",
+      "animation_notes": "Opacity pulsing is safer than dynamic recoloring."
+    },
+    "border.ring.focus": {
+      "type": "sweep",
+      "start_angle_deg": 0,
+      "end_angle_deg": 360,
+      "colors": ["#5B8CFF", "#B45CFF", "#5B8CFF"],
+      "stops": [0.0, 0.65, 1.0],
+      "usage": "Focus rings, circular progress accents, premium selection states.",
+      "contrast_notes": "Ensure ring thickness and surrounding surface contrast are sufficient.",
+      "animation_notes": "Rotate container or shader transform if possible; avoid rebuilding complex sweep data repeatedly."
+    },
+    "overlay.scrim.media": {
+      "type": "linear",
+      "begin": "topCenter",
+      "end": "bottomCenter",
+      "colors": ["#00000000", "#66000000", "#B3000000"],
+      "stops": [0.0, 0.58, 1.0],
+      "usage": "Text legibility over media, gallery headers, video poster overlays.",
+      "contrast_notes": "This token exists primarily to stabilize foreground readability.",
+      "animation_notes": "Usually static; if revealed, animate opacity."
+    }
+  }
+}

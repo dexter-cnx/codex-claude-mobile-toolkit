@@ -25,6 +25,10 @@ Fast navigation:
 - use `docs/repo_discipline/INDEX.md` for repo discipline and release checks,
 - use `core/routing/flutter-skill-routing.md` for the supplemental Flutter skill pack,
 - use `docs/ux-ui/mobile-design-direction-lane.md` for design-direction planning before screen implementation,
+- use `docs/ux-ui/nothing-inspired-design-lane.md` for a monochrome industrial-style Flutter UI overlay,
+- use `docs/ux-ui/gradient-system-lane.md` for token-driven gradient usage and review,
+- use `docs/patterns/README.md` for AI UX patterns such as explainability and command-palette behavior,
+- use `docs/tooling-ecosystem.md` for operator-stack and toolbox-style integration planning,
 - use `docs/stitch-handoff-playbook.md` when design work starts outside the repo,
 - use `README.md` for the high-level repository map.
 
@@ -257,6 +261,17 @@ Useful docs from the production layout:
 - `docs/pokedex-graphql-lane.md`
 - `docs/ux-ui/mobile-design-system-lane.md`
 - `docs/ux-ui/mobile-design-direction-lane.md`
+- `docs/ux-ui/nothing-inspired-design-lane.md`
+- `docs/ux-ui/gradient-system-lane.md`
+- `docs/ux-ui/gradient-performance-and-accessibility.md`
+- `docs/patterns/README.md`
+- `docs/toolbox-integration-assessment.md`
+- `docs/tooling-ecosystem.md`
+- `docs/operator-stack.md`
+- `docs/obsidian-pkm-playbook.md`
+- `docs/multi-agent-control-plane.md`
+- `docs/self-hosted-companions.md`
+- `docs/legal/source-attribution-nothing-skill.md`
 - `docs/research/anthropic-skills-assessment.md`
 - `docs/integrations/anthropic-skills-adoption-plan.md`
 
@@ -370,6 +385,65 @@ Use these repo assets when you want stronger design-direction planning, black-bo
 - `templates/ux/mobile_theme_brief.template.md`
 - `templates/verification/web_smoke_report.template.md`
 - `ATTRIBUTION.md`
+
+### Nothing-inspired design overlay assets
+
+Use these repo assets when you want a monochrome, typography-led, hardware-adjacent UI direction without making it the default style for the whole toolkit:
+- `docs/ux-ui/nothing-inspired-design-lane.md`
+- `docs/legal/source-attribution-nothing-skill.md`
+- `prompts/generate_nothing_tokens.md`
+- `prompts/implement_nothing_screen.md`
+- `prompts/review_nothing_flutter_ui.md`
+- `skills/flutter-nothing-style/`
+- `templates/nothing-component-spec.md`
+- `examples/flutter_nothing_theme_extensions.dart`
+- `tokens/nothing/nothing_light.tokens.json`
+- `tokens/nothing/nothing_dark.tokens.json`
+
+### Gradient system assets
+
+Use these repo assets when you want gradients to behave like semantic design-system surfaces instead of ad hoc decoration:
+- `docs/ux-ui/gradient-system-lane.md`
+- `docs/ux-ui/gradient-performance-and-accessibility.md`
+- `core/checklists/gradient-quality-checklist.md`
+- `prompts/improve_gradient_ui.md`
+- `prompts/patterns/gradient_surface_pattern.md`
+- `skills/flutter-gradient-system/`
+- `templates/design-handoff-gradient.template.md`
+- `templates/examples/flutter-gradient-token-example.md`
+- `tokens/gradient-tokens.example.json`
+
+### AI UX pattern assets
+
+Use these repo assets when the product needs stronger explainability, workflow traceability, command-palette behavior, historical trails, or programmable note patterns:
+- `agents/shared/patterns-ai-ux.md`
+- `docs/patterns/README.md`
+- `docs/patterns/epistemic-disclosure.md`
+- `docs/patterns/algorithmic-transparency.md`
+- `docs/patterns/historical-trails.md`
+- `docs/patterns/command-palette.md`
+- `docs/patterns/programmable-notes.md`
+- `docs/patterns/pattern-evaluation-matrix.md`
+- `prompts/design_ai_feature_with_patterns.md`
+- `skills/ai-ux-patterns/`
+- `templates/ai-feature-pattern-review.md`
+
+### Toolbox and operator-stack assets
+
+Use these repo assets when the work benefits from better operator ergonomics, Obsidian-linked project memory, optional self-hosted helpers, or multi-agent control-plane planning:
+- `docs/toolbox-integration-assessment.md`
+- `docs/tooling-ecosystem.md`
+- `docs/operator-stack.md`
+- `docs/obsidian-pkm-playbook.md`
+- `docs/multi-agent-control-plane.md`
+- `docs/self-hosted-companions.md`
+- `project_memory/tooling-stack.md`
+- `prompts/plan_operator_stack.md`
+- `prompts/capture_operator_stack.md`
+- `skills/agent-operator-stack/`
+- `skills/obsidian-agent-memory-ops/`
+- `templates/tooling-stack/operator-stack-profile.template.md`
+- `templates/tooling-stack/session-topology.template.md`
 
 ### AI rules assets
 

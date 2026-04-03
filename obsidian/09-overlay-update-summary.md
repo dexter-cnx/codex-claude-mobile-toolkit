@@ -180,3 +180,107 @@ tags:
 
 - ให้เพิ่มสรุปลงหน้านี้
 - ถ้าของใหม่มีผลต่อวิธีใช้งาน ให้แก้ [[03-คู่มือ Prompts]] หรือ [[04-คู่มือ Skills]] หรือ [[01-แผนที่ repo และส่วนประกอบ]] ควบคู่กันด้วย
+
+## 7. Nothing-inspired design overlay
+
+ใช้เมื่ออยากได้ภาษาภาพแบบ monochrome, typography-led, industrial-feeling โดยยังอยู่บนโครง Flutter UX/UI ของ toolkit เดิม
+
+- docs:
+  - `docs/ux-ui/nothing-inspired-design-lane.md`
+  - `docs/legal/source-attribution-nothing-skill.md`
+- prompts:
+  - `prompts/generate_nothing_tokens.md`
+  - `prompts/implement_nothing_screen.md`
+  - `prompts/review_nothing_flutter_ui.md`
+- skill:
+  - `skills/flutter-nothing-style/`
+- template/example/tokens:
+  - `templates/nothing-component-spec.md`
+  - `examples/flutter_nothing_theme_extensions.dart`
+  - `tokens/nothing/nothing_light.tokens.json`
+  - `tokens/nothing/nothing_dark.tokens.json`
+
+เหมาะกับ:
+- dashboard
+- settings
+- tools app
+- product ที่อยากได้ภาพลักษณ์ technical และ restraint
+
+## 8. Gradient system pack
+
+ใช้เมื่อ gradient ไม่ควรเป็นแค่ของตกแต่ง แต่ต้องมีบทบาทเชิง semantic, token, performance, และ accessibility ที่ review ได้
+
+- docs:
+  - `docs/ux-ui/gradient-system-lane.md`
+  - `docs/ux-ui/gradient-performance-and-accessibility.md`
+- checklist:
+  - `core/checklists/gradient-quality-checklist.md`
+- prompts:
+  - `prompts/improve_gradient_ui.md`
+  - `prompts/patterns/gradient_surface_pattern.md`
+- skill:
+  - `skills/flutter-gradient-system/`
+- templates/tokens:
+  - `templates/design-handoff-gradient.template.md`
+  - `templates/examples/flutter-gradient-token-example.md`
+  - `tokens/gradient-tokens.example.json`
+
+เหมาะกับ:
+- hero surfaces
+- premium cards
+- glow/ring/progress treatments
+- งานที่ต้องคุม readability และ rendering cost ไปพร้อมกัน
+
+## 9. AI UX pattern pack
+
+ใช้เมื่อ feature มี AI/agent behavior และต้องการ pattern ที่ช่วยเรื่อง explainability, traceability, resumability, command palette, หรือ note-as-workflow
+
+- shared rules:
+  - `agents/shared/patterns-ai-ux.md`
+- docs:
+  - `docs/patterns/README.md`
+  - `docs/patterns/epistemic-disclosure.md`
+  - `docs/patterns/algorithmic-transparency.md`
+  - `docs/patterns/historical-trails.md`
+  - `docs/patterns/command-palette.md`
+  - `docs/patterns/programmable-notes.md`
+  - `docs/patterns/pattern-evaluation-matrix.md`
+- prompt:
+  - `prompts/design_ai_feature_with_patterns.md`
+- skill:
+  - `skills/ai-ux-patterns/`
+- template:
+  - `templates/ai-feature-pattern-review.md`
+
+เหมาะกับ:
+- AI summaries และ recommendations
+- workflow ที่ resume ต่อได้
+- internal tools
+- search หรือ command surfaces
+
+## 10. Toolbox and operator-stack pack
+
+ใช้เมื่ออยากแปลง personal tooling หรือ operator workflow ให้กลายเป็น repo-native docs, prompts, skills, และ project memory
+
+- docs:
+  - `docs/toolbox-integration-assessment.md`
+  - `docs/tooling-ecosystem.md`
+  - `docs/operator-stack.md`
+  - `docs/obsidian-pkm-playbook.md`
+  - `docs/multi-agent-control-plane.md`
+  - `docs/self-hosted-companions.md`
+- prompts:
+  - `prompts/plan_operator_stack.md`
+  - `prompts/capture_operator_stack.md`
+- skills:
+  - `skills/agent-operator-stack/`
+  - `skills/obsidian-agent-memory-ops/`
+- template/project memory:
+  - `templates/tooling-stack/operator-stack-profile.template.md`
+  - `templates/tooling-stack/session-topology.template.md`
+  - `project_memory/tooling-stack.md`
+
+เหมาะกับ:
+- ทีมที่ใช้หลาย agent หรือหลาย tools
+- งาน handoff ข้าม session
+- งานที่ต้องคุม operator ergonomics และ memory hygiene
