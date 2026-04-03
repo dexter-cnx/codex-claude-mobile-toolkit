@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Filter Schema",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "featureId",
+    "fields"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "featureId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "select",
+              "multi_select",
+              "checkbox",
+              "tri_state",
+              "sort",
+              "range",
+              "date_range",
+              "header",
+              "separator"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "defaultValue": {},
+          "persist": {
+            "type": "boolean",
+            "default": true
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "value",
+                "label"
+              ],
+              "properties": {
+                "value": {},
+                "label": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "validation": {
+            "type": "object"
+          },
+          "requestMapping": {
+            "type": "object"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

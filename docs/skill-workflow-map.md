@@ -15,9 +15,21 @@ Choose the dominant task shape first:
 - TV / remote-driven UI: `skills/flutter-tv-ui-pattern/`
 - REST catalog project or feature: `prompts/new_catalog_project.md` or `prompts/new_catalog_feature.md` + `skills/flutter-rest-catalog-feature/`
 - GraphQL catalog feature: `prompts/new_graphql_feature.md`, `prompts/add_graphql_endpoint.md`, or `prompts/graphql_cache_refactor.md` + `skills/flutter-graphql-feature/`, `skills/flutter-graphql-schema-codegen/`, `skills/flutter-graphql-cache-strategy/`
+- Content source / browse-search-detail feature: `prompts/new_content_source_feature.md` + `skills/flutter-content-source-adapter/` and `docs/patterns/source-adapter-pattern.md`
+- Repo release-readiness and discipline pass: `prompts/validate_repo_release.md`, `prompts/accessibility_pass.md`, `prompts/error_handling_pass.md`, or `prompts/module_scaffold_pass.md`
+- Supplemental Flutter skill-router planning: `prompts/plan_flutter_feature_with_skill_router.md` + `core/routing/flutter-skill-routing.md`
+- Mobile design-direction planning before implementation: `prompts/design/mobile_ui_art_direction.md` + `skills/flutter-art-direction/` + `docs/ux-ui/mobile-design-direction-lane.md`
+- Flutter web smoke verification: `prompts/testing/flutter_web_playwright_smoke.md` + `skills/flutter-web-smoke-testing/`
+- MCP server planning or review: `skills/mcp-server-design/`
+- Authoring or refining toolkit-native skills: `skills/toolkit-skill-author/`
+- Thai system design architecture review: `prompts/system_design_review_th.md` + `obsidian/system-design-notes-th/`
 - Feature planning before implementation: `prompts/plan_feature.md`
 - New project blueprint: `prompts/new_project_blueprint.md`
 - Formal verification pass before sign-off: `prompts/verification_pass.md`
+- Focused, low-noise session start: `prompts/context_guard.md`
+- Focused debugging with tight context: `prompts/focused_debug.md`
+- Bounded refactor with limited scope: `prompts/bounded_refactor.md`
+- Compact handoff for low-context continuation: `prompts/low_context_handoff.md`
 - Project memory refresh after meaningful changes: `prompts/update_project_memory.md`
 - Toolkit coherence review after repo workflow changes: `prompts/coherence_pass.md`
 - Architecture-focused review: `prompts/architecture_review.md`
@@ -54,9 +66,28 @@ Choose the dominant task shape first:
 - Use `flutter-graphql-feature` when the feature is a read-mostly GraphQL browse/detail flow that benefits from typed operations, codegen, and explicit cache behavior.
 - Use `flutter-graphql-schema-codegen` when the main task is schema refresh, operation layout, generated artifacts, or codegen hygiene.
 - Use `flutter-graphql-cache-strategy` when the main problem is GraphQL cache behavior, stale refresh UX, partial data, or local-only state composition.
+- Use `prompts/new_content_source_feature.md` when the feature needs browse, latest, search, filters, pagination, detail loading, and restore-safe stable IDs across one or more providers.
+- Use `flutter-content-source-adapter` when the main implementation problem is normalizing provider-specific browse/search/detail flows behind shared contracts.
+- Use `flutter-offline-content-feature` when the feature is content-heavy, local-first, and must remain usable around cache, restore, or offline reading flows.
+- Use `prompts/validate_repo_release.md` when the main goal is deciding whether a change is ready for release or wider rollout with explicit validation evidence.
+- Use `prompts/accessibility_pass.md` when you want a focused accessibility review separate from a broader UI review.
+- Use `prompts/error_handling_pass.md` when the main concern is loading, empty, retry, timeout, offline, and failure-path quality.
+- Use `prompts/module_scaffold_pass.md` when the task is about shaping or checking feature-module structure and boundaries.
+- Use `prompts/plan_flutter_feature_with_skill_router.md` when you want the supplemental Flutter skills pack to choose a primary and supporting skill set before implementation.
+- Use `prompts/design/mobile_ui_art_direction.md` when product notes are too vague for implementation and the missing piece is a buildable visual direction, token stance, and component hierarchy.
+- Use `flutter-art-direction` when the core problem is design direction, screen refinement, or turning aesthetic intent into Flutter-ready implementation guidance.
+- Use `prompts/testing/flutter_web_playwright_smoke.md` when you want a narrow smoke gate for Flutter web or an adjacent local web surface instead of full E2E automation.
+- Use `flutter-web-smoke-testing` when the main job is black-box verification, screenshot evidence, and console-aware smoke coverage.
+- Use `mcp-server-design` when the task is deciding tool shape, naming, pagination, and error behavior for an MCP server before coding.
+- Use `toolkit-skill-author` when creating or tightening a reusable skill for this toolkit and you need help with trigger boundaries, structure, and evaluation prompts.
+- Use `prompts/system_design_review_th.md` when the task needs architecture trade-offs, scaling analysis, or backend/mobile system design framing in Thai before implementation.
 - Use `prompts/plan_feature.md` when the task is medium or large enough that implementation should be preceded by an explicit file-touch, architecture, and verification plan.
 - Use `prompts/new_project_blueprint.md` when the repo or app structure does not exist yet and the first need is an implementation-ready blueprint.
 - Use `prompts/verification_pass.md` when implementation exists and the main question is whether the current result is actually trustworthy and review-ready.
+- Use `prompts/context_guard.md` when you want a session to stay highly focused, bounded, and context-efficient from the start.
+- Use `prompts/focused_debug.md` when debugging should stay narrow and avoid broad repository exploration.
+- Use `prompts/bounded_refactor.md` when the task is a refactor with a strict boundary and low appetite for opportunistic cleanup.
+- Use `prompts/low_context_handoff.md` when you need a compact summary for resuming later or switching workstreams cleanly.
 - Use `prompts/update_project_memory.md` when a task changed durable project knowledge such as architecture decisions, glossary terms, UI rules, known issues, or handoff state.
 - Use `prompts/coherence_pass.md` after toolkit-level prompt, skill, template, or doc changes to catch routing drift and registry/runtime updates.
 - Use `prompts/architecture_review.md` when the main concern is layer placement, boundary integrity, coupling, or design consistency.
@@ -99,11 +130,35 @@ Choose the dominant task shape first:
 - Feature delivery with GraphQL catalog behavior:
   `flutter-feature-scaffold` + `flutter-graphql-feature` + `flutter-graphql-schema-codegen` + `flutter-graphql-cache-strategy`
 
+- Content-provider feature with filters and pagination:
+  `prompts/new_content_source_feature.md` + `flutter-content-source-adapter` + `flutter-offline-content-feature`
+
+- Release or readiness pass:
+  `prompts/validate_repo_release.md` + `prompts/accessibility_pass.md` + `prompts/error_handling_pass.md` + `skills/repo/release_readiness/`
+
+- Flutter feature planning with the supplemental skill pack:
+  `prompts/plan_flutter_feature_with_skill_router.md` + `core/routing/flutter-skill-routing.md` + chosen `skills/flutter-*`
+
+- Design-direction-first UI planning:
+  `prompts/design/mobile_ui_art_direction.md` + `flutter-art-direction` + `templates/ux/mobile_theme_brief.template.md`
+
+- Flutter web smoke pass before merge:
+  `prompts/testing/flutter_web_playwright_smoke.md` + `flutter-web-smoke-testing` + `templates/verification/web_smoke_report.template.md`
+
+- MCP server planning:
+  `mcp-server-design` + service/API context + verification plan
+
+- Architecture-first backend/mobile design discussion:
+  `prompts/system_design_review_th.md` + `obsidian/system-design-notes-th/`
+
 - Review before merge:
   `flutter-pr-reviewer` + `flutter-testing-checklist`
 
 - Medium or large feature delivery with planning and verification:
   `prompts/plan_feature.md` + implementation workflow + `prompts/verification_pass.md` + `prompts/update_project_memory.md`
+
+- Tight-context debugging or continuation:
+  `prompts/context_guard.md` + `prompts/focused_debug.md` or `prompts/low_context_handoff.md`
 
 - Design-first project kickoff:
   `prompts/stitch_handoff.md` + `prompts/new_project_blueprint.md` + `prompts/plan_feature.md`
