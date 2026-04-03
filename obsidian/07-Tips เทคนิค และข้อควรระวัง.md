@@ -51,6 +51,7 @@
 - `project_memory/architecture_decisions.md`
 - `project_memory/domain_glossary.md`
 - `project_memory/ui_rules.md`
+- ถ้าเป็น `AlertDialog` ที่มี text input ให้ใช้ `scrollable: true` แทนการซ้อน `SingleChildScrollView` ใน `content` เพื่อไม่ให้ soft keyboard ดัน field หลุดจอ
 - `project_memory/known_issues.md`
 - `project_memory/agent_handoff.md`
 
