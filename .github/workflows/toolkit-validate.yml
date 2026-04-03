@@ -21,8 +21,5 @@ jobs:
       - name: Flutter version
         run: flutter --version
 
-      - name: Install dependencies
-        run: flutter pub get
-
       - name: Run toolkit validation
         run: bash scripts/validate_toolkit.sh
