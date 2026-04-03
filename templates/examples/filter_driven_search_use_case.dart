@@ -1,3 +1,5 @@
+import 'content_source_adapter.dart';
+
 class FilterStateEnvelope {
   final int schemaVersion;
   final String featureId;

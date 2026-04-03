@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "name": "toolkit-root",
+      "path": "."
+    },
+    {
+      "name": "flutter-starter",
+      "path": "templates/flutter-starter"
+    }
+  ],
+  "settings": {
+    "dart.projectSearchDepth": 5
+  }
+}
